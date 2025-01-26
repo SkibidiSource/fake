@@ -50,7 +50,7 @@ local UIScale_4 = Instance.new("UIScale")
 --Properties:
 
 VexHubFolder.Name = "VexHubFolder"
-VexHubFolder.Parent = game:GetService("Players").LocalPlayer.PlayerGui
+VexHubFolder.Parent = game:GetService("CoreGui")
 
 VexHubUI.Name = "VexHubUI"
 VexHubUI.Parent = VexHubFolder
