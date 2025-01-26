@@ -50,7 +50,7 @@ local JoinAndDonate = Instance.new("TextLabel")
 --Properties:
 
 Home.Name = "Home"
-Home.Parent = game:GetService("Players").LocalPlayer.PlayerGui.VexHubFolder.VexHubUI.DragFrame.MainFrame.MainContents.Wallpaper.Margin.Pages
+Home.Parent = game:GetService("CoreGui").VexHubFolder.VexHubUI.DragFrame.MainFrame.MainContents.Wallpaper.Margin.Pages
 Home.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Home.BackgroundTransparency = 1.000
 Home.BorderColor3 = Color3.fromRGB(0, 0, 0)
