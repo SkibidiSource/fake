@@ -4,7 +4,7 @@
 
 local VexHubFolder = Instance.new("Folder")
 local VexHubUI = Instance.new("ScreenGui")
-local DragFrame = Instance.new("Frame")
+local DragFrame = Instance.new("CanvasGroup")
 local UIListLayout = Instance.new("UIListLayout")
 local MainFrame = Instance.new("Frame")
 local UIScale = Instance.new("UIScale")
