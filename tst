@@ -138,7 +138,7 @@ local GUI = {
 
 GUI["VexHubUI_0"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 GUI["VexHubUI_0"].Name = "VexHubUI"
-GUI["VexHubUI_0"].Parent = game.StarterGui.VexHubFolder
+GUI["VexHubUI_0"].Parent = game:GetService("CoreGui")
 
 GUI["DragFrame_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["DragFrame_0"].BackgroundTransparency = 1
