@@ -121,7 +121,7 @@ NewMessage("Having troubles using VexHub? Join our Discord server! dsc.gg/vhub")
 
 wait(1)
 
-NewMessage("Loading Table...")
+NewMessage("Loading Table1...")
 
 wait(1)
 
