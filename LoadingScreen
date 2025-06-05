@@ -107,8 +107,8 @@ CurrentFOV = game:GetService("Workspace").CurrentCamera.FieldOfView
 
 local function CloseScreen()
 	TweenService:Create(Blur, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = 0}):Play()
-	TweenService:Create(game:GetService("Workspace").CurrentCamera, TweenInfo.new(0.6, Enum.EasingStyle.Quart), {FieldOfView = CurrentFOV}):Play()
-	wait(0.4)
+	TweenService:Create(game:GetService("Workspace").CurrentCamera, TweenInfo.new(0.4, Enum.EasingStyle.Quart), {FieldOfView = CurrentFOV}):Play()
+	wait(0.2)
 	GUI.LoadingScreen_0:Destroy()
 end
 
