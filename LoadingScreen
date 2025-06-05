@@ -101,15 +101,21 @@ local function NewMessage(Message)
 	NewMessage.Text = Message
 end
 
+local CurrentFOV = 0
+
+CurrentFOV = game:GetService("Workspace").CurrentCamera.FieldOfView
+
 local function CloseScreen()
 	TweenService:Create(Blur, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = 0}):Play()
+	TweenService:Create(game:GetService("Workspace").CurrentCamera, TweenInfo.new(0.6, Enum.EasingStyle.Quart), {FieldOfView = CurrentFOV}):Play()
 	wait(0.4)
 	GUI.LoadingScreen_0:Destroy()
 end
 
-wait(6)
 
+TweenService:Create(game:GetService("Workspace").CurrentCamera, TweenInfo.new(0.6, Enum.EasingStyle.Quart), {FieldOfView = CurrentFOV-10}):Play()
 TweenService:Create(Blur, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = 10}):Play()
+wait(0.2)
 
 NewMessage("Having troubles using VexHub? Join our Discord server! dsc.gg/vhub")
 
