@@ -510,10 +510,8 @@ GUI["Shadow_0"].Size = UDim2.new(0, 540, 0, 290)
 GUI["Shadow_0"].Name = "Shadow"
 GUI["Shadow_0"].Parent = GUI["UIShadow_0"]
 
--- Fake Module Scripts:
-
-local fake_module_scripts = {}
-
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/PopUpNotificationLib'),true))()
+wait()
 
 -- Fake Local Scripts:
 
