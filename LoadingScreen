@@ -122,10 +122,12 @@ NewMessage("Having troubles using VexHub? Join our Discord server! dsc.gg/vhub")
 wait(1)
 
 NewMessage("Loading Table...")
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/Table'),true))()
 
 wait(1)
 
-NewMessage("Loading Script Tab 111...")
+NewMessage("Loading Core Frame...")
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/CoreFrame'),true))()
 
 wait(1)
 
