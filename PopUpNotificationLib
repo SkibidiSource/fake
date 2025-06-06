@@ -1,0 +1,382 @@
+-- Instances:
+
+local GUI = {
+	["PopUpNotificationOptions_0"] = Instance.new("Frame");
+	["UIListLayout_0"] = Instance.new("UIListLayout");
+	["NotificationTemplate_0"] = Instance.new("Frame");
+	["UICorner_0"] = Instance.new("UICorner");
+	["UIStroke_0"] = Instance.new("UIStroke");
+	["UISizeConstraint_0"] = Instance.new("UISizeConstraint");
+	["UIScale_0"] = Instance.new("UIScale");
+	["NotificationInsides_0"] = Instance.new("Frame");
+	["Border_0"] = Instance.new("Frame");
+	["Border_01"] = Instance.new("Frame");
+	["Buttons_0"] = Instance.new("Frame");
+	["UIListLayout_01"] = Instance.new("UIListLayout");
+	["Button1_0"] = Instance.new("TextButton");
+	["UIListLayout_02"] = Instance.new("UIListLayout");
+	["UICorner_01"] = Instance.new("UICorner");
+	["UIStroke_01"] = Instance.new("UIStroke");
+	["UIScale_01"] = Instance.new("UIScale");
+	["LocalScript_0"] = Instance.new("LocalScript");
+	["Button2_0"] = Instance.new("TextButton");
+	["UIListLayout_03"] = Instance.new("UIListLayout");
+	["UICorner_02"] = Instance.new("UICorner");
+	["UIScale_02"] = Instance.new("UIScale");
+	["UIListLayout_04"] = Instance.new("UIListLayout");
+	["TopFrame_0"] = Instance.new("Frame");
+	["Title_0"] = Instance.new("TextLabel");
+	["Message_0"] = Instance.new("TextLabel");
+	["UIListLayout_05"] = Instance.new("UIListLayout");
+	["CoverFrame_0"] = Instance.new("ImageLabel");
+	["UICorner_03"] = Instance.new("UICorner");
+	["UICorner_04"] = Instance.new("UICorner");
+	["NotificationSystem_0"] = Instance.new("LocalScript");
+}
+
+-- Properties:
+
+GUI["PopUpNotificationOptions_0"].Active = true
+GUI["PopUpNotificationOptions_0"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+GUI["PopUpNotificationOptions_0"].BackgroundTransparency = 1
+GUI["PopUpNotificationOptions_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["PopUpNotificationOptions_0"].BorderSizePixel = 0
+GUI["PopUpNotificationOptions_0"].Size = UDim2.new(1, 0, 1, 0)
+GUI["PopUpNotificationOptions_0"].ZIndex = 3
+GUI["PopUpNotificationOptions_0"].Name = "PopUpNotificationOptions"
+GUI["PopUpNotificationOptions_0"].Parent = game.StarterGui.VexHubFolder.VexHubUI.DragFrame.MainFrame
+
+GUI["UIListLayout_0"].Padding = UDim.new(0, 5)
+GUI["UIListLayout_0"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_0"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_0"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_0"].Parent = GUI["PopUpNotificationOptions_0"]
+
+GUI["NotificationTemplate_0"].Active = true
+GUI["NotificationTemplate_0"].AutomaticSize = Enum.AutomaticSize.Y
+GUI["NotificationTemplate_0"].BackgroundColor3 = Color3.fromRGB(25.000000409781933, 26.000000350177288, 31.000000052154064)
+GUI["NotificationTemplate_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["NotificationTemplate_0"].BorderSizePixel = 0
+GUI["NotificationTemplate_0"].Position = UDim2.new(0.349999994, 0, 0.423999995, 0)
+GUI["NotificationTemplate_0"].Size = UDim2.new(0, 150, 0, 0)
+GUI["NotificationTemplate_0"].Visible = false
+GUI["NotificationTemplate_0"].Name = "NotificationTemplate"
+GUI["NotificationTemplate_0"].Parent = GUI["PopUpNotificationOptions_0"]
+
+GUI["UICorner_0"].CornerRadius = UDim.new(0, 5)
+GUI["UICorner_0"].Parent = GUI["NotificationTemplate_0"]
+
+GUI["UIStroke_0"].Color = Color3.fromRGB(255, 255, 255)
+GUI["UIStroke_0"].Parent = GUI["NotificationTemplate_0"]
+
+GUI["UISizeConstraint_0"].MaxSize = Vector2.new(math.huge, 150)
+GUI["UISizeConstraint_0"].Parent = GUI["NotificationTemplate_0"]
+
+GUI["UIScale_0"].Scale = 1.0000000116860974e-07
+GUI["UIScale_0"].Parent = GUI["NotificationTemplate_0"]
+
+GUI["NotificationInsides_0"].AutomaticSize = Enum.AutomaticSize.Y
+GUI["NotificationInsides_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["NotificationInsides_0"].BackgroundTransparency = 1
+GUI["NotificationInsides_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["NotificationInsides_0"].BorderSizePixel = 0
+GUI["NotificationInsides_0"].Size = UDim2.new(1, 0, 0, 0)
+GUI["NotificationInsides_0"].Name = "NotificationInsides"
+GUI["NotificationInsides_0"].Parent = GUI["NotificationTemplate_0"]
+
+GUI["Border_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Border_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Border_0"].BorderSizePixel = 0
+GUI["Border_0"].Name = "Border"
+GUI["Border_0"].Parent = GUI["NotificationInsides_0"]
+
+GUI["Border_01"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Border_01"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Border_01"].BorderSizePixel = 0
+GUI["Border_01"].LayoutOrder = 10
+GUI["Border_01"].Name = "Border"
+GUI["Border_01"].Parent = GUI["NotificationInsides_0"]
+
+GUI["Buttons_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Buttons_0"].BackgroundTransparency = 1
+GUI["Buttons_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Buttons_0"].BorderSizePixel = 0
+GUI["Buttons_0"].LayoutOrder = 3
+GUI["Buttons_0"].Size = UDim2.new(0.899999976, 0, 0, 20)
+GUI["Buttons_0"].Name = "Buttons"
+GUI["Buttons_0"].Parent = GUI["NotificationInsides_0"]
+
+GUI["UIListLayout_01"].Padding = UDim.new(0, 5)
+GUI["UIListLayout_01"].FillDirection = Enum.FillDirection.Horizontal
+GUI["UIListLayout_01"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_01"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_01"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_01"].Parent = GUI["Buttons_0"]
+
+GUI["Button1_0"].Font = Enum.Font.GothamBold
+GUI["Button1_0"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Button1_0"].TextSize = 12
+GUI["Button1_0"].TextWrapped = true
+GUI["Button1_0"].AutoButtonColor = false
+GUI["Button1_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Button1_0"].BackgroundTransparency = 1
+GUI["Button1_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Button1_0"].BorderSizePixel = 0
+GUI["Button1_0"].Size = UDim2.new(0, 62, 1, 0)
+GUI["Button1_0"].Name = "Button1"
+GUI["Button1_0"].Parent = GUI["Buttons_0"]
+
+GUI["UIListLayout_02"].Padding = UDim.new(0, 10)
+GUI["UIListLayout_02"].FillDirection = Enum.FillDirection.Horizontal
+GUI["UIListLayout_02"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_02"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_02"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_02"].Parent = GUI["Button1_0"]
+
+GUI["UICorner_01"].CornerRadius = UDim.new(0, 5)
+GUI["UICorner_01"].Parent = GUI["Button1_0"]
+
+GUI["UIStroke_01"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+GUI["UIStroke_01"].Color = Color3.fromRGB(59.00000028312206, 62.00000010430813, 73.00000324845314)
+GUI["UIStroke_01"].Parent = GUI["Button1_0"]
+
+GUI["UIScale_01"].Parent = GUI["Button1_0"]
+
+GUI["Button2_0"].Font = Enum.Font.GothamBold
+GUI["Button2_0"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Button2_0"].TextSize = 12
+GUI["Button2_0"].TextWrapped = true
+GUI["Button2_0"].AutoButtonColor = false
+GUI["Button2_0"].BackgroundColor3 = Color3.fromRGB(59.00000028312206, 62.00000010430813, 73.00000324845314)
+GUI["Button2_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Button2_0"].BorderSizePixel = 0
+GUI["Button2_0"].Size = UDim2.new(0, 62, 1, 0)
+GUI["Button2_0"].Name = "Button2"
+GUI["Button2_0"].Parent = GUI["Buttons_0"]
+
+GUI["UIListLayout_03"].Padding = UDim.new(0, 10)
+GUI["UIListLayout_03"].FillDirection = Enum.FillDirection.Horizontal
+GUI["UIListLayout_03"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_03"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_03"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_03"].Parent = GUI["Button2_0"]
+
+GUI["UICorner_02"].CornerRadius = UDim.new(0, 5)
+GUI["UICorner_02"].Parent = GUI["Button2_0"]
+
+GUI["UIScale_02"].Parent = GUI["Button2_0"]
+
+GUI["UIListLayout_04"].Padding = UDim.new(0, 5)
+GUI["UIListLayout_04"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_04"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_04"].Parent = GUI["NotificationInsides_0"]
+
+GUI["TopFrame_0"].AutomaticSize = Enum.AutomaticSize.Y
+GUI["TopFrame_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["TopFrame_0"].BackgroundTransparency = 1
+GUI["TopFrame_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["TopFrame_0"].BorderSizePixel = 0
+GUI["TopFrame_0"].Size = UDim2.new(1, 0, 0, 0)
+GUI["TopFrame_0"].Name = "TopFrame"
+GUI["TopFrame_0"].Parent = GUI["NotificationInsides_0"]
+
+GUI["Title_0"].Font = Enum.Font.Unknown
+GUI["Title_0"].Text = "Title"
+GUI["Title_0"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Title_0"].TextSize = 14
+GUI["Title_0"].TextWrapped = true
+GUI["Title_0"].AutomaticSize = Enum.AutomaticSize.Y
+GUI["Title_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Title_0"].BackgroundTransparency = 1
+GUI["Title_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Title_0"].BorderSizePixel = 0
+GUI["Title_0"].LayoutOrder = 1
+GUI["Title_0"].Size = UDim2.new(0.899999976, 0, 0, 0)
+GUI["Title_0"].Name = "Title"
+GUI["Title_0"].Parent = GUI["TopFrame_0"]
+
+GUI["Message_0"].Font = Enum.Font.Unknown
+GUI["Message_0"].Text = "Message"
+GUI["Message_0"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Message_0"].TextSize = 9
+GUI["Message_0"].TextTransparency = 0.10000000149011612
+GUI["Message_0"].TextWrapped = true
+GUI["Message_0"].AutomaticSize = Enum.AutomaticSize.Y
+GUI["Message_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Message_0"].BackgroundTransparency = 1
+GUI["Message_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Message_0"].BorderSizePixel = 0
+GUI["Message_0"].LayoutOrder = 2
+GUI["Message_0"].Size = UDim2.new(0.899999976, 0, 0, 0)
+GUI["Message_0"].Name = "Message"
+GUI["Message_0"].Parent = GUI["TopFrame_0"]
+
+GUI["UIListLayout_05"].Padding = UDim.new(0, 3)
+GUI["UIListLayout_05"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_05"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_05"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_05"].Parent = GUI["TopFrame_0"]
+
+GUI["CoverFrame_0"].Image = "http://www.roblox.com/asset/?id=14586137987"
+GUI["CoverFrame_0"].ImageTransparency = 1
+GUI["CoverFrame_0"].ScaleType = Enum.ScaleType.Fit
+GUI["CoverFrame_0"].BackgroundColor3 = Color3.fromRGB(18.000000827014446, 18.000000827014446, 21.000000648200512)
+GUI["CoverFrame_0"].BackgroundTransparency = 1
+GUI["CoverFrame_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["CoverFrame_0"].BorderSizePixel = 0
+GUI["CoverFrame_0"].Size = UDim2.new(1, 0, 1, 0)
+GUI["CoverFrame_0"].Name = "CoverFrame"
+GUI["CoverFrame_0"].Parent = GUI["NotificationTemplate_0"]
+
+GUI["UICorner_03"].CornerRadius = UDim.new(0, 5)
+GUI["UICorner_03"].Parent = GUI["CoverFrame_0"]
+
+GUI["UICorner_04"].CornerRadius = UDim.new(0, 5)
+GUI["UICorner_04"].Parent = GUI["PopUpNotificationOptions_0"]
+
+-- Fake Module Scripts:
+
+local fake_module_scripts = {}
+
+
+-- Fake Local Scripts:
+
+local function BUIS_fake_script() -- Fake Script: StarterGui.VexHubFolder.VexHubUI.DragFrame.MainFrame.PopUpNotificationOptions.NotificationTemplate.NotificationInsides.Buttons.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = GUI["Buttons_0"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	for i, v in script.Parent:GetChildren() do
+		if v:IsA("TextButton") then
+			local TweenService = game:GetService("TweenService")		
+			
+			v.MouseEnter:Connect(function()
+				TweenService:Create(v.UIScale, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Scale = 1.1}):Play()
+			end)
+			
+			v.MouseLeave:Connect(function()
+				TweenService:Create(v.UIScale, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Scale = 1}):Play()
+			end)
+		end
+	end
+end
+local function IDAX_fake_script() -- Fake Script: StarterGui.VexHubFolder.VexHubUI.DragFrame.MainFrame.PopUpNotificationOptions.NotificationSystem
+    local script = Instance.new("LocalScript")
+    script.Name = "NotificationSystem"
+    script.Parent = GUI["PopUpNotificationOptions_0"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local TweenService = game:GetService("TweenService")
+	local Notification = script.Parent
+	local MainContents = script.Parent.Parent.MainContents
+	
+	_G.PopUpNotificationOptions = function(Table)
+		for i, v in script.Parent:GetChildren() do
+			if string.find(v.Name, "Notification") and v.Name ~= "NotificationTemplate" and v:IsA("Frame") then
+				coroutine.wrap(function()
+					TweenService:Create(v.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
+					TweenService:Create(v.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 0}):Play()
+					TweenService:Create(v.UIScale, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Scale = 0}):Play()
+					wait(0.6)
+					v:Destroy()
+				end)()
+			end
+		end
+	
+		local Title = Table.Title
+		local Message = Table.Message
+		local Button1Text = Table.Button1Text
+		local Button1Function = Table.Button1Function
+		local Button2Text = Table.Button2Text
+		local Button2Function = Table.Button2Function
+	
+		local NotificationTemplate = Notification.NotificationTemplate:Clone()
+		NotificationTemplate.Name = "Notification"..math.random(1,999999)
+		NotificationTemplate.Parent = script.Parent
+		NotificationTemplate.Visible = true
+	
+		local NotificationInsides = NotificationTemplate.NotificationInsides
+	
+		if Title ~= nil then
+			NotificationInsides.TopFrame.Title.Text = Title
+		else
+			NotificationInsides.TopFrame.Title.Visible = false
+		end
+	
+		if Message ~= nil then
+			NotificationInsides.TopFrame.Message.Text = Message
+		else
+			NotificationInsides.TopFrame.Message.Visible = false
+		end
+	
+		if Button1Text ~= nil then
+			NotificationInsides.Buttons.Button1.Text = Button1Text
+			
+			if string.len(Button1Text) >= 8 then
+				NotificationInsides.Buttons.Button1.TextSize = 10
+			end
+			
+			if Button1Function ~= nil then
+				NotificationInsides.Buttons.Button1.MouseButton1Down:Connect(Button1Function)
+			end
+		else
+			NotificationInsides.Buttons.Button1.Visible = false
+		end
+	
+		if Button2Text ~= nil then
+			NotificationInsides.Buttons.Button2.Text = Button2Text
+			
+			if string.len(Button2Text) >= 8 then
+				NotificationInsides.Buttons.Button2.TextSize = 10
+			end
+			
+			if Button2Function ~= nil then
+				NotificationInsides.Buttons.Button2.MouseButton1Down:Connect(Button2Function)
+			end
+		else
+			NotificationInsides.Buttons.Button2.Visible = false
+		end
+	
+		local function DisappearNotification()
+			TweenService:Create(Notification, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
+			TweenService:Create(NotificationTemplate.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
+			TweenService:Create(NotificationTemplate.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 0}):Play()
+			TweenService:Create(NotificationTemplate.UIScale, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Scale = 0}):Play()
+			wait(0.6)
+			NotificationTemplate:Destroy()
+			MainContents.Interactable = true
+		end
+	
+		NotificationInsides.Buttons.Button1.MouseButton1Down:Connect(function()
+			DisappearNotification()
+		end)
+	
+		NotificationInsides.Buttons.Button2.MouseButton1Down:Connect(function()
+			DisappearNotification()
+		end)
+	
+		MainContents.Interactable = false
+		TweenService:Create(Notification, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.7}):Play()
+		TweenService:Create(NotificationTemplate.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
+		TweenService:Create(NotificationTemplate.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 1}):Play()
+		TweenService:Create(NotificationTemplate.UIScale, TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Scale = 1}):Play()
+	end
+end
+
+coroutine.wrap(BUIS_fake_script)()
+coroutine.wrap(IDAX_fake_script)()
