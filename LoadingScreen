@@ -118,7 +118,7 @@ TweenService:Create(Blur, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingD
 wait(0.2)
 
 NewMessage("Having troubles using VexHub? Join our Discord server! dsc.gg/vhub")
-NewMessage("Server Version 2")
+NewMessage("Server Version 3")
 
 wait(1)
 
