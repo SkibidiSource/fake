@@ -1,0 +1,169 @@
+-- Instances:
+
+local GUI = {
+	["Ads_0"] = Instance.new("ImageButton");
+	["UICorner_0"] = Instance.new("UICorner");
+	["TopFrame_0"] = Instance.new("Frame");
+	["UIListLayout_0"] = Instance.new("UIListLayout");
+	["AdText_0"] = Instance.new("TextLabel");
+	["CloseButton_0"] = Instance.new("TextButton");
+	["UIScale_0"] = Instance.new("UIScale");
+	["LocalScript_0"] = Instance.new("LocalScript");
+}
+
+-- Properties:
+
+GUI["Ads_0"].Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+GUI["Ads_0"].ScaleType = Enum.ScaleType.Crop
+GUI["Ads_0"].AutoButtonColor = false
+GUI["Ads_0"].BackgroundColor3 = Color3.fromRGB(34.00000177323818, 34.00000177323818, 34.00000177323818)
+GUI["Ads_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Ads_0"].BorderSizePixel = 0
+GUI["Ads_0"].Position = UDim2.new(0, 0, 1.02999997, 0)
+GUI["Ads_0"].Size = UDim2.new(0, 500, 0, 50)
+GUI["Ads_0"].Visible = false
+GUI["Ads_0"].Name = "Ads"
+GUI["Ads_0"].Parent = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame
+
+GUI["UICorner_0"].CornerRadius = UDim.new(0, 5)
+GUI["UICorner_0"].Parent = GUI["Ads_0"]
+
+GUI["TopFrame_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["TopFrame_0"].BackgroundTransparency = 1
+GUI["TopFrame_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["TopFrame_0"].BorderSizePixel = 0
+GUI["TopFrame_0"].Size = UDim2.new(1, 0, 0, 20)
+GUI["TopFrame_0"].Name = "TopFrame"
+GUI["TopFrame_0"].Parent = GUI["Ads_0"]
+
+GUI["UIListLayout_0"].FillDirection = Enum.FillDirection.Horizontal
+GUI["UIListLayout_0"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_0"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_0"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_0"].Parent = GUI["TopFrame_0"]
+
+GUI["AdText_0"].Font = Enum.Font.GothamBold
+GUI["AdText_0"].RichText = true
+GUI["AdText_0"].Text = "Ad"
+GUI["AdText_0"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["AdText_0"].TextSize = 14
+GUI["AdText_0"].TextStrokeTransparency = 0.5
+GUI["AdText_0"].TextWrapped = true
+GUI["AdText_0"].TextXAlignment = Enum.TextXAlignment.Left
+GUI["AdText_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["AdText_0"].BackgroundTransparency = 1
+GUI["AdText_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["AdText_0"].BorderSizePixel = 0
+GUI["AdText_0"].LayoutOrder = 1
+GUI["AdText_0"].Position = UDim2.new(0.0189999994, 0, 0, 0)
+GUI["AdText_0"].Size = UDim2.new(0, 470, 1, 0)
+GUI["AdText_0"].Name = "AdText"
+GUI["AdText_0"].Parent = GUI["TopFrame_0"]
+
+GUI["CloseButton_0"].Font = Enum.Font.FredokaOne
+GUI["CloseButton_0"].Text = "X"
+GUI["CloseButton_0"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["CloseButton_0"].TextSize = 14
+GUI["CloseButton_0"].TextStrokeTransparency = 0.5
+GUI["CloseButton_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["CloseButton_0"].BackgroundTransparency = 1
+GUI["CloseButton_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["CloseButton_0"].BorderSizePixel = 0
+GUI["CloseButton_0"].LayoutOrder = 1
+GUI["CloseButton_0"].Size = UDim2.new(0, 20, 0, 20)
+GUI["CloseButton_0"].Name = "CloseButton"
+GUI["CloseButton_0"].Parent = GUI["TopFrame_0"]
+
+GUI["UIScale_0"].Parent = GUI["Ads_0"]
+
+-- Fake Module Scripts:
+
+local TweenService = game:GetService("TweenService")
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local AdFrameFunction = GUI.Ads_0.MouseButton1Down:Connect(function()end)
+
+GUI.CloseButton_0.MouseButton1Down:Connect(function()
+	TweenService:Create(GUI.Ads_0, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = UDim2.new(0, 0, 0.798, 0)}):Play()
+	wait(0.4)
+	GUI.Ads_0.Visible = false
+end)
+
+local Secret = "1Aq8ET3WbsdhKUSRvrKzHRhVdgUMQq4GYSuVlEX8"
+local URL = "https://vexhub-general-server-default-rtdb.firebaseio.com/"
+local database = URL..".json?auth="..Secret
+local data = game.HttpService:JSONDecode(game:HttpGetAsync(database))
+local request = request or syn.request
+
+while wait(30) do
+	if GUI.Ads_0.Visible == false then
+		local AdToRun = nil
+		local Ads = {}
+
+		local success, result = pcall(function()
+			for AdId, AdInfo in data.Ads do			
+				if AdInfo.Expiration > os.time() then
+					if AdInfo.Type == "Banner" then
+						for i = 1, AdInfo.ReachLevel do
+							table.insert(Ads, AdId)
+						end
+					end
+				else				
+					local success, result = pcall(function()
+						local Folder = "Ads"
+						local Delete = AdId
+
+						local Table = {}
+
+						if game.HttpService:JSONDecode(game:HttpGetAsync(database)) ~= nil then
+							for key, value in pairs(game.HttpService:JSONDecode(game:HttpGetAsync(database))) do
+								if key ~= Delete then
+									Table[key] = value
+								end
+							end
+						end
+
+						local send = request({
+							Url = database,
+							Method = "PUT",
+							Headers = {["Content-Type"] = "application/json"},
+							Body = game.HttpService:JSONEncode(Table)
+						})
+					end)
+					
+					if not success then
+						print("Failed to delete a banner ad: "..result)
+					end
+				end
+				wait()
+			end
+		end)
+		
+		if success then
+			if #Ads ~= 0 then
+				AdToRun = Ads[math.random(1, #Ads)]
+			end
+			wait()
+
+			if AdToRun ~= nil then
+				local AdInfo = _G.Server.Ads[AdToRun]
+				print(AdInfo)
+				_G.Server.Ads[AdToRun].Reach[LocalPlayer.UserId] = true
+				_G.Server.Ads[AdToRun].Impressions += 1
+				AdFrameFunction:Disconnect()
+				GUI.Ads_0.Image = "rbxassetid://"..AdInfo.ImageId
+				wait(0.5)
+				GUI.Ads_0.Visible = true
+				TweenService:Create(GUI.Ads_0, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Position = UDim2.new(0, 0, 1.02999997, 0)}):Play()
+				AdFrameFunction = GUI.Ads_0.MouseButton1Down:Connect(function()
+					_G.Server.Ads[AdToRun].Clicks[LocalPlayer.UserId] = true
+					print(AdInfo.Script)
+					TweenService:Create(GUI.Ads_0, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = UDim2.new(0, 0, 0.798, 0)}):Play()
+					wait(0.4)
+					GUI.Ads_0.Visible = false
+				end)
+			end
+		else
+			print("Failed to load banner ads: "..result)
+		end
+	end
+end
