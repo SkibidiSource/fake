@@ -1,0 +1,95 @@
+_G.Table = {
+	GUIStatus = {
+		Logo = 0,
+		ActiveTab = "Home",
+		Version = "7.150",
+		IsClosed = false,
+	},
+	
+	GUISettings = {
+		Wallpaper = "11926598891",
+		UIScale = 1,
+		UIShadow = "25, 26, 31",
+	},
+	
+	Favorites = {},
+	
+	Plugins = {},
+
+	Scripts = {
+		["Scripts"] = {
+			["Info"] = {
+				Icon = "rbxassetid://11592851654",
+				Order = 1,
+			},
+
+			["Copy Chat Messages"] = {
+				Creator = "V31nc",
+				Description = "Copies chat messages. You can't stop it.",
+				GameId = 0,
+				RigType = "Any", -- R6, R15, Any
+				IsOP = false,
+				IsNew = false,
+				ScriptId = 1001,
+				Script = 'https://pastebin.com/raw/no'
+			},
+
+			["Anti Kick"] = {
+				Creator = "Unknown",
+				Description = "This script only works on some games.",
+				GameId = 0,
+				RigType = "Any", -- R6, R15, Any
+				IsOP = true,
+				IsNew = false,
+				ScriptId = 1002,
+				Script = 'https://pastebin.com/raw/ye'
+			},
+
+			["Kill Farm"] = {
+				Creator = "Zaptosis (Unverified Creator)",
+				Description = "Freeze players to kill them. Only works on some games.",
+				GameId = 0,
+				RigType = "Any", -- R6, R15, Any
+				IsOP = true,
+				IsNew = false,
+				ScriptId = 1003,
+				Script = 'https://pastebin.com/raw/my'
+			},
+		},
+		
+		["Required Accessories"] = {
+			["Info"] = {
+				Icon = "rbxassetid://11592824883",
+				Order = 2,
+			},
+		},
+		
+		["GUIS"] = {
+			["Info"] = {
+				Icon = "rbxassetid://11592848654",
+				Order = 3,
+			},
+		},
+		
+		["Animations"] = {
+			["Info"] = {
+				Icon = "rbxassetid://11592835705",
+				Order = 4,
+			},
+		},
+		
+		["Commands"] = {
+			["Info"] = {
+				Icon = "rbxassetid://11592837927",
+				Order = 5,
+			},
+		},
+		
+		["Other Hubs"] = {
+			["Info"] = {
+				Icon = "rbxassetid://11592850267",
+				Order = 6,
+			},
+		},
+	}
+}
