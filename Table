@@ -1,3 +1,12 @@
+local JSon = {}
+function JSon:Encode(Table)
+	return game:GetService("HttpService"):JSONEncode(Table)
+end
+
+function JSon:Decode(Table)
+	return game:GetService("HttpService"):JSONDecode(Table)
+end
+
 _G.Table = {
 	GUIStatus = {
 		Logo = 0,
@@ -5,15 +14,15 @@ _G.Table = {
 		Version = "7.150",
 		IsClosed = false,
 	},
-	
+
 	GUISettings = {
 		Wallpaper = "11926598891",
 		UIScale = 1,
 		UIShadow = "25, 26, 31",
 	},
-	
+
 	Favorites = {},
-	
+
 	Plugins = {},
 
 	Scripts = {
@@ -56,35 +65,35 @@ _G.Table = {
 				Script = 'https://pastebin.com/raw/my'
 			},
 		},
-		
+
 		["Required Accessories"] = {
 			["Info"] = {
 				Icon = "rbxassetid://11592824883",
 				Order = 2,
 			},
 		},
-		
+
 		["GUIS"] = {
 			["Info"] = {
 				Icon = "rbxassetid://11592848654",
 				Order = 3,
 			},
 		},
-		
+
 		["Animations"] = {
 			["Info"] = {
 				Icon = "rbxassetid://11592835705",
 				Order = 4,
 			},
 		},
-		
+
 		["Commands"] = {
 			["Info"] = {
 				Icon = "rbxassetid://11592837927",
 				Order = 5,
 			},
 		},
-		
+
 		["Other Hubs"] = {
 			["Info"] = {
 				Icon = "rbxassetid://11592850267",
@@ -93,3 +102,35 @@ _G.Table = {
 		},
 	}
 }
+
+if (writefile) then
+	if isfolder("VexHub7") then
+		local success, result = pcall(function()
+			_G.Table.GUISettings = JSon:Decode(readfile("VexHub7/Settings.vex"))
+			_G.Table.Favorites = JSon:Decode(readfile("VexHub7/Favorites.vex"))
+			
+			for _, PluginName in listfiles("VexHub/Plugins") do
+				if string.find(string.lower(tostring(PluginName)), ".vexp") then
+					local PluginContents = loadstring(readfile(PluginName))()
+					table.insert(_G.Table.Plugins, PluginContents)
+				end
+			end
+		end)
+		
+		if success then
+			print("Read files successfully")
+		else
+			delfolder("VexHub7")
+			wait()
+			makefolder("VexHub7")
+			makefolder("VexHub7/Plugins")
+			writefile("VexHub7/Settings.vex", JSon:Encode(_G.Table.GUISettings))
+			writefile("VexHub7/Favorites.vex", JSon:Encode({}))
+		end
+	else
+		makefolder("VexHub7")
+		makefolder("VexHub7/Plugins")
+		writefile("VexHub7/Settings.vex", JSon:Encode(_G.Table.GUISettings))
+		writefile("VexHub7/Favorites.vex", JSon:Encode({}))
+	end
+end
