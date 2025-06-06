@@ -44,7 +44,7 @@ GUI["PopUpNotificationOptions_0"].BorderSizePixel = 0
 GUI["PopUpNotificationOptions_0"].Size = UDim2.new(1, 0, 1, 0)
 GUI["PopUpNotificationOptions_0"].ZIndex = 3
 GUI["PopUpNotificationOptions_0"].Name = "PopUpNotificationOptions"
-GUI["PopUpNotificationOptions_0"].Parent = game.StarterGui.VexHubFolder.VexHubUI.DragFrame.MainFrame
+GUI["PopUpNotificationOptions_0"].Parent = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame
 
 GUI["UIListLayout_0"].Padding = UDim.new(0, 5)
 GUI["UIListLayout_0"].HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -234,149 +234,110 @@ GUI["UICorner_03"].Parent = GUI["CoverFrame_0"]
 GUI["UICorner_04"].CornerRadius = UDim.new(0, 5)
 GUI["UICorner_04"].Parent = GUI["PopUpNotificationOptions_0"]
 
--- Fake Module Scripts:
+-- Fake Local Scripts
 
-local fake_module_scripts = {}
+local TweenService = game:GetService("TweenService")
 
-
--- Fake Local Scripts:
-
-local function BUIS_fake_script() -- Fake Script: StarterGui.VexHubFolder.VexHubUI.DragFrame.MainFrame.PopUpNotificationOptions.NotificationTemplate.NotificationInsides.Buttons.LocalScript
-    local script = Instance.new("LocalScript")
-    script.Name = "LocalScript"
-    script.Parent = GUI["Buttons_0"]
-    local req = require
-    local require = function(obj)
-        local fake = fake_module_scripts[obj]
-        if fake then
-            return fake()
-        end
-        return req(obj)
-    end
-
-	for i, v in script.Parent:GetChildren() do
-		if v:IsA("TextButton") then
-			local TweenService = game:GetService("TweenService")		
-			
-			v.MouseEnter:Connect(function()
-				TweenService:Create(v.UIScale, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Scale = 1.1}):Play()
-			end)
-			
-			v.MouseLeave:Connect(function()
-				TweenService:Create(v.UIScale, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Scale = 1}):Play()
-			end)
-		end
-	end
-end
-local function IDAX_fake_script() -- Fake Script: StarterGui.VexHubFolder.VexHubUI.DragFrame.MainFrame.PopUpNotificationOptions.NotificationSystem
-    local script = Instance.new("LocalScript")
-    script.Name = "NotificationSystem"
-    script.Parent = GUI["PopUpNotificationOptions_0"]
-    local req = require
-    local require = function(obj)
-        local fake = fake_module_scripts[obj]
-        if fake then
-            return fake()
-        end
-        return req(obj)
-    end
-
-	local TweenService = game:GetService("TweenService")
-	local Notification = script.Parent
-	local MainContents = script.Parent.Parent.MainContents
-	
-	_G.PopUpNotificationOptions = function(Table)
-		for i, v in script.Parent:GetChildren() do
-			if string.find(v.Name, "Notification") and v.Name ~= "NotificationTemplate" and v:IsA("Frame") then
-				coroutine.wrap(function()
-					TweenService:Create(v.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
-					TweenService:Create(v.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 0}):Play()
-					TweenService:Create(v.UIScale, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Scale = 0}):Play()
-					wait(0.6)
-					v:Destroy()
-				end)()
-			end
-		end
-	
-		local Title = Table.Title
-		local Message = Table.Message
-		local Button1Text = Table.Button1Text
-		local Button1Function = Table.Button1Function
-		local Button2Text = Table.Button2Text
-		local Button2Function = Table.Button2Function
-	
-		local NotificationTemplate = Notification.NotificationTemplate:Clone()
-		NotificationTemplate.Name = "Notification"..math.random(1,999999)
-		NotificationTemplate.Parent = script.Parent
-		NotificationTemplate.Visible = true
-	
-		local NotificationInsides = NotificationTemplate.NotificationInsides
-	
-		if Title ~= nil then
-			NotificationInsides.TopFrame.Title.Text = Title
-		else
-			NotificationInsides.TopFrame.Title.Visible = false
-		end
-	
-		if Message ~= nil then
-			NotificationInsides.TopFrame.Message.Text = Message
-		else
-			NotificationInsides.TopFrame.Message.Visible = false
-		end
-	
-		if Button1Text ~= nil then
-			NotificationInsides.Buttons.Button1.Text = Button1Text
-			
-			if string.len(Button1Text) >= 8 then
-				NotificationInsides.Buttons.Button1.TextSize = 10
-			end
-			
-			if Button1Function ~= nil then
-				NotificationInsides.Buttons.Button1.MouseButton1Down:Connect(Button1Function)
-			end
-		else
-			NotificationInsides.Buttons.Button1.Visible = false
-		end
-	
-		if Button2Text ~= nil then
-			NotificationInsides.Buttons.Button2.Text = Button2Text
-			
-			if string.len(Button2Text) >= 8 then
-				NotificationInsides.Buttons.Button2.TextSize = 10
-			end
-			
-			if Button2Function ~= nil then
-				NotificationInsides.Buttons.Button2.MouseButton1Down:Connect(Button2Function)
-			end
-		else
-			NotificationInsides.Buttons.Button2.Visible = false
-		end
-	
-		local function DisappearNotification()
-			TweenService:Create(Notification, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
-			TweenService:Create(NotificationTemplate.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
-			TweenService:Create(NotificationTemplate.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 0}):Play()
-			TweenService:Create(NotificationTemplate.UIScale, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Scale = 0}):Play()
-			wait(0.6)
-			NotificationTemplate:Destroy()
-			MainContents.Interactable = true
-		end
-	
-		NotificationInsides.Buttons.Button1.MouseButton1Down:Connect(function()
-			DisappearNotification()
+for i, v in GUI.Buttons_0:GetChildren() do
+	if v:IsA("TextButton") then
+		v.MouseEnter:Connect(function()
+			TweenService:Create(v.UIScale, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Scale = 1.1}):Play()
 		end)
-	
-		NotificationInsides.Buttons.Button2.MouseButton1Down:Connect(function()
-			DisappearNotification()
+
+		v.MouseLeave:Connect(function()
+			TweenService:Create(v.UIScale, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Scale = 1}):Play()
 		end)
-	
-		MainContents.Interactable = false
-		TweenService:Create(Notification, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.7}):Play()
-		TweenService:Create(NotificationTemplate.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
-		TweenService:Create(NotificationTemplate.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 1}):Play()
-		TweenService:Create(NotificationTemplate.UIScale, TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Scale = 1}):Play()
 	end
 end
 
-coroutine.wrap(BUIS_fake_script)()
-coroutine.wrap(IDAX_fake_script)()
+_G.PopUpNotificationOptions = function(Table)
+	for i, v in GUI.PopUpNotificationOptions_0:GetChildren() do
+		if string.find(v.Name, "Notification") and v.Name ~= "NotificationTemplate" and v:IsA("Frame") then
+			coroutine.wrap(function()
+				TweenService:Create(v.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
+				TweenService:Create(v.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 0}):Play()
+				TweenService:Create(v.UIScale, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Scale = 0}):Play()
+				wait(0.6)
+				v:Destroy()
+			end)()
+		end
+	end
+
+	local Title = Table.Title
+	local Message = Table.Message
+	local Button1Text = Table.Button1Text
+	local Button1Function = Table.Button1Function
+	local Button2Text = Table.Button2Text
+	local Button2Function = Table.Button2Function
+
+	local NotificationTemplate = GUI.NotificationTemplate_0:Clone()
+	NotificationTemplate.Name = "Notification"..math.random(1,999999)
+	NotificationTemplate.Parent = GUI.PopUpNotificationOptions_0
+	NotificationTemplate.Visible = true
+
+	local NotificationInsides = NotificationTemplate.NotificationInsides
+
+	if Title ~= nil then
+		NotificationInsides.TopFrame.Title.Text = Title
+	else
+		NotificationInsides.TopFrame.Title.Visible = false
+	end
+
+	if Message ~= nil then
+		NotificationInsides.TopFrame.Message.Text = Message
+	else
+		NotificationInsides.TopFrame.Message.Visible = false
+	end
+
+	if Button1Text ~= nil then
+		NotificationInsides.Buttons.Button1.Text = Button1Text
+
+		if string.len(Button1Text) >= 8 then
+			NotificationInsides.Buttons.Button1.TextSize = 10
+		end
+
+		if Button1Function ~= nil then
+			NotificationInsides.Buttons.Button1.MouseButton1Down:Connect(Button1Function)
+		end
+	else
+		NotificationInsides.Buttons.Button1.Visible = false
+	end
+
+	if Button2Text ~= nil then
+		NotificationInsides.Buttons.Button2.Text = Button2Text
+
+		if string.len(Button2Text) >= 8 then
+			NotificationInsides.Buttons.Button2.TextSize = 10
+		end
+
+		if Button2Function ~= nil then
+			NotificationInsides.Buttons.Button2.MouseButton1Down:Connect(Button2Function)
+		end
+	else
+		NotificationInsides.Buttons.Button2.Visible = false
+	end
+
+	local function DisappearNotification()
+		TweenService:Create(GUI.PopUpNotificationOptions_0, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
+		TweenService:Create(NotificationTemplate.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
+		TweenService:Create(NotificationTemplate.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 0}):Play()
+		TweenService:Create(NotificationTemplate.UIScale, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Scale = 0}):Play()
+		wait(0.6)
+		NotificationTemplate:Destroy()
+		game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.Interactable = true
+	end
+
+	NotificationInsides.Buttons.Button1.MouseButton1Down:Connect(function()
+		DisappearNotification()
+	end)
+
+	NotificationInsides.Buttons.Button2.MouseButton1Down:Connect(function()
+		DisappearNotification()
+	end)
+
+	game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.Interactable = false
+	TweenService:Create(GUI.PopUpNotificationOptions_0, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.7}):Play()
+	TweenService:Create(NotificationTemplate.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
+	TweenService:Create(NotificationTemplate.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 1}):Play()
+	TweenService:Create(NotificationTemplate.UIScale, TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Scale = 1}):Play()
+end
