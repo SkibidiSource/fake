@@ -118,7 +118,7 @@ TweenService:Create(Blur, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingD
 wait(0.2)
 
 NewMessage("Having troubles using VexHub? Join our Discord server! dsc.gg/vhub")
-NewMessage("GitHub Version 6")
+NewMessage("GitHub Version 7")
 
 NewMessage("Loading Table...")
 local success, result = pcall(function()
@@ -140,6 +140,19 @@ end)
 
 if success then
 	NewMessage("Loaded Table...")
+else
+	NewMessage("An error occured: "..result)
+end
+
+wait()
+
+NewMessage("Loading Home Page...")
+local success, result = pcall(function()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/Home'),true))()
+end)
+
+if success then
+	NewMessage("Loaded Home Page...")
 else
 	NewMessage("An error occured: "..result)
 end
