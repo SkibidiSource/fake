@@ -14,7 +14,6 @@ local GUI = {
 
 -- Properties:
 
-GUI["PopUpAd_0"].Active = true
 GUI["PopUpAd_0"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 GUI["PopUpAd_0"].BackgroundTransparency = 1
 GUI["PopUpAd_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
