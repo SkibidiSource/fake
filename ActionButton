@@ -1,0 +1,105 @@
+-- Instances:
+
+local GUI = {
+	["ActionButton_0"] = Instance.new("ImageButton");
+}
+
+-- Properties:
+
+GUI["ActionButton_0"].Image = "rbxassetid://14803348752"
+GUI["ActionButton_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["ActionButton_0"].BackgroundTransparency = 1
+GUI["ActionButton_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["ActionButton_0"].BorderSizePixel = 0
+GUI["ActionButton_0"].Position = UDim2.new(0.405582935, 0, 0.101239666, 0)
+GUI["ActionButton_0"].Size = UDim2.new(0, 50, 0, 50)
+GUI["ActionButton_0"].Name = "ActionButton"
+GUI["ActionButton_0"].Parent = game:GetService("CoreGui")VexHubUI
+
+local UserInputService = game:GetService("UserInputService")
+
+local dragging = false
+local dragStart = nil
+local startPos = nil
+local moved = false
+local dragThreshold = 5
+
+-- Begin input (click/touch)
+GUI.ActionButton_0.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+		dragging = true
+		dragStart = input.Position
+		startPos = GUI.ActionButton_0.Position
+		moved = false
+	end
+end)
+
+-- Move input (dragging)
+UserInputService.InputChanged:Connect(function(input)
+	if dragging and (input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement) then
+		local delta = input.Position - dragStart
+		if delta.Magnitude > dragThreshold then
+			moved = true
+		end
+		GUI.ActionButton_0.Position = startPos + UDim2.new(0, delta.X, 0, delta.Y)
+	end
+end)
+
+-- End input (release)
+UserInputService.InputEnded:Connect(function(input)
+	if dragging and (input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1) then
+		if not moved then
+			print("Button clicked, opening UI...")
+			-- TODO: Open your UI here
+		end
+		dragging = false
+	end
+end)
+
+coroutine.wrap(function()
+	local dragging = false
+	local dragInput, dragStart, startPos
+
+	local userInputService = game:GetService("UserInputService")
+
+	-- Clamp position to stay within screen bounds
+	local function clampToScreen(pos, size)
+		local screenSize = workspace.CurrentCamera.ViewportSize
+		local x = math.clamp(pos.X.Offset, 0, screenSize.X - size.X.Offset)
+		local y = math.clamp(pos.Y.Offset, 0, screenSize.Y - size.Y.Offset)
+		return UDim2.new(0, x, 0, y)
+	end
+
+	-- Update the frame's position
+	local function updateInput(input)
+		local delta = input.Position - dragStart
+		local newPos = UDim2.new(0, startPos.X.Offset + delta.X, 0, startPos.Y.Offset + delta.Y)
+		GUI.ActionButton_0.Position = clampToScreen(newPos, GUI.ActionButton_0.Size)
+	end
+
+	GUI.ActionButton_0.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = GUI.ActionButton_0.Position
+
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+
+	GUI.ActionButton_0.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+
+	userInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			updateInput(input)
+		end
+	end)
+end)()
