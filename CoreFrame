@@ -676,12 +676,6 @@ local DragFrame = MainFrame.Parent
 local PopUpNotifications = MainFrame.PopUpNotificationOptions
 local PopUpAd = MainFrame.PopUpAd
 
-local function centerFrame(frame, xSize, ySize)
-	-- Center the frame on the screen
-	frame.Position = UDim2.new(0.5, -xSize / 2, 0.5, -ySize / 2)
-	frame.AnchorPoint = Vector2.new(0, 0)
-end
-
 GUI.Close_0.MouseEnter:Connect(function()
 	TweenService:Create(GUI.Close_0, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {BackgroundTransparency = 0}):Play()
 end)
@@ -709,7 +703,6 @@ _G.CloseVexHub = function()
 end
 
 _G.OpenVexHub = function()
-	centerFrame(GUI.DragFrame_0, GUI.DragFrame_0.AbsoluteSize.X, GUI.DragFrame_0.AbsoluteSize.Y)
 	GUI.DragFrame_0.Visible = true
 	GUI.MainFrame_0.Ads.Visible = true
 	GUI.MainFrame_0.PopUpAd.Visible = true
