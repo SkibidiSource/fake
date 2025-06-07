@@ -22,7 +22,7 @@ GUI["PopUpAd_0"].BorderSizePixel = 0
 GUI["PopUpAd_0"].Size = UDim2.new(1, 0, 1, 0)
 GUI["PopUpAd_0"].ZIndex = 4
 GUI["PopUpAd_0"].Name = "PopUpAd"
-GUI["PopUpAd_0"].Parent = game.StarterGui.VexHubFolder.VexHubUI.DragFrame.MainFrame
+GUI["PopUpAd_0"].Parent = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame
 
 GUI["UIListLayout_0"].Padding = UDim.new(0, 5)
 GUI["UIListLayout_0"].HorizontalAlignment = Enum.HorizontalAlignment.Center
