@@ -71,7 +71,7 @@ GUI["UIListLayout_01"].Parent = GUI["Ad_0"]
 
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local TweenService = game:GetService("TweenService")
-local MainContents = game.StarterGui.VexHubFolder.VexHubUI.DragFrame.MainFrame.MainContents
+local MainContents = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents
 local AdFrameFunction = GUI.Ad_0.MouseButton1Down:Connect(function()end)
 local Cooldown = 30
 
