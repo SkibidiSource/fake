@@ -118,18 +118,24 @@ TweenService:Create(Blur, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingD
 wait(0.2)
 
 NewMessage("Having troubles using VexHub? Join our Discord server! dsc.gg/vhub")
-NewMessage("Server Version 4")
-
-wait(1)
+NewMessage("Server Version 5")
 
 NewMessage("Loading Table...")
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/Table'),true))()
+local success, result = pcall(loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/Table'),true))())
 
-wait(1)
+if not success then
+	NewMessage("An error occured: "..result)
+end
+
+wait()
 
 NewMessage("Loading Core Frame...")
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/CoreFrame'),true))()
+local success, result = pcall(loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/CoreFrame'),true))())
 
-wait(1)
+if not success then
+	NewMessage("An error occured: "..result)
+end
+
+wait()
 
 CloseScreen()
