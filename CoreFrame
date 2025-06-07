@@ -511,8 +511,11 @@ GUI["Shadow_0"].Name = "Shadow"
 GUI["Shadow_0"].Parent = GUI["UIShadow_0"]
 
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/PopUpNotificationLib'),true))()
+print(1)
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/BannerAds'),true))()
+print(2)
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/PopUpAds'),true))()
+print(3)
 wait()
 
 print("ye")
