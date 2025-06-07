@@ -515,6 +515,8 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/r
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/PopUpAds'),true))()
 wait()
 
+print("ye")
+
 -- Fake Local Scripts:
 
 local TweenService = game:GetService("TweenService")
