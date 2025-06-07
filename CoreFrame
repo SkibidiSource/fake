@@ -510,6 +510,11 @@ GUI["Shadow_0"].Size = UDim2.new(0, 540, 0, 290)
 GUI["Shadow_0"].Name = "Shadow"
 GUI["Shadow_0"].Parent = GUI["UIShadow_0"]
 
+GUI["UIListLayout_012"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_012"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_012"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_012"].Parent = GUI["DragFrame_0"]
+
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/PopUpNotificationLib'),true))()
 print(1)
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/BannerAds'),true))()
