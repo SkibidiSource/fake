@@ -91,7 +91,6 @@ GUI["Home_0"].BackgroundTransparency = 1
 GUI["Home_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 GUI["Home_0"].BorderSizePixel = 0
 GUI["Home_0"].Size = UDim2.new(1, 0, 1, 0)
-GUI["Home_0"].Visible = false
 GUI["Home_0"].Name = "Home"
 GUI["Home_0"].Parent = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages
 
