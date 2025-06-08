@@ -75,3 +75,11 @@ end)
 GUI.ActionButton_0.MouseLeave:Connect(function()
 	TweenService:Create(GUI.ActionButton_0.Image.UIScale, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Scale = 1}):Play()
 end)
+
+GUI.ActionButton_0.MouseButton1Down:Connect(function()
+	if _G.Table.GUIStatus.IsClosed == true then
+		_G.OpenVexHub()
+	else
+		_G.CloseVexHub()
+	end
+end)
