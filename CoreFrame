@@ -650,17 +650,6 @@ for i, v in GUI.TabChoices_0:GetChildren() do
 end
 
 local TweenService = game:GetService("TweenService")
-local Button = script.Parent
-local MainFrame = script.Parent.Parent.Parent.Parent.Parent.Parent.Parent
-local CoverFrame = MainFrame.CoverFrame
-local Shadow = MainFrame.UIShadow.Shadow
-local UIScale = MainFrame.UIScale
-local Ads = MainFrame.Ads
-local MainContents = MainFrame.MainContents
-local UICorner_6 = MainFrame.CoverFrame.UICorner
-local DragFrame = MainFrame.Parent
-local PopUpNotifications = MainFrame.PopUpNotificationOptions
-local PopUpAd = MainFrame.PopUpAd
 
 GUI.Close_0.MouseEnter:Connect(function()
 	TweenService:Create(GUI.Close_0, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {BackgroundTransparency = 0}):Play()
