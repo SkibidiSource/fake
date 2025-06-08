@@ -26,6 +26,7 @@ GUI["ActionButton_0"].Font = Enum.Font.SourceSans
 GUI["ActionButton_0"].Text = ""
 GUI["ActionButton_0"].TextColor3 = Color3.fromRGB(0, 0, 0)
 GUI["ActionButton_0"].TextSize = 14
+GUI["ActionButton_0"].Active = true
 GUI["ActionButton_0"].AutoButtonColor = false
 GUI["ActionButton_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["ActionButton_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
