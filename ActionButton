@@ -102,7 +102,7 @@ UserInputService.InputEnded:Connect(function(input)
 			if _G.Table.GUIStatus.IsClosed == true then
 				_G.OpenVexHub()
 			else
-				print("Clo")
+				_G.CloseVexHub()
 			end
 		end
 		dragging = false
