@@ -31,6 +31,7 @@ GUI["ActionButton_0"].AutoButtonColor = false
 GUI["ActionButton_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["ActionButton_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 GUI["ActionButton_0"].BorderSizePixel = 0
+GUI["ActionButton_0"].Draggable = true
 GUI["ActionButton_0"].Position = UDim2.new(0.842000008, 0, 0, 2)
 GUI["ActionButton_0"].Size = UDim2.new(0, 96, 0, 44)
 GUI["ActionButton_0"].Name = "ActionButton"
@@ -66,50 +67,6 @@ GUI["UIGradient_0"].Parent = GUI["ActionButton_0"]
 
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
-
-local dragging = false
-local dragStart = nil
-local startPos = nil
-local moved = false
-local dragThreshold = 5
-
--- Begin input (click/touch)
-GUI.ActionButton_0.InputBegan:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
-		dragging = true
-		dragStart = input.Position
-		startPos = GUI.ActionButton_0.Position
-		moved = false
-	end
-end)
-
--- Move input (dragging)
-UserInputService.InputChanged:Connect(function(input)
-	if dragging and (input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement) then
-		local delta = input.Position - dragStart
-		if delta.Magnitude > dragThreshold then
-			moved = true
-		end
-		GUI.ActionButton_0.Position = startPos + UDim2.new(0, delta.X, 0, delta.Y)
-	end
-end)
-
--- End input (release)
-UserInputService.InputEnded:Connect(function(input)
-	if dragging and (input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1) then
-		if not moved then
-			TweenService:Create(GUI.ActionButton_0.Image.UIScale, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Scale = 1}):Play()
-
-			if _G.Table.GUIStatus.IsClosed == true then
-				_G.OpenVexHub()
-			else
-				_G.CloseVexHub()
-			end
-		end
-		dragging = false
-	end
-end)
-
 
 GUI.ActionButton_0.MouseEnter:Connect(function()
 	TweenService:Create(GUI.ActionButton_0.Image.UIScale, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Scale = 1.1}):Play()
