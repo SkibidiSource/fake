@@ -519,6 +519,14 @@ GUI["UIListLayout_012"].SortOrder = Enum.SortOrder.LayoutOrder
 GUI["UIListLayout_012"].VerticalAlignment = Enum.VerticalAlignment.Center
 GUI["UIListLayout_012"].Parent = GUI["DragFrame_0"]
 
+local function centerFrame(frame, xSize, ySize)
+	-- Center the frame on the screen
+	frame.Position = UDim2.new(0.5, -xSize / 2, 0.5, -ySize / 2)
+	frame.AnchorPoint = Vector2.new(0, 0)
+end
+
+centerFrame(GUI.DragFrame_0, GUI.DragFrame_0.AbsoluteSize.X, GUI.DragFrame_0.AbsoluteSize.Y)
+
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/PopUpNotificationLib'),true))()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/BannerAds'),true))()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/PopUpAds'),true))()
@@ -684,6 +692,7 @@ end
 _G.OpenVexHub = function()
 	if OnGoingAnimation == false then
 		OnGoingAnimation = true
+		centerFrame(GUI.DragFrame_0, GUI.DragFrame_0.AbsoluteSize.X, GUI.DragFrame_0.AbsoluteSize.Y)
 		GUI.DragFrame_0.Visible = true
 		GUI.MainFrame_0.Ads.Visible = true
 		GUI.MainFrame_0.PopUpAd.Visible = true
