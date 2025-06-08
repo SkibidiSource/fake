@@ -1,22 +1,70 @@
 -- Instances:
 
 local GUI = {
-	["ActionButton_0"] = Instance.new("ImageButton");
+	["TopBar_0"] = Instance.new("Frame");
+	["ActionButton_0"] = Instance.new("TextButton");
+	["UIListLayout_0"] = Instance.new("UIListLayout");
+	["LocalScript_0"] = Instance.new("LocalScript");
+	["Image_0"] = Instance.new("ImageLabel");
+	["UIScale_0"] = Instance.new("UIScale");
+	["UICorner_0"] = Instance.new("UICorner");
+	["UIGradient_0"] = Instance.new("UIGradient");
 }
 
 -- Properties:
 
-GUI["ActionButton_0"].Image = "rbxassetid://14803348752"
+GUI["TopBar_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["TopBar_0"].BackgroundTransparency = 1
+GUI["TopBar_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["TopBar_0"].BorderSizePixel = 0
+GUI["TopBar_0"].Position = UDim2.new(0, 0, 0, 10)
+GUI["TopBar_0"].Size = UDim2.new(1, 0, 0, 48)
+GUI["TopBar_0"].Name = "TopBar"
+GUI["TopBar_0"].Parent = game:GetService("CoreGui").VexHubUI
+
+GUI["ActionButton_0"].Font = Enum.Font.SourceSans
+GUI["ActionButton_0"].Text = ""
+GUI["ActionButton_0"].TextColor3 = Color3.fromRGB(0, 0, 0)
+GUI["ActionButton_0"].TextSize = 14
+GUI["ActionButton_0"].AutoButtonColor = false
 GUI["ActionButton_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-GUI["ActionButton_0"].BackgroundTransparency = 1
 GUI["ActionButton_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 GUI["ActionButton_0"].BorderSizePixel = 0
-GUI["ActionButton_0"].Position = UDim2.new(0.405582935, 0, 0.101239666, 0)
-GUI["ActionButton_0"].Size = UDim2.new(0, 50, 0, 50)
+GUI["ActionButton_0"].Position = UDim2.new(0.842000008, 0, 0, 2)
+GUI["ActionButton_0"].Size = UDim2.new(0, 96, 0, 44)
 GUI["ActionButton_0"].Name = "ActionButton"
-GUI["ActionButton_0"].Parent = game:GetService("CoreGui")VexHubUI
+GUI["ActionButton_0"].Parent = GUI["TopBar_0"]
+
+GUI["UIListLayout_0"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_0"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_0"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_0"].Parent = GUI["ActionButton_0"]
+
+GUI["Image_0"].Image = "rbxassetid://14803348752"
+GUI["Image_0"].ImageTransparency = 0.10000000149011612
+GUI["Image_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Image_0"].BackgroundTransparency = 1
+GUI["Image_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Image_0"].BorderSizePixel = 0
+GUI["Image_0"].Position = UDim2.new(0.270833343, 0, 1.5454545, 0)
+GUI["Image_0"].Size = UDim2.new(0, 44, 0, 44)
+GUI["Image_0"].Name = "Image"
+GUI["Image_0"].Parent = GUI["ActionButton_0"]
+
+GUI["UIScale_0"].Parent = GUI["Image_0"]
+
+GUI["UICorner_0"].CornerRadius = UDim.new(1, 0)
+GUI["UICorner_0"].Parent = GUI["ActionButton_0"]
+
+GUI["UIGradient_0"].Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(25.000000409781933, 26.000000350177288, 31.000000052154064)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(18.000000827014446, 18.000000827014446, 21.000000648200512))
+}
+GUI["UIGradient_0"].Rotation = 90
+GUI["UIGradient_0"].Parent = GUI["ActionButton_0"]
 
 local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
 
 local dragging = false
 local dragStart = nil
@@ -50,56 +98,17 @@ UserInputService.InputEnded:Connect(function(input)
 	if dragging and (input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1) then
 		if not moved then
 			print("Button clicked, opening UI...")
-			-- TODO: Open your UI here
+			TweenService:Create(GUI.ActionButton_0.Image.UIScale, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Scale = 1}):Play()
 		end
 		dragging = false
 	end
 end)
 
-coroutine.wrap(function()
-	local dragging = false
-	local dragInput, dragStart, startPos
 
-	local userInputService = game:GetService("UserInputService")
+GUI.ActionButton_0.MouseEnter:Connect(function()
+	TweenService:Create(GUI.ActionButton_0.Image.UIScale, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Scale = 1.1}):Play()
+end)
 
-	-- Clamp position to stay within screen bounds
-	local function clampToScreen(pos, size)
-		local screenSize = workspace.CurrentCamera.ViewportSize
-		local x = math.clamp(pos.X.Offset, 0, screenSize.X - size.X.Offset)
-		local y = math.clamp(pos.Y.Offset, 0, screenSize.Y - size.Y.Offset)
-		return UDim2.new(0, x, 0, y)
-	end
-
-	-- Update the frame's position
-	local function updateInput(input)
-		local delta = input.Position - dragStart
-		local newPos = UDim2.new(0, startPos.X.Offset + delta.X, 0, startPos.Y.Offset + delta.Y)
-		GUI.ActionButton_0.Position = clampToScreen(newPos, GUI.ActionButton_0.Size)
-	end
-
-	GUI.ActionButton_0.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			dragging = true
-			dragStart = input.Position
-			startPos = GUI.ActionButton_0.Position
-
-			input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					dragging = false
-				end
-			end)
-		end
-	end)
-
-	GUI.ActionButton_0.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-			dragInput = input
-		end
-	end)
-
-	userInputService.InputChanged:Connect(function(input)
-		if input == dragInput and dragging then
-			updateInput(input)
-		end
-	end)
-end)()
+GUI.ActionButton_0.MouseLeave:Connect(function()
+	TweenService:Create(GUI.ActionButton_0.Image.UIScale, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Scale = 1}):Play()
+end)
