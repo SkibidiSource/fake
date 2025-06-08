@@ -517,15 +517,10 @@ GUI["UIListLayout_012"].SortOrder = Enum.SortOrder.LayoutOrder
 GUI["UIListLayout_012"].VerticalAlignment = Enum.VerticalAlignment.Center
 GUI["UIListLayout_012"].Parent = GUI["DragFrame_0"]
 
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/ActionButton'),true))()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/PopUpNotificationLib'),true))()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/BannerAds'),true))()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/PopUpAds'),true))()
 wait()
-
-print("ye")
-
--- Fake Local Scripts:
 
 local TweenService = game:GetService("TweenService")
 
@@ -695,6 +690,8 @@ _G.OpenVexHub = function()
 	wait(0.6)
 	_G.Table.GUIStatus.IsClosed = false
 end
+
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/ActionButton'),true))()
 
 GUI.Close_0.MouseButton1Down:Connect(function()
 	_G.CloseVexHub()
