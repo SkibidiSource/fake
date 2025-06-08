@@ -1,5 +1,7 @@
 -- Instances:
 
+local LocalPlayer = game:GetService("Players").LocalPlayer
+
 local GUI = {
 	["VexHubUI_0"] = Instance.new("ScreenGui");
 	["DragFrame_0"] = Instance.new("Frame");
@@ -386,7 +388,7 @@ GUI["UIListLayout_09"].Parent = GUI["LeftSide_0"]
 
 GUI["DisplayNameAndUsername_0"].Font = Enum.Font.Gotham
 GUI["DisplayNameAndUsername_0"].RichText = true
-GUI["DisplayNameAndUsername_0"].Text = '<b>Vincent</b>\n<font size="8">@itsyaboivincentt</font>'
+GUI["DisplayNameAndUsername_0"].Text = '<b>'..LocalPlayer.DisplayName..'</b>\n<font size="8">@'..LocalPlayer.Name..'</font>'
 GUI["DisplayNameAndUsername_0"].TextColor3 = Color3.fromRGB(255, 255, 255)
 GUI["DisplayNameAndUsername_0"].TextSize = 14
 GUI["DisplayNameAndUsername_0"].TextXAlignment = Enum.TextXAlignment.Left
@@ -400,7 +402,7 @@ GUI["DisplayNameAndUsername_0"].Size = UDim2.new(0, 100, 1, 0)
 GUI["DisplayNameAndUsername_0"].Name = "DisplayNameAndUsername"
 GUI["DisplayNameAndUsername_0"].Parent = GUI["LeftSide_0"]
 
-GUI["ProfilePicture_0"].Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+GUI["ProfilePicture_0"].Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..LocalPlayer.UserId.."&width=420&height=420&format=png"
 GUI["ProfilePicture_0"].BackgroundColor3 = Color3.fromRGB(43.00000123679638, 45.00000111758709, 51.00000075995922)
 GUI["ProfilePicture_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 GUI["ProfilePicture_0"].BorderSizePixel = 0
