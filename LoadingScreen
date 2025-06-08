@@ -117,6 +117,8 @@ TweenService:Create(game:GetService("Workspace").CurrentCamera, TweenInfo.new(0.
 TweenService:Create(Blur, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = 10}):Play()
 wait(0.2)
 
+local Errors = 0
+
 NewMessage("Having troubles using VexHub? Join our Discord server! dsc.gg/vhub")
 NewMessage("GitHub Version 7")
 
@@ -128,6 +130,7 @@ end)
 if success then
 	NewMessage("Loaded Table...")
 else
+	Errors += 1
 	NewMessage("An error occured: "..result)
 end
 
@@ -141,6 +144,7 @@ end)
 if success then
 	NewMessage("Loaded Table...")
 else
+	Errors += 1
 	NewMessage("An error occured: "..result)
 end
 
@@ -154,9 +158,17 @@ end)
 if success then
 	NewMessage("Loaded Home Page...")
 else
+	Errors += 1
 	NewMessage("An error occured: "..result)
 end
 
 wait()
 
-CloseScreen()
+if Errors == 0 then
+	CloseScreen()
+else
+	NewMessage(Errors.." ERRORS OCCURED! Please send the errors to our Discord Server (dsc.gg/vhub) if VexHub didnt run properly after this loading screen.")
+	NewMessage("Closing in 5 seconds...")
+	wait(5)
+	CloseScreen()
+end
