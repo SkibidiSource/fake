@@ -97,8 +97,13 @@ end)
 UserInputService.InputEnded:Connect(function(input)
 	if dragging and (input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1) then
 		if not moved then
-			print("Button clicked, opening UI...")
 			TweenService:Create(GUI.ActionButton_0.Image.UIScale, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Scale = 1}):Play()
+
+			if _G.Table.GUIStatus.IsClosed == true then
+				_G.OpenVexHub()
+			else
+				_G.CloseVexHub()
+			end
 		end
 		dragging = false
 	end
