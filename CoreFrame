@@ -83,6 +83,7 @@ GUI["DragFrame_0"].Size = UDim2.new(0, 500, 0, 250)
 GUI["DragFrame_0"].Name = "DragFrame"
 GUI["DragFrame_0"].Parent = GUI["VexHubUI_0"]
 GUI["DragFrame_0"].Active = true
+GUI["DragFrame_0"].Draggable = true
 
 GUI["MainFrame_0"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["MainFrame_0"].BackgroundTransparency = 1
@@ -529,45 +530,6 @@ print("ye")
 -- Fake Local Scripts:
 
 local TweenService = game:GetService("TweenService")
-
-local dragging = false
-local dragInput, dragStart, startPos
-local userInputService = game:GetService("UserInputService")
--- Clamp position to stay within screen bounds
-local function clampToScreen(pos, size)
-	local screenSize = workspace.CurrentCamera.ViewportSize
-	local x = math.clamp(pos.X.Offset, 0, screenSize.X - size.X.Offset)
-	local y = math.clamp(pos.Y.Offset, 0, screenSize.Y - size.Y.Offset)
-	return UDim2.new(0, x, 0, y)
-end
--- Update the frame's position
-local function updateInput(input)
-	local delta = input.Position - dragStart
-	local newPos = UDim2.new(0, startPos.X.Offset + delta.X, 0, startPos.Y.Offset + delta.Y)
-	GUI.DragFrame_0.Position = clampToScreen(newPos, GUI.DragFrame_0.Size)
-end
-GUI.DragFrame_0.InputBegan:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-		dragging = true
-		dragStart = input.Position
-		startPos = GUI.DragFrame_0.Position
-		input.Changed:Connect(function()
-			if input.UserInputState == Enum.UserInputState.End then
-				dragging = false
-			end
-		end)
-	end
-end)
-GUI.DragFrame_0.InputChanged:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-		dragInput = input
-	end
-end)
-userInputService.InputChanged:Connect(function(input)
-	if input == dragInput and dragging then
-		updateInput(input)
-	end
-end)
 
 _G.CreateTabButton = function(TabName, TabImage, LayoutOrder)
 	local NameHidePlugin = string.split(TabName, "PLUGIN_")[2]
