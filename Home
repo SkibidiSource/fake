@@ -150,7 +150,7 @@ GUI["UIGradient_0"].Parent = GUI["ProfilePicture_0"]
 
 GUI["Greetings_0"].Font = Enum.Font.Gotham
 GUI["Greetings_0"].RichText = true
-GUI["Greetings_0"].Text = '<b>Good Afternoon</b>\n<font size="12">Vincent!</font>'
+GUI["Greetings_0"].Text = '<b>Good Afternoon</b>\n<font size="12">'..LocalPlayer.DisplayName..'!</font>'
 GUI["Greetings_0"].TextColor3 = Color3.fromRGB(255, 255, 255)
 GUI["Greetings_0"].TextSize = 14
 GUI["Greetings_0"].TextWrapped = true
