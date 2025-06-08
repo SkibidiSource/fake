@@ -1,5 +1,7 @@
 -- Instances:
 
+local LocalPlayer = game:GetService("Players").LocalPlayer
+
 local GUI = {
 	["Home_0"] = Instance.new("Frame");
 	["UIListLayout_0"] = Instance.new("UIListLayout");
@@ -124,7 +126,7 @@ GUI["UIListLayout_01"].SortOrder = Enum.SortOrder.LayoutOrder
 GUI["UIListLayout_01"].VerticalAlignment = Enum.VerticalAlignment.Center
 GUI["UIListLayout_01"].Parent = GUI["UserGreetings_0"]
 
-GUI["ProfilePicture_0"].Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+GUI["ProfilePicture_0"].Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..LocalPlayer.UserId.."&width=420&height=420&format=png"
 GUI["ProfilePicture_0"].BackgroundColor3 = Color3.fromRGB(43.00000123679638, 45.00000111758709, 51.00000075995922)
 GUI["ProfilePicture_0"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 GUI["ProfilePicture_0"].BorderSizePixel = 0
