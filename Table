@@ -134,3 +134,48 @@ if (writefile) then
 		writefile("VexHub7/Favorites.vex", JSon:Encode({}))
 	end
 end
+
+for _, Scripts in _G.Table.Scripts do
+	for ScriptName, ScriptInfo in Scripts do
+		if ScriptName ~= "Info" then
+			if not _G.Server.ScriptsInfo[ScriptInfo.ScriptId] then
+				local Success, Error = pcall(function()
+					local Secret = "1Aq8ET3WbsdhKUSRvrKzHRhVdgUMQq4GYSuVlEX8"
+					local URL = "https://vexhub-general-server-default-rtdb.firebaseio.com/"
+					local Folder = "ScriptsInfo" --You can change the parent or the location of the data
+
+					local database = URL..Folder..".json?auth="..Secret
+					local request = request or syn.request
+					local Table = {}
+
+					if game.HttpService:JSONDecode(game:HttpGetAsync(database)) ~= nil then
+						for key, value in pairs(game.HttpService:JSONDecode(game:HttpGetAsync(database))) do
+							if key then
+								Table[key] = value
+							end
+						end
+					end
+
+					Table[ScriptInfo.ScriptId] = {
+						NumberOfExecutions = 0,
+						LikedBy = {
+						},
+						DislikedBy = {
+						},
+					}
+
+					local send = request({
+						Url = database,
+						Method = "PUT",
+						Headers = {["Content-Type"] = "application/json"},
+						Body = game.HttpService:JSONEncode(Table)
+					})
+				end)
+				
+				if not Success then
+					print("Cannot create a info for "..ScriptName.." ("..ScriptInfo.ScriptId..") : "..Error)
+				end
+			end
+		end
+	end
+end
