@@ -166,10 +166,14 @@ for _, Scripts in _G.Table.Scripts do
 
 						Table[ScriptInfo.ScriptId] = {
 							NumberOfExecutions = 0,
-							LikedBy = {
-							},
-							DislikedBy = {
-							},
+						}
+						
+						Table[ScriptInfo.ScriptId]["LikedBy"] = {
+							["System"] = true 
+						}
+						
+						Table[ScriptInfo.ScriptId]["DislikedBy"] = {
+							["System"] = true 
 						}
 
 						local send = request({
