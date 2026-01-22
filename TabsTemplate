@@ -111,8 +111,7 @@ local GUI = {
 	["MagnifyingGlass_0105"] = Instance.new("ImageLabel");
 	["UIListLayout_0106"] = Instance.new("UIListLayout");
 	["TextBox_0107"] = Instance.new("TextBox");
-	["LocalScript_0108"] = Instance.new("LocalScript");
-	["UIListLayout_0109"] = Instance.new("UIListLayout");
+	["UIListLayout_0108"] = Instance.new("UIListLayout");
 }
 
 -- Properties:
