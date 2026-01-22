@@ -124,7 +124,7 @@ GUI["TabsTemplate_00"].BorderSizePixel = 0
 GUI["TabsTemplate_00"].Size = UDim2.new(1, 0, 1, 0)
 GUI["TabsTemplate_00"].Visible = false
 GUI["TabsTemplate_00"].Name = "TabsTemplate"
-GUI["TabsTemplate_00"].Parent = game:GetService("CoreGui").VexHubFolder.VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages
+GUI["TabsTemplate_00"].Parent = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages
 
 GUI["BottomFrame_01"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["BottomFrame_01"].BorderColor3 = Color3.fromRGB(0, 0, 0)
