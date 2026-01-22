@@ -120,7 +120,7 @@ wait(0.2)
 local Errors = 0
 
 NewMessage("Having troubles using VexHub? Join our Discord server! dsc.gg/vhub")
-NewMessage("GitHub Version 10")
+NewMessage("GitHub Version 11")
 
 NewMessage("Loading Table...")
 local success, result = pcall(function()
