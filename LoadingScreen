@@ -120,7 +120,7 @@ wait(0.2)
 local Errors = 0
 
 NewMessage("Having troubles using VexHub? Join our Discord server! dsc.gg/vhub")
-NewMessage("GitHub Version 8")
+NewMessage("GitHub Version 9")
 
 NewMessage("Loading Table...")
 local success, result = pcall(function()
@@ -182,7 +182,7 @@ if Errors == 0 then
 	CloseScreen()
 else
 	NewMessage(Errors.." ERRORS OCCURED! Please send the errors to our Discord Server (dsc.gg/vhub) if VexHub didnt run properly after this loading screen.")
-	NewMessage("Closing in 5 seconds...")
-	wait(5)
+	NewMessage("Closing in 15 seconds...")
+	wait(15)
 	CloseScreen()
 end
