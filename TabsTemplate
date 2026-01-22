@@ -212,7 +212,7 @@ GUI["ScrollingFrame_012"].Position = UDim2.new(0.0283018872, 0, 0.414285719, 0)
 GUI["ScrollingFrame_012"].Size = UDim2.new(0, 100, 0, 25)
 GUI["ScrollingFrame_012"].Parent = GUI["ScriptTemplate_08"]
 
-GUI["ScriptName_013"].Font = Enum.Font.Unknown
+GUI["ScriptName_013"].Font = Enum.Font.MontserratMedium
 GUI["ScriptName_013"].RichText = true
 GUI["ScriptName_013"].Text = "Script Name"
 GUI["ScriptName_013"].TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -381,7 +381,7 @@ GUI["RigTypeIcon_031"].Size = UDim2.new(0, 17, 0, 17)
 GUI["RigTypeIcon_031"].Name = "RigTypeIcon"
 GUI["RigTypeIcon_031"].Parent = GUI["Icons_028"]
 
-GUI["NoScripts_032"].Font = Enum.Font.Unknown
+GUI["NoScripts_032"].Font = Enum.Font.MontserratMedium
 GUI["NoScripts_032"].Text = "No scripts avalable"
 GUI["NoScripts_032"].TextColor3 = Color3.fromRGB(155.00000596046448, 155.00000596046448, 155.00000596046448)
 GUI["NoScripts_032"].TextSize = 12
@@ -913,7 +913,7 @@ GUI["TabNameAndTotalScripts_097"].Size = UDim2.new(0, 170, 0.699999988, 0)
 GUI["TabNameAndTotalScripts_097"].Name = "TabNameAndTotalScripts"
 GUI["TabNameAndTotalScripts_097"].Parent = GUI["TabInfo_090"]
 
-GUI["TabName_098"].Font = Enum.Font.Unknown
+GUI["TabName_098"].Font = Enum.Font.MontserratBold
 GUI["TabName_098"].Text = "Required Accessories"
 GUI["TabName_098"].TextColor3 = Color3.fromRGB(255, 255, 255)
 GUI["TabName_098"].TextSize = 16
@@ -931,7 +931,7 @@ GUI["UIListLayout_099"].HorizontalAlignment = Enum.HorizontalAlignment.Center
 GUI["UIListLayout_099"].SortOrder = Enum.SortOrder.LayoutOrder
 GUI["UIListLayout_099"].Parent = GUI["TabNameAndTotalScripts_097"]
 
-GUI["ScriptsTotal_0100"].Font = Enum.Font.Unknown
+GUI["ScriptsTotal_0100"].Font = Enum.Font.MontserratMedium
 GUI["ScriptsTotal_0100"].RichText = true
 GUI["ScriptsTotal_0100"].Text = '<b>100 Scripts</b>, <font color="rgb(255, 188, 87)">10 OP Scripts</font> and <font color="rgb(255, 102, 102)">1 New Scripts</font>'
 GUI["ScriptsTotal_0100"].TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -985,7 +985,7 @@ GUI["UIListLayout_0106"].VerticalAlignment = Enum.VerticalAlignment.Center
 GUI["UIListLayout_0106"].Parent = GUI["SearchBar_0102"]
 
 GUI["TextBox_0107"].ClearTextOnFocus = false
-GUI["TextBox_0107"].Font = Enum.Font.Unknown
+GUI["TextBox_0107"].Font = Enum.Font.Montserrat
 GUI["TextBox_0107"].PlaceholderText = "search a script"
 GUI["TextBox_0107"].Text = ""
 GUI["TextBox_0107"].TextColor3 = Color3.fromRGB(255, 255, 255)
