@@ -148,7 +148,7 @@ for _, Scripts in _G.Table.Scripts do
 			end)
 			
 			if Success then
-				if not data.ScriptsInfo[ScriptInfo.ScriptId] then
+				if not data.ScriptsInfo[tostring(ScriptInfo.ScriptId)] then
 					local Success, Error = pcall(function()
 						local Folder = "ScriptsInfo" --You can change the parent or the location of the data
 
