@@ -138,6 +138,8 @@ _G.CreateTab = function(TabName, Scripts)
 				print(i, v)
 			end
 			
+			
+			print("in process: "..ScriptInfo.ScriptId)
 			for i, v in FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].LikedBy do
 				TotalLikes += 1
 			end
