@@ -139,7 +139,7 @@ _G.CreateTab = function(TabName, Scripts)
 				TotalLikes += 1
 			end
 
-			for i, v in FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].DislikedBy do
+			for i, v in FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy do
 				TotalDislikes += 1
 			end
 
@@ -153,7 +153,7 @@ _G.CreateTab = function(TabName, Scripts)
 			ScriptTemplate.LayoutOrder = 3
 			ScriptTemplate.Icons.ScriptImage.Image = Scripts.Info.Icon
 			ScriptTemplate.ScrollingFrame.ScriptName.Text = ScriptName
-			ScriptTemplate.BottomFrame.NumberOfExecutions.Executions.Text = FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].NumberOfExecutions
+			ScriptTemplate.BottomFrame.NumberOfExecutions.Executions.Text = FirebaseServer.ScriptsInfo[ScriptIdString].NumberOfExecutions
 			ScriptTemplate.BottomFrame.NumberOfLikes.Likes.Text = Likes.."%"
 
 			if ScriptInfo.IsOP == true then
@@ -227,18 +227,18 @@ _G.CreateTab = function(TabName, Scripts)
 				DislikeButtonFunction:Disconnect()
 
 				local function UpdateExecutions()
-					ScriptTemplate.BottomFrame.NumberOfExecutions.Executions.Text = FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].NumberOfExecutions
+					ScriptTemplate.BottomFrame.NumberOfExecutions.Executions.Text = FirebaseServer.ScriptsInfo[ScriptIdString].NumberOfExecutions
 				end
 
 				local function UpdateRating()
 					local TotalLikes = 0
 					local TotalDislikes = 0
 
-					for i, v in FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].LikedBy do
+					for i, v in FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy do
 						TotalLikes += 1
 					end
 
-					for i, v in FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].DislikedBy do
+					for i, v in FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy do
 						TotalDislikes += 1
 					end
 
@@ -266,10 +266,10 @@ _G.CreateTab = function(TabName, Scripts)
 				end
 
 				local function UpdateRatingButtonsColors()
-					if FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].LikedBy[LocalPlayer.UserId] then
+					if FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy[LocalPlayer.UserId] then
 						TweenService:Create(LikeButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {ImageColor3 = Color3.fromRGB(38, 217, 100)}):Play()
 						TweenService:Create(DislikeButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {ImageColor3 = Color3.fromRGB(255, 255, 255)}):Play()
-					elseif FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].DislikedBy[LocalPlayer.UserId] then
+					elseif FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy[LocalPlayer.UserId] then
 						TweenService:Create(LikeButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {ImageColor3 = Color3.fromRGB(255, 255, 255)}):Play()
 						TweenService:Create(DislikeButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {ImageColor3 = Color3.fromRGB(255, 102, 102)}):Play()
 					else
@@ -281,7 +281,7 @@ _G.CreateTab = function(TabName, Scripts)
 				UpdateRatingButtonsColors()
 
 				ExecuteButtonFunction = ExecuteButton.MouseButton1Down:Connect(function()
-					FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].NumberOfExecutions += 1
+					FirebaseServer.ScriptsInfo[ScriptIdString].NumberOfExecutions += 1
 					UpdateExecutions()
 
 					_G.PopUpNotificationOptions({
@@ -350,7 +350,7 @@ _G.CreateTab = function(TabName, Scripts)
 				end)
 
 				LikeButtonFunction = LikeButton.MouseButton1Down:Connect(function()			
-					if FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].LikedBy[LocalPlayer.UserId] then
+					if FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy[LocalPlayer.UserId] then
 						FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", LocalPlayer.UserId)
 						wait()
 						
@@ -367,7 +367,7 @@ _G.CreateTab = function(TabName, Scripts)
 							Button2Text = "Ok",
 						})
 						
-						if FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].DislikedBy[LocalPlayer.UserId] then
+						if FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy[LocalPlayer.UserId] then
 							FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", LocalPlayer.UserId)
 						end
 					end
@@ -379,7 +379,7 @@ _G.CreateTab = function(TabName, Scripts)
 				end)
 
 				DislikeButtonFunction = DislikeButton.MouseButton1Down:Connect(function()			
-					if FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].DislikedBy[LocalPlayer.UserId] then
+					if FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy[LocalPlayer.UserId] then
 						FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", LocalPlayer.UserId)
 						wait()
 
@@ -397,7 +397,7 @@ _G.CreateTab = function(TabName, Scripts)
 							Button2Text = "Ok",
 						})
 
-						if FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].LikedBy[LocalPlayer.UserId] then
+						if FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy[LocalPlayer.UserId] then
 							FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", LocalPlayer.UserId)
 						end
 					end
@@ -441,7 +441,7 @@ _G.CreateTab = function(TabName, Scripts)
 		end
 
 		NewTab.TabInfo.TabNameAndTotalScripts.ScriptsTotal.Text = '<b>'..TotalScripts..' Scripts</b>, <font color="rgb(255, 188, 87)">'..OPScripts..' OP Scripts</font> and <font color="rgb(255, 102, 102)">'..NewScripts..' New Scripts</font>'
-	print("end")	
+	print("end")
 	end
 end
 
