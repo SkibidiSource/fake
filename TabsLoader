@@ -2,6 +2,7 @@ local Table = _G.Table
 local FileSystem = _G.FileSystem
 local FileSupporting = true
 local LocalPlayer = game:GetService("Players").LocalPlayer
+local UserIdString = tostring(LocalPlayer.UserId)
 local TweenService = game:GetService("TweenService")
 
 local FirebaseServer = {}
@@ -265,10 +266,10 @@ _G.CreateTab = function(TabName, Scripts)
 				end
 
 				local function UpdateRatingButtonsColors()
-					if FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy[LocalPlayer.UserId] then
+					if FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy[UserIdString] then
 						TweenService:Create(LikeButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {ImageColor3 = Color3.fromRGB(38, 217, 100)}):Play()
 						TweenService:Create(DislikeButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {ImageColor3 = Color3.fromRGB(255, 255, 255)}):Play()
-					elseif FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy[LocalPlayer.UserId] then
+					elseif FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy[UserIdString] then
 						TweenService:Create(LikeButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {ImageColor3 = Color3.fromRGB(255, 255, 255)}):Play()
 						TweenService:Create(DislikeButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {ImageColor3 = Color3.fromRGB(255, 102, 102)}):Play()
 					else
@@ -347,8 +348,6 @@ _G.CreateTab = function(TabName, Scripts)
 						})
 					end
 				end)
-				
-				local UserIdString = tostring(LocalPlayer.UserId)
 				
 				LikeButtonFunction = LikeButton.MouseButton1Down:Connect(function()			
 					if FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy[UserIdString] then
