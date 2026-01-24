@@ -134,6 +134,10 @@ _G.CreateTab = function(TabName, Scripts)
 				NewScripts += 1
 			end
 			
+			for i, v in ScriptInfo do
+				print(i, v)
+			end
+			
 			for i, v in FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId] do
 				print(i, v)
 			end
