@@ -59,6 +59,8 @@ local function FirebaseServerUpdate()
 	local URL = "https://vexhub-general-server-default-rtdb.firebaseio.com/"
 	local database = URL..".json?auth="..Secret
 	FirebaseServer = game.HttpService:JSONDecode(game:HttpGetAsync(database))
+
+	print(FirebaseServer)
 end
 
 FirebaseServerUpdate()
