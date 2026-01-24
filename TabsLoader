@@ -59,15 +59,12 @@ local function FirebaseServerUpdate()
 	local URL = "https://vexhub-general-server-default-rtdb.firebaseio.com/"
 	local database = URL..".json?auth="..Secret
 	FirebaseServer = game.HttpService:JSONDecode(game:HttpGetAsync(database))
-
-	for i, v in FirebaseServer do
-			print(i, v)
-	end
 end
 
 FirebaseServerUpdate()
 
 _G.CreateTab = function(TabName, Scripts)
+	print(TabName)
 	local NewTab = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages.TabsTemplate:Clone()
 
 	NewTab.Name = TabName
@@ -443,6 +440,7 @@ _G.CreateTab = function(TabName, Scripts)
 		end
 
 		NewTab.TabInfo.TabNameAndTotalScripts.ScriptsTotal.Text = '<b>'..TotalScripts..' Scripts</b>, <font color="rgb(255, 188, 87)">'..OPScripts..' OP Scripts</font> and <font color="rgb(255, 102, 102)">'..NewScripts..' New Scripts</font>'
+	print("end")	
 	end
 end
 
