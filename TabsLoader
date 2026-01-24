@@ -17,7 +17,7 @@ local function FirebaseServerWrite(Path, Key, Value)
 	if game.HttpService:JSONDecode(game:HttpGetAsync(database)) ~= nil then
 		for key, value in pairs(game.HttpService:JSONDecode(game:HttpGetAsync(database))) do
 			if key then
-				Table[Key] = Value
+				Table[key] = value
 			end
 		end
 	end
