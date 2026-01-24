@@ -361,7 +361,7 @@ _G.CreateTab = function(TabName, Scripts)
 							Button2Text = "Ok",
 						})
 					else
-						FirebaseServerWrite("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", LocalPlayer.UserId, true)
+						FirebaseServerWrite("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", UserIdString, true)
 						_G.PopUpNotificationOptions({
 							Title = "Script says:",
 							Message = "Liked",
@@ -390,7 +390,7 @@ _G.CreateTab = function(TabName, Scripts)
 							Button2Text = "Ok",
 						})
 					else
-						FirebaseServerWrite("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", LocalPlayer.UserId, true)
+						FirebaseServerWrite("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", UserIdString, true)
 
 						_G.PopUpNotificationOptions({
 							Title = "Script says:",
