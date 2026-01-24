@@ -144,7 +144,6 @@ GUI["UIGradient_02"].Parent = GUI["BottomFrame_01"]
 
 GUI["UIStroke_03"].Color = Color3.fromRGB(255, 255, 255)
 GUI["UIStroke_03"].Parent = GUI["BottomFrame_01"]
-GUI["UIStroke_03"].Thickness = 1
 GUI["UIStroke_03"].Transparency = 0.9
 
 GUI["UICorner_04"].CornerRadius = UDim.new(0, 5)
@@ -321,7 +320,6 @@ GUI["UIListLayout_023"].Parent = GUI["NumberOfLikes_020"]
 GUI["UIStroke_024"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 GUI["UIStroke_024"].Color = Color3.fromRGB(255, 255, 255)
 GUI["UIStroke_024"].Parent = GUI["ScriptTemplate_08"]
-GUI["UIStroke_024"].Thickness = 1
 GUI["UIStroke_024"].Transparency = 0.7
 
 GUI["Icons_025"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -437,7 +435,6 @@ GUI["UIScale_038"].Parent = GUI["Insides_036"]
 
 GUI["UIStroke_039"].Color = Color3.fromRGB(255, 255, 255)
 GUI["UIStroke_039"].Parent = GUI["Insides_036"]
-GUI["UIStroke_03"].Thickness = 1
 GUI["UIStroke_03"].Transparency = 0.5
 
 GUI["Insides_040"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -540,7 +537,6 @@ GUI["UIScale_052"].Parent = GUI["JoinButton_050"]
 
 GUI["UIStroke_053"].Color = Color3.fromRGB(35.00000171363354, 66.00000366568565, 178.00000458955765)
 GUI["UIStroke_053"].Parent = GUI["JoinButton_050"]
-GUI["UIStroke_053"].Thickness = 1
 GUI["UIStroke_053"].Transparency = 0.9
 
 GUI["UICorner_054"].CornerRadius = UDim.new(0, 5)
@@ -817,7 +813,6 @@ GUI["UIScale_081"].Parent = GUI["ExecuteButton_079"]
 
 GUI["UIStroke_082"].Color = Color3.fromRGB(35.00000171363354, 66.00000366568565, 178.00000458955765)
 GUI["UIStroke_082"].Parent = GUI["ExecuteButton_079"]
-GUI["UIStroke_082"].Thickness = 1
 GUI["UIStroke_082"].Transparency = 0.9
 
 GUI["UICorner_083"].CornerRadius = UDim.new(0, 5)
@@ -910,7 +905,6 @@ GUI["UIListLayout_094"].Parent = GUI["TabInfo_090"]
 
 GUI["UIStroke_095"].Color = Color3.fromRGB(255, 255, 255)
 GUI["UIStroke_095"].Parent = GUI["TabInfo_090"]
-GUI["UIStroke_095"].Thickness = 1
 GUI["UIStroke_095"].Transparency = 0.9
 
 GUI["UICorner_096"].CornerRadius = UDim.new(0, 5)
@@ -981,7 +975,6 @@ GUI["UICorner_0103"].Parent = GUI["SearchBar_0102"]
 
 GUI["UIStroke_0104"].Color = Color3.fromRGB(255, 255, 255)
 GUI["UIStroke_0104"].Parent = GUI["SearchBar_0102"]
-GUI["UIStroke_0104"].Thickness = 1
 GUI["UIStroke_0104"].Transparency = 0.7
 
 GUI["MagnifyingGlass_0105"].Image = "http://www.roblox.com/asset/?id=17633536608"
