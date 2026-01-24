@@ -1,9 +1,67 @@
 local Table = _G.Table
-local FirebaseServer = _G.Server
 local FileSystem = _G.FileSystem
 local FileSupporting = true
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local TweenService = game:GetService("TweenService")
+
+local FirebaseServer = {}
+local function FirebaseServerWrite(Path, Key, Value)
+	local Secret = "1Aq8ET3WbsdhKUSRvrKzHRhVdgUMQq4GYSuVlEX8"
+	local URL = "https://vexhub-general-server-default-rtdb.firebaseio.com/"
+	local Folder = Path
+
+	local database = URL..Folder..".json?auth="..Secret
+	local request = request or syn.request
+	local Table = {}
+
+	if game.HttpService:JSONDecode(game:HttpGetAsync(database)) ~= nil then
+		for key, value in pairs(game.HttpService:JSONDecode(game:HttpGetAsync(database))) do
+			if key then
+				Table[Key] = Value
+			end
+		end
+	end
+
+	Table[Key] = Value
+
+	local send = request({
+		Url = database,
+		Method = "PUT",
+		Headers = {["Content-Type"] = "application/json"},
+		Body = game.HttpService:JSONEncode(Table)
+	})
+end
+local function FirebaseServerDelete(Path, Key)
+	local Secret = "1Aq8ET3WbsdhKUSRvrKzHRhVdgUMQq4GYSuVlEX8"
+	local URL = "https://vexhub-general-server-default-rtdb.firebaseio.com/"
+
+	local database = URL..Path..".json?auth="..Secret
+	local request = request or syn.request
+	local Table = {}
+
+	if game.HttpService:JSONDecode(game:HttpGetAsync(database)) ~= nil then
+		for key, value in pairs(game.HttpService:JSONDecode(game:HttpGetAsync(database))) do
+			if key ~= Key then
+				Table[key] = value
+			end
+		end
+	end
+
+	local send = request({
+		Url = database,
+		Method = "PUT",
+		Headers = {["Content-Type"] = "application/json"},
+		Body = game.HttpService:JSONEncode(Table)
+	})
+end
+local function FirebaseServerUpdate()
+	local Secret = "1Aq8ET3WbsdhKUSRvrKzHRhVdgUMQq4GYSuVlEX8"
+	local URL = "https://vexhub-general-server-default-rtdb.firebaseio.com/"
+	local database = URL..".json?auth="..Secret
+	FirebaseServer = game.HttpService:JSONDecode(game:HttpGetAsync(database))
+end
+
+FirebaseServerUpdate()
 
 _G.CreateTab = function(TabName, Scripts)
 	local NewTab = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages.TabsTemplate:Clone()
@@ -233,16 +291,16 @@ _G.CreateTab = function(TabName, Scripts)
 
 				FavoriteButtonFunction = FavoriteButton.MouseButton1Down:Connect(function()
 					if FileSupporting == true then
-						if FileSystem["Folder/VexHub7"]["File/Favorites.vex"][ScriptInfo.ScriptId] then
+						if isfile("VexHub7/Favorites.vex") then
 							local NewTable = {}
 
-							for i, v in FileSystem["Folder/VexHub7"]["File/Favorites.vex"] do
+							for i, v in readfile("VexHub7/Favorites.vex") do
 								if i ~= ScriptInfo.ScriptId then
 									NewTable[ScriptInfo.ScriptId] = true
 								end
 							end
 
-							FileSystem["Folder/VexHub7"]["File/Favorites.vex"] = NewTable
+							writefile("VexHub7/Favorites.vex", NewTable)
 
 							_G.PopUpNotificationOptions({
 								Title = "Script says:",
@@ -250,7 +308,13 @@ _G.CreateTab = function(TabName, Scripts)
 								Button2Text = "Ok",
 							})
 						else
-							FileSystem["Folder/VexHub7"]["File/Favorites.vex"][ScriptInfo.ScriptId] = true
+							local NewTable = {}
+							
+							for i, v in readfile("VexHub7/Favorites.vex") do
+								NewTable[ScriptInfo.ScriptId] = true
+							end
+							
+							writefile("VexHub7/Favorites.vex", NewTable)
 
 							_G.PopUpNotificationOptions({
 								Title = "Script says:",
@@ -258,10 +322,6 @@ _G.CreateTab = function(TabName, Scripts)
 								Button2Text = "Ok",
 							})
 						end
-
-						Table.Favorites = FileSystem["Folder/VexHub7"]["File/Favorites.vex"]
-						print(Table.Favorites)
-						print(FileSystem["Folder/VexHub7"]["File/Favorites.vex"])
 					else
 						_G.PopUpNotificationOptions({
 							Title = "Script says:",
@@ -289,58 +349,37 @@ _G.CreateTab = function(TabName, Scripts)
 
 				LikeButtonFunction = LikeButton.MouseButton1Down:Connect(function()			
 					if FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].LikedBy[LocalPlayer.UserId] then
-						local NewTable = {}
-
-						for i, v in FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].LikedBy do
-							if i ~= LocalPlayer.UserId then
-								NewTable[i] = v
-							end
-						end
-
-						FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].LikedBy = NewTable
-
+						FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", LocalPlayer.UserId)
+						wait()
+						
 						_G.PopUpNotificationOptions({
 							Title = "Script says:",
 							Message = "Unliked",
 							Button2Text = "Ok",
 						})
 					else
-						FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].LikedBy[LocalPlayer.UserId] = true
-
+						FirebaseServerWrite("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", LocalPlayer.UserId, true)
 						_G.PopUpNotificationOptions({
 							Title = "Script says:",
 							Message = "Liked",
 							Button2Text = "Ok",
 						})
-
+						
 						if FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].DislikedBy[LocalPlayer.UserId] then
-							local NewTable = {}
-
-							for i, v in FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].DislikedBy do
-								if i ~= LocalPlayer.UserId then
-									NewTable[i] = v
-								end
-							end
-
-							FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].DislikedBy = NewTable
+							FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", LocalPlayer.UserId)
 						end
 					end
-
+					
+					FirebaseServerUpdate()
+					wait()
 					UpdateRating()
 					UpdateRatingButtonsColors()
 				end)
 
 				DislikeButtonFunction = DislikeButton.MouseButton1Down:Connect(function()			
 					if FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].DislikedBy[LocalPlayer.UserId] then
-						local NewTable = {}
-
-						for i, v in FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].DislikedBy do
-							if i ~= LocalPlayer.UserId then
-								NewTable[i] = v
-							end
-						end
-
-						FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].DislikedBy = NewTable
+						FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", LocalPlayer.UserId)
+						wait()
 
 						_G.PopUpNotificationOptions({
 							Title = "Script says:",
@@ -348,7 +387,7 @@ _G.CreateTab = function(TabName, Scripts)
 							Button2Text = "Ok",
 						})
 					else
-						FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].DislikedBy[LocalPlayer.UserId] = true
+						FirebaseServerWrite("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", LocalPlayer.UserId, true)
 
 						_G.PopUpNotificationOptions({
 							Title = "Script says:",
@@ -357,19 +396,12 @@ _G.CreateTab = function(TabName, Scripts)
 						})
 
 						if FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].LikedBy[LocalPlayer.UserId] then
-							local NewTable = {}
-
-							for i, v in FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].LikedBy do
-								if i ~= LocalPlayer.UserId then
-									NewTable[i] = v
-									print("removed")
-								end
-							end
-
-							FirebaseServer.ScriptsInfo[ScriptInfo.ScriptId].LikedBy = NewTable
+							FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", LocalPlayer.UserId)
 						end
 					end
-
+					
+					FirebaseServerUpdate()
+					wait()
 					UpdateRating()
 					UpdateRatingButtonsColors()
 				end)
@@ -410,6 +442,7 @@ _G.CreateTab = function(TabName, Scripts)
 	end
 end
 
+--[[
 _G.CreatePluginTab = function(PluginName, PluginImage, PluginCreator, Scripts)
 	local NewTab = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages.TabsPluginTemplate:Clone()
 
@@ -562,6 +595,7 @@ _G.CreatePluginTab = function(PluginName, PluginImage, PluginCreator, Scripts)
 		NewTab.TabInfo.TabNameAndTotalScripts.ScriptsTotal.Text = 'by <b>'..PluginCreator..'</b>'
 	end
 end
+]]
 
 for TabName, Scripts in Table.Scripts do
 	_G.CreateTab(TabName, Scripts)
