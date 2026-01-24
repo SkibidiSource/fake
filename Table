@@ -31,39 +31,6 @@ _G.Table = {
 				Icon = "rbxassetid://11592851654",
 				Order = 1,
 			},
-
-			["Copy Chat Messages"] = {
-				Creator = "V31nc",
-				Description = "Copies chat messages. You can't stop it.",
-				GameId = 0,
-				RigType = "Any", -- R6, R15, Any
-				IsOP = false,
-				IsNew = false,
-				ScriptId = 1001,
-				Script = 'https://pastebin.com/raw/no'
-			},
-
-			["Anti Kick"] = {
-				Creator = "Unknown",
-				Description = "This script only works on some games.",
-				GameId = 0,
-				RigType = "Any", -- R6, R15, Any
-				IsOP = true,
-				IsNew = false,
-				ScriptId = 1002,
-				Script = 'https://pastebin.com/raw/ye'
-			},
-
-			["Kill Farm"] = {
-				Creator = "Zaptosis (Unverified Creator)",
-				Description = "Freeze players to kill them. Only works on some games.",
-				GameId = 0,
-				RigType = "Any", -- R6, R15, Any
-				IsOP = true,
-				IsNew = false,
-				ScriptId = 1003,
-				Script = 'https://pastebin.com/raw/my'
-			},
 		},
 
 		["Required Accessories"] = {
@@ -91,6 +58,17 @@ _G.Table = {
 			["Info"] = {
 				Icon = "rbxassetid://11592837927",
 				Order = 5,
+				
+				["Infinite Yeild"] = {
+					Creator = "edge_egg (Edge), strong.zinnia (Moon), toonarch (Toon)",
+					Description = "Commands for universal exploiting.",
+					GameId = 0,
+					RigType = "Any", -- R6, R15, Any
+					IsOP = false,
+					IsNew = false,
+					ScriptId = 5001,
+					Script = 'https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'
+				},
 			},
 		},
 
@@ -108,7 +86,7 @@ if (writefile) then
 		local success, result = pcall(function()
 			_G.Table.GUISettings = JSon:Decode(readfile("VexHub7/Settings.vex"))
 			_G.Table.Favorites = JSon:Decode(readfile("VexHub7/Favorites.vex"))
-			
+
 			for _, PluginName in listfiles("VexHub/Plugins") do
 				if string.find(string.lower(tostring(PluginName)), ".vexp") then
 					local PluginContents = loadstring(readfile(PluginName))()
@@ -116,7 +94,7 @@ if (writefile) then
 				end
 			end
 		end)
-		
+
 		if success then
 			print("Read files successfully")
 		else
@@ -141,12 +119,12 @@ for _, Scripts in _G.Table.Scripts do
 			local Secret = "1Aq8ET3WbsdhKUSRvrKzHRhVdgUMQq4GYSuVlEX8"
 			local URL = "https://vexhub-general-server-default-rtdb.firebaseio.com/"
 			local data = nil
-			
+
 			local Success, Error = pcall(function()
 				local database = URL..".json?auth="..Secret
 				data = game.HttpService:JSONDecode(game:HttpGetAsync(database))
 			end)
-			
+
 			if Success then
 				local ScriptIdString = tostring(ScriptInfo.ScriptId)
 				if not data.ScriptsInfo[ScriptIdString] then
@@ -168,11 +146,11 @@ for _, Scripts in _G.Table.Scripts do
 						Table[ScriptIdString] = {
 							NumberOfExecutions = 0,
 						}
-						
+
 						Table[ScriptIdString]["LikedBy"] = {
 							["System"] = true 
 						}
-						
+
 						Table[ScriptIdString]["DislikedBy"] = {
 							["System"] = true 
 						}
