@@ -133,7 +133,7 @@ _G.CreateTab = function(TabName, Scripts)
 			if ScriptInfo.IsNew == true then
 				NewScripts += 1
 			end
-			
+
 			local ScriptIdString = tostring(ScriptInfo.ScriptId)
 			for i, v in FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy do
 				TotalLikes += 1
@@ -248,7 +248,7 @@ _G.CreateTab = function(TabName, Scripts)
 					LikeRating.Text = Likes.."%"
 					DislikeRating.Text = Dislikes.."%"
 				end
-				
+
 				ScriptInfoFrame.Insides.ScrollingFrame.ScriptName.Text = '<b>'..ScriptName..'</b>\n<font size="10"><font transparency="0.2">By</font> <b>'..ScriptInfo.Creator..'</b></font>\n\n<font transparency="0.3"><font size="9"><b>"'..ScriptInfo.Description..'"</b></font></font>'
 
 				UpdateRating()
@@ -281,14 +281,27 @@ _G.CreateTab = function(TabName, Scripts)
 				UpdateRatingButtonsColors()
 
 				ExecuteButtonFunction = ExecuteButton.MouseButton1Down:Connect(function()
-					FirebaseServer.ScriptsInfo[ScriptIdString].NumberOfExecutions += 1
-					UpdateExecutions()
+					local success, result = pcall(function()
+						loadstring(game:HttpGet((ScriptInfo.Script),true))()
+					end)
 
-					_G.PopUpNotificationOptions({
-						Title = "Script says:",
-						Message = ScriptInfo.Script,
-						Button2Text = "Ok",
-					})
+					if success then
+						_G.PopUpNotificationOptions({
+							Title = "Executed Successfully!",
+							Message = ScriptName.." has been executed with no errors",
+							Button2Text = "Close",
+						})
+					else
+						_G.PopUpNotificationOptions({
+							Title = "Script Failed to Execute!",
+							Message = result,
+							Button2Text = "Close",
+						})
+					end
+					
+					FirebaseServerWrite("ScriptsInfo/"..ScriptIdString, "NumberOfExecutions", FirebaseServer.ScriptsInfo[ScriptIdString].NumberOfExecutions+1)
+					FirebaseServerUpdate()
+					UpdateExecutions()
 				end)
 
 				FavoriteButtonFunction = FavoriteButton.MouseButton1Down:Connect(function()
@@ -311,11 +324,11 @@ _G.CreateTab = function(TabName, Scripts)
 							})
 						else
 							local NewTable = {}
-							
+
 							for i, v in readfile("VexHub7/Favorites.vex") do
 								NewTable[ScriptInfo.ScriptId] = true
 							end
-							
+
 							writefile("VexHub7/Favorites.vex", NewTable)
 
 							_G.PopUpNotificationOptions({
@@ -348,12 +361,12 @@ _G.CreateTab = function(TabName, Scripts)
 						})
 					end
 				end)
-				
+
 				LikeButtonFunction = LikeButton.MouseButton1Down:Connect(function()			
 					if FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy[UserIdString] then
 						FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", UserIdString)
 						wait()
-						
+
 						_G.PopUpNotificationOptions({
 							Title = "Script says:",
 							Message = "Unliked",
@@ -366,12 +379,12 @@ _G.CreateTab = function(TabName, Scripts)
 							Message = "Liked",
 							Button2Text = "Ok",
 						})
-						
+
 						if FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy[UserIdString] then
 							FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", UserIdString)
 						end
 					end
-					
+
 					FirebaseServerUpdate()
 					wait()
 					UpdateRating()
@@ -401,7 +414,7 @@ _G.CreateTab = function(TabName, Scripts)
 							FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", UserIdString)
 						end
 					end
-					
+
 					FirebaseServerUpdate()
 					wait()
 					UpdateRating()
