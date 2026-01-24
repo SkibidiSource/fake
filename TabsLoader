@@ -9,7 +9,7 @@ _G.CreateTab = function(TabName, Scripts)
 	local NewTab = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages.TabsTemplate:Clone()
 
 	NewTab.Name = TabName
-	NewTab.Parent = script.Parent
+	NewTab.Parent = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages
 	NewTab.Visible = false
 	NewTab.TabInfo.TabNameAndTotalScripts.TabName.Text = TabName
 	NewTab.TabInfo.TabImage.Image = Scripts.Info.Icon
@@ -414,7 +414,7 @@ _G.CreatePluginTab = function(PluginName, PluginImage, PluginCreator, Scripts)
 	local NewTab = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages.TabsPluginTemplate:Clone()
 
 	NewTab.Name = "PLUGIN_"..PluginName
-	NewTab.Parent = script.Parent
+	NewTab.Parent = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages
 	NewTab.Visible = false
 	NewTab.TabInfo.TabNameAndTotalScripts.TabName.Text = PluginName
 	NewTab.TabInfo.TabImage.Image = PluginImage
