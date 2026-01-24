@@ -217,7 +217,6 @@ GUI["Icons_015"].Name = "Icons"
 GUI["Icons_015"].Parent = GUI["ScriptTemplate_08"]
 
 GUI["ScriptImage_016"].Image = "rbxassetid://11592851654"
-GUI["ScriptImage_016"].ImageContent = Content
 GUI["ScriptImage_016"].ImageTransparency = 0.10000000149011612
 GUI["ScriptImage_016"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["ScriptImage_016"].BackgroundTransparency = 1
@@ -248,7 +247,6 @@ GUI["UIListLayout_019"].VerticalAlignment = Enum.VerticalAlignment.Center
 GUI["UIListLayout_019"].Parent = GUI["Icons_018"]
 
 GUI["GameIcon_020"].Image = "http://www.roblox.com/asset/?id=11738116961"
-GUI["GameIcon_020"].ImageContent = Content
 GUI["GameIcon_020"].ImageTransparency = 0.30000001192092896
 GUI["GameIcon_020"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["GameIcon_020"].BackgroundTransparency = 1
@@ -260,7 +258,6 @@ GUI["GameIcon_020"].Name = "GameIcon"
 GUI["GameIcon_020"].Parent = GUI["Icons_018"]
 
 GUI["RigTypeIcon_021"].Image = "http://www.roblox.com/asset/?id=11704876885"
-GUI["RigTypeIcon_021"].ImageContent = Content
 GUI["RigTypeIcon_021"].ImageTransparency = 0.30000001192092896
 GUI["RigTypeIcon_021"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["RigTypeIcon_021"].BackgroundTransparency = 1
@@ -417,7 +414,6 @@ GUI["CloseText_038"].Name = "CloseText"
 GUI["CloseText_038"].Parent = GUI["CloseButton_037"]
 
 GUI["CloseImage_039"].Image = "rbxassetid://17584397052"
-GUI["CloseImage_039"].ImageContent = Content
 GUI["CloseImage_039"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["CloseImage_039"].BackgroundTransparency = 1
 GUI["CloseImage_039"].BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -469,7 +465,6 @@ GUI["UIListLayout_045"].VerticalAlignment = Enum.VerticalAlignment.Center
 GUI["UIListLayout_045"].Parent = GUI["Icons_044"]
 
 GUI["GameIcon_046"].Image = "http://www.roblox.com/asset/?id=11738116961"
-GUI["GameIcon_046"].ImageContent = Content
 GUI["GameIcon_046"].ImageTransparency = 0.30000001192092896
 GUI["GameIcon_046"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["GameIcon_046"].BackgroundTransparency = 1
@@ -482,7 +477,6 @@ GUI["GameIcon_046"].Name = "GameIcon"
 GUI["GameIcon_046"].Parent = GUI["Icons_044"]
 
 GUI["RigTypeIcon_047"].Image = "http://www.roblox.com/asset/?id=11704876885"
-GUI["RigTypeIcon_047"].ImageContent = Content
 GUI["RigTypeIcon_047"].ImageTransparency = 0.30000001192092896
 GUI["RigTypeIcon_047"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["RigTypeIcon_047"].BackgroundTransparency = 1
@@ -524,7 +518,6 @@ GUI["UICorner_052"].CornerRadius = UDim.new(0, 5)
 GUI["UICorner_052"].Parent = GUI["ExecuteButton_048"]
 
 GUI["ScriptPlay_053"].Image = "http://www.roblox.com/asset/?id=17658539661"
-GUI["ScriptPlay_053"].ImageContent = Content
 GUI["ScriptPlay_053"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["ScriptPlay_053"].BackgroundTransparency = 1
 GUI["ScriptPlay_053"].BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -584,7 +577,6 @@ GUI["UICorner_060"].CornerRadius = UDim.new(0, 5)
 GUI["UICorner_060"].Parent = GUI["JoinButton_056"]
 
 GUI["PlayImage_061"].Image = "rbxassetid://14320976370"
-GUI["PlayImage_061"].ImageContent = Content
 GUI["PlayImage_061"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["PlayImage_061"].BackgroundTransparency = 1
 GUI["PlayImage_061"].BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -647,7 +639,6 @@ GUI["Border_068"].Name = "Border"
 GUI["Border_068"].Parent = GUI["TabInfo_067"]
 
 GUI["TabImage_069"].Image = "rbxassetid://11592824883"
-GUI["TabImage_069"].ImageContent = Content
 GUI["TabImage_069"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["TabImage_069"].BackgroundTransparency = 1
 GUI["TabImage_069"].BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -743,7 +734,6 @@ GUI["UIStroke_081"].Color = Color3.fromRGB(255, 255, 255)
 GUI["UIStroke_081"].Parent = GUI["SearchBar_079"]
 
 GUI["MagnifyingGlass_082"].Image = "http://www.roblox.com/asset/?id=17633536608"
-GUI["MagnifyingGlass_082"].ImageContent = Content
 GUI["MagnifyingGlass_082"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["MagnifyingGlass_082"].BackgroundTransparency = 1
 GUI["MagnifyingGlass_082"].BorderColor3 = Color3.fromRGB(0, 0, 0)
