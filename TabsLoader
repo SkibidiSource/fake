@@ -64,7 +64,6 @@ end
 FirebaseServerUpdate()
 
 _G.CreateTab = function(TabName, Scripts)
-	print(TabName)
 	local NewTab = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages.TabsTemplate:Clone()
 
 	NewTab.Name = TabName
@@ -348,10 +347,12 @@ _G.CreateTab = function(TabName, Scripts)
 						})
 					end
 				end)
-
+				
+				local UserIdString = tostring(LocalPlayer.UserId)
+				
 				LikeButtonFunction = LikeButton.MouseButton1Down:Connect(function()			
-					if FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy[LocalPlayer.UserId] then
-						FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", LocalPlayer.UserId)
+					if FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy[UserIdString] then
+						FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", UserIdString)
 						wait()
 						
 						_G.PopUpNotificationOptions({
@@ -367,8 +368,8 @@ _G.CreateTab = function(TabName, Scripts)
 							Button2Text = "Ok",
 						})
 						
-						if FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy[LocalPlayer.UserId] then
-							FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", LocalPlayer.UserId)
+						if FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy[UserIdString] then
+							FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", UserIdString)
 						end
 					end
 					
@@ -379,8 +380,8 @@ _G.CreateTab = function(TabName, Scripts)
 				end)
 
 				DislikeButtonFunction = DislikeButton.MouseButton1Down:Connect(function()			
-					if FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy[LocalPlayer.UserId] then
-						FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", LocalPlayer.UserId)
+					if FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy[UserIdString] then
+						FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", UserIdString)
 						wait()
 
 						_G.PopUpNotificationOptions({
@@ -397,8 +398,8 @@ _G.CreateTab = function(TabName, Scripts)
 							Button2Text = "Ok",
 						})
 
-						if FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy[LocalPlayer.UserId] then
-							FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", LocalPlayer.UserId)
+						if FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy[UserIdString] then
+							FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", UserIdString)
 						end
 					end
 					
@@ -441,7 +442,6 @@ _G.CreateTab = function(TabName, Scripts)
 		end
 
 		NewTab.TabInfo.TabNameAndTotalScripts.ScriptsTotal.Text = '<b>'..TotalScripts..' Scripts</b>, <font color="rgb(255, 188, 87)">'..OPScripts..' OP Scripts</font> and <font color="rgb(255, 102, 102)">'..NewScripts..' New Scripts</font>'
-	print("end")
 	end
 end
 
