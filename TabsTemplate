@@ -435,7 +435,7 @@ GUI["UIScale_038"].Parent = GUI["Insides_036"]
 
 GUI["UIStroke_039"].Color = Color3.fromRGB(255, 255, 255)
 GUI["UIStroke_039"].Parent = GUI["Insides_036"]
-GUI["UIStroke_03"].Transparency = 0.5
+GUI["UIStroke_039"].Transparency = 0.5
 
 GUI["Insides_040"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["Insides_040"].BackgroundTransparency = 1
