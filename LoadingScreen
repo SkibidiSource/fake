@@ -120,7 +120,7 @@ wait(0.2)
 local Errors = 0
 
 NewMessage("Having troubles using VexHub? Join our Discord server! dsc.gg/vhub")
-NewMessage("GitHub Version 13")
+NewMessage("GitHub Version 14")
 
 NewMessage("Loading Table...")
 local success, result = pcall(function()
@@ -167,6 +167,20 @@ wait()
 NewMessage("Loading TabsTemplate...")
 local success, result = pcall(function()
 	loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/TabsTemplate'),true))()
+end)
+
+if success then
+	NewMessage("Loaded TabsTemplate...")
+else
+	Errors += 1
+	NewMessage("An error occured: "..result)
+end
+
+wait()
+
+NewMessage("Loading TabsPluginTemplate...")
+local success, result = pcall(function()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/TabsPluginTemplate'),true))()
 end)
 
 if success then
