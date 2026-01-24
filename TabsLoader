@@ -60,7 +60,9 @@ local function FirebaseServerUpdate()
 	local database = URL..".json?auth="..Secret
 	FirebaseServer = game.HttpService:JSONDecode(game:HttpGetAsync(database))
 
-	print(FirebaseServer)
+	for i, v in FirebaseServer do
+			print(i, v)
+	end
 end
 
 FirebaseServerUpdate()
