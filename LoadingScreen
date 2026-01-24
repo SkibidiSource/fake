@@ -192,6 +192,20 @@ end
 
 wait()
 
+NewMessage("Loading Tabs...")
+local success, result = pcall(function()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/TabsLoader'),true))()
+end)
+
+if success then
+	NewMessage("Loaded TabsTemplate...")
+else
+	Errors += 1
+	NewMessage("An error occured: "..result)
+end
+
+wait()
+
 if Errors == 0 then
 	CloseScreen()
 else
