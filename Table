@@ -148,7 +148,8 @@ for _, Scripts in _G.Table.Scripts do
 			end)
 			
 			if Success then
-				if not data.ScriptsInfo[tostring(ScriptInfo.ScriptId)] then
+				local ScriptIdString = tostring(ScriptInfo.ScriptId)
+				if not data.ScriptsInfo[ScriptIdString] then
 					local Success, Error = pcall(function()
 						local Folder = "ScriptsInfo" --You can change the parent or the location of the data
 
@@ -164,15 +165,15 @@ for _, Scripts in _G.Table.Scripts do
 							end
 						end
 
-						Table[ScriptInfo.ScriptId] = {
+						Table[ScriptIdString] = {
 							NumberOfExecutions = 0,
 						}
 						
-						Table[ScriptInfo.ScriptId]["LikedBy"] = {
+						Table[ScriptIdString]["LikedBy"] = {
 							["System"] = true 
 						}
 						
-						Table[ScriptInfo.ScriptId]["DislikedBy"] = {
+						Table[ScriptIdString]["DislikedBy"] = {
 							["System"] = true 
 						}
 
