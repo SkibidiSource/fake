@@ -356,22 +356,23 @@ _G.CreateTab = function(TabName, Scripts)
 							local FileTable = JSon:Decode(readfile("VexHub7/Favorites.vex"))
 							local NewTable = {}
 							local ScriptFavorited = false
-							
+
 							for i, v in FileTable do
 								if i == ScriptIdString then
 									ScriptFavorited = true
 								end
 							end
-							
+
 							if ScriptFavorited == true then
 								for i, v in FileTable do
 									if i ~= ScriptIdString then
 										NewTable[i] = v
 									end
 								end
-								
+
 								writefile("VexHub7/Favorites.vex", JSon:Encode(NewTable))
-								
+								_G.Table.Favorites = NewTable
+
 								_G.PopUpNotificationOptions({
 									Title = "Script removed from favorites.",
 									Button2Text = "Ok",
@@ -380,11 +381,12 @@ _G.CreateTab = function(TabName, Scripts)
 								for i, v in FileTable do
 									NewTable[i] = v
 								end
-								
+
 								NewTable[ScriptIdString] = true
-								
+
 								writefile("VexHub7/Favorites.vex", JSon:Encode(NewTable))
-								
+								_G.Table.Favorites = NewTable
+
 								_G.PopUpNotificationOptions({
 									Title = "Script added to favorites!",
 									Button2Text = "Ok",
