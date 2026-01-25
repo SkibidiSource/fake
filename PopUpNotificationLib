@@ -179,7 +179,7 @@ GUI["TopFrame_0"].Size = UDim2.new(1, 0, 0, 0)
 GUI["TopFrame_0"].Name = "TopFrame"
 GUI["TopFrame_0"].Parent = GUI["NotificationInsides_0"]
 
-GUI["Title_0"].Font = Enum.Font.Unknown
+GUI["Title_0"].Font = Enum.Font.MontserratBold
 GUI["Title_0"].Text = "Title"
 GUI["Title_0"].TextColor3 = Color3.fromRGB(255, 255, 255)
 GUI["Title_0"].TextSize = 14
@@ -194,7 +194,7 @@ GUI["Title_0"].Size = UDim2.new(0.899999976, 0, 0, 0)
 GUI["Title_0"].Name = "Title"
 GUI["Title_0"].Parent = GUI["TopFrame_0"]
 
-GUI["Message_0"].Font = Enum.Font.Unknown
+GUI["Message_0"].Font = Enum.Font.MontserratMedium
 GUI["Message_0"].Text = "Message"
 GUI["Message_0"].TextColor3 = Color3.fromRGB(255, 255, 255)
 GUI["Message_0"].TextSize = 9
