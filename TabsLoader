@@ -4,6 +4,8 @@ local FileSupporting = true
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local UserIdString = tostring(LocalPlayer.UserId)
 local TweenService = game:GetService("TweenService")
+local RatelimitExecuted = tonumber(os.time())
+local RatelimitRating = tonumber(os.time())
 
 local FirebaseServer = {}
 local function FirebaseServerWrite(Path, Key, Value)
@@ -329,9 +331,13 @@ _G.CreateTab = function(TabName, Scripts)
 							Button2Text = "Close",
 						})
 					end
-
-					FirebaseServerWrite("ScriptsInfo/"..ScriptIdString, "NumberOfExecutions", FirebaseServer.ScriptsInfo[ScriptIdString].NumberOfExecutions+1)
-					FirebaseServerUpdate()
+					
+					if RatelimitExecuted < os.time() then
+						RatelimitExecuted = os.time() + 15
+						FirebaseServerWrite("ScriptsInfo/"..ScriptIdString, "NumberOfExecutions", FirebaseServer.ScriptsInfo[ScriptIdString].NumberOfExecutions+1)
+						FirebaseServerUpdate()
+					end
+					
 					UpdateExecutions()
 				end)
 
@@ -380,76 +386,70 @@ _G.CreateTab = function(TabName, Scripts)
 				JoinButtonFunction = JoinButton.MouseButton1Down:Connect(function()
 					if ScriptInfo.GameId == 0 then
 						_G.PopUpNotificationOptions({
-							Title = "Script says:",
-							Message = "Universal",
+							Title = "Script is for any games!",
+							Message = "No need to join a specific game to execute this script.",
 							Button2Text = "Ok",
 						})
 					else
+						game:GetService("TeleportService"):Teleport(ScriptInfo.GameId)
 						_G.PopUpNotificationOptions({
-							Title = "Script says:",
-							Message = "Game: "..ScriptInfo.GameId,
+							Title = "Teleporting...",
+							Message = "Please wait...",
 							Button2Text = "Ok",
 						})
 					end
 				end)
 
-				LikeButtonFunction = LikeButton.MouseButton1Down:Connect(function()			
-					if FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy[UserIdString] then
-						FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", UserIdString)
-						wait()
-
-						_G.PopUpNotificationOptions({
-							Title = "Script says:",
-							Message = "Unliked",
-							Button2Text = "Ok",
-						})
-					else
-						FirebaseServerWrite("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", UserIdString, true)
-						_G.PopUpNotificationOptions({
-							Title = "Script says:",
-							Message = "Liked",
-							Button2Text = "Ok",
-						})
-
-						if FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy[UserIdString] then
-							FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", UserIdString)
-						end
-					end
-
-					FirebaseServerUpdate()
-					wait()
-					UpdateRating()
-					UpdateRatingButtonsColors()
-				end)
-
-				DislikeButtonFunction = DislikeButton.MouseButton1Down:Connect(function()			
-					if FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy[UserIdString] then
-						FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", UserIdString)
-						wait()
-
-						_G.PopUpNotificationOptions({
-							Title = "Script says:",
-							Message = "Undisliked",
-							Button2Text = "Ok",
-						})
-					else
-						FirebaseServerWrite("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", UserIdString, true)
-
-						_G.PopUpNotificationOptions({
-							Title = "Script says:",
-							Message = "Disliked",
-							Button2Text = "Ok",
-						})
-
+				LikeButtonFunction = LikeButton.MouseButton1Down:Connect(function()
+					if RatelimitRating < os.time() then
+						RatelimitRating = os.time() + 15
 						if FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy[UserIdString] then
 							FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", UserIdString)
-						end
-					end
+						else
+							FirebaseServerWrite("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", UserIdString, true)
 
-					FirebaseServerUpdate()
-					wait()
-					UpdateRating()
-					UpdateRatingButtonsColors()
+							if FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy[UserIdString] then
+								FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", UserIdString)
+							end
+						end
+
+						FirebaseServerUpdate()
+						wait()
+						UpdateRating()
+						UpdateRatingButtonsColors()
+					else
+						_G.PopUpNotificationOptions({
+							Title = "You are being ratelimited!",
+							Message = "Please try again later",
+							Button2Text = "Ok",
+						})
+					end
+				end)
+
+				DislikeButtonFunction = DislikeButton.MouseButton1Down:Connect(function()
+					if RatelimitRating < os.time() then
+						RatelimitRating = os.time() + 15
+						if FirebaseServer.ScriptsInfo[ScriptIdString].DislikedBy[UserIdString] then
+							FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", UserIdString)
+						else
+							FirebaseServerWrite("ScriptsInfo/"..ScriptInfo.ScriptId.."/DislikedBy", UserIdString, true)
+
+							if FirebaseServer.ScriptsInfo[ScriptIdString].LikedBy[UserIdString] then
+								FirebaseServerDelete("ScriptsInfo/"..ScriptInfo.ScriptId.."/LikedBy", UserIdString)
+							end
+						end
+
+						FirebaseServerUpdate()
+						wait()
+						UpdateRating()
+						UpdateRatingButtonsColors()
+					else
+						_G.PopUpNotificationOptions({
+							Title = "You are being ratelimited!",
+							Message = "Please try again later",
+							Button2Text = "Ok",
+						})
+					end
 				end)
 
 				ScriptInfoFrame.Visible = true
