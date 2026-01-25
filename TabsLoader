@@ -313,7 +313,6 @@ _G.CreateTab = function(TabName, Scripts)
 
 				ExecuteButtonFunction = ExecuteButton.MouseButton1Down:Connect(function()
 					local success, result = pcall(function()
-						print(ScriptInfo.Script)
 						loadstring(game:HttpGet((ScriptInfo.Script),true))()
 					end)
 
