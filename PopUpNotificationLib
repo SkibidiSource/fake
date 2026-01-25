@@ -67,6 +67,7 @@ GUI["UICorner_0"].Parent = GUI["NotificationTemplate_0"]
 
 GUI["UIStroke_0"].Color = Color3.fromRGB(255, 255, 255)
 GUI["UIStroke_0"].Parent = GUI["NotificationTemplate_0"]
+GUI["UIStroke_0"].Transparency = 0.9
 
 GUI["UISizeConstraint_0"].MaxSize = Vector2.new(math.huge, 150)
 GUI["UISizeConstraint_0"].Parent = GUI["NotificationTemplate_0"]
@@ -138,7 +139,6 @@ GUI["UICorner_01"].Parent = GUI["Button1_0"]
 GUI["UIStroke_01"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 GUI["UIStroke_01"].Color = Color3.fromRGB(59.00000028312206, 62.00000010430813, 73.00000324845314)
 GUI["UIStroke_01"].Parent = GUI["Button1_0"]
-GUI["UIStroke_01"].Transparency = 0.9
 
 GUI["UIScale_01"].Parent = GUI["Button1_0"]
 
