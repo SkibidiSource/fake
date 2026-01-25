@@ -7,6 +7,15 @@ local TweenService = game:GetService("TweenService")
 local RatelimitExecuted = tonumber(os.time())
 local RatelimitRating = tonumber(os.time())
 
+local JSon = {}
+function JSon:Encode(Table)
+	return game:GetService("HttpService"):JSONEncode(Table)
+end
+
+function JSon:Decode(Table)
+	return game:GetService("HttpService"):JSONDecode(Table)
+end
+
 local FirebaseServer = {}
 local function FirebaseServerWrite(Path, Key, Value)
 	local Secret = "1Aq8ET3WbsdhKUSRvrKzHRhVdgUMQq4GYSuVlEX8"
@@ -331,48 +340,56 @@ _G.CreateTab = function(TabName, Scripts)
 							Button2Text = "Close",
 						})
 					end
-					
+
 					if RatelimitExecuted < os.time() then
 						RatelimitExecuted = os.time() + 15
 						FirebaseServerWrite("ScriptsInfo/"..ScriptIdString, "NumberOfExecutions", FirebaseServer.ScriptsInfo[ScriptIdString].NumberOfExecutions+1)
 						FirebaseServerUpdate()
 					end
-					
+
 					UpdateExecutions()
 				end)
 
 				FavoriteButtonFunction = FavoriteButton.MouseButton1Down:Connect(function()
 					if FileSupporting == true then
 						if isfile("VexHub7/Favorites.vex") then
+							local FileTable = JSon:Decode(readfile("VexHub7/Favorites.vex"))
 							local NewTable = {}
-
-							for i, v in readfile("VexHub7/Favorites.vex") do
-								if i ~= ScriptInfo.ScriptId then
-									NewTable[ScriptInfo.ScriptId] = true
+							local ScriptFavorited = false
+							
+							for i, v in FileTable do
+								if i == ScriptIdString then
+									ScriptFavorited = true
 								end
 							end
-
-							writefile("VexHub7/Favorites.vex", NewTable)
-
-							_G.PopUpNotificationOptions({
-								Title = "Script says:",
-								Message = "Unfavorited",
-								Button2Text = "Ok",
-							})
-						else
-							local NewTable = {}
-
-							for i, v in readfile("VexHub7/Favorites.vex") do
-								NewTable[ScriptInfo.ScriptId] = true
+							
+							if ScriptFavorited == true then
+								for i, v in FileTable do
+									if i ~= ScriptIdString then
+										NewTable[i] = v
+									end
+								end
+								
+								writefile("VexHub7/Favorites.vex", JSon:Encode(NewTable))
+								
+								_G.PopUpNotificationOptions({
+									Title = "Script removed from favorites.",
+									Button2Text = "Ok",
+								})
+							else
+								for i, v in FileTable do
+									NewTable[i] = v
+								end
+								
+								NewTable[ScriptIdString] = true
+								
+								writefile("VexHub7/Favorites.vex", JSon:Encode(NewTable))
+								
+								_G.PopUpNotificationOptions({
+									Title = "Script added to favorites!",
+									Button2Text = "Ok",
+								})
 							end
-
-							writefile("VexHub7/Favorites.vex", NewTable)
-
-							_G.PopUpNotificationOptions({
-								Title = "Script says:",
-								Message = "Favorited",
-								Button2Text = "Ok",
-							})
 						end
 					else
 						_G.PopUpNotificationOptions({
