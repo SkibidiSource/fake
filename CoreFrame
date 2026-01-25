@@ -600,7 +600,7 @@ _G.CreateTabButton = function(TabName, TabImage, LayoutOrder)
 					for ScriptId, _ in Favorites do
 						for TabName, Scripts in _G.Table.Scripts do
 							for ScriptName, ScriptInfo in Scripts do
-								if ScriptInfo.ScriptId == ScriptId then
+								if ScriptInfo.ScriptId == tonumber(ScriptId) then
 									FavoritesTable[ScriptName] = ScriptInfo
 								end
 							end
