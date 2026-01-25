@@ -419,8 +419,7 @@ _G.CreateTab = function(TabName, Scripts)
 						UpdateRatingButtonsColors()
 					else
 						_G.PopUpNotificationOptions({
-							Title = "You are being ratelimited!",
-							Message = "Please try again later",
+							Title = "Slow down",
 							Button2Text = "Ok",
 						})
 					end
@@ -445,8 +444,7 @@ _G.CreateTab = function(TabName, Scripts)
 						UpdateRatingButtonsColors()
 					else
 						_G.PopUpNotificationOptions({
-							Title = "You are being ratelimited!",
-							Message = "Please try again later",
+							Title = "Slow down",
 							Button2Text = "Ok",
 						})
 					end
