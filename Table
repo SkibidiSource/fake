@@ -68,7 +68,7 @@ _G.Table = {
 				IsOP = false,
 				IsNew = false,
 				ScriptId = 5001,
-				Script = 'https://pastebin.com/raw/no'
+				Script = 'https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'
 			},
 		},
 
