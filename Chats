@@ -79,6 +79,7 @@ GUI["UIGradient_02"].Parent = GUI["Insides_01"]
 
 GUI["UIStroke_03"].Color = Color3.fromRGB(255, 255, 255)
 GUI["UIStroke_03"].Parent = GUI["Insides_01"]
+GUI["UIStroke_03"].Transparency = 0.9
 
 GUI["UICorner_04"].CornerRadius = UDim.new(0, 5)
 GUI["UICorner_04"].Parent = GUI["Insides_01"]
@@ -116,7 +117,7 @@ GUI["TextBubbles_08"].Size = UDim2.new(0, 19, 0, 25)
 GUI["TextBubbles_08"].Name = "TextBubbles"
 GUI["TextBubbles_08"].Parent = GUI["TopFrame_06"]
 
-GUI["ChatsText_09"].Font = Enum.Font.Unknown
+GUI["ChatsText_09"].Font = Enum.Font.MontserratBold
 GUI["ChatsText_09"].Text = "Chats"
 GUI["ChatsText_09"].TextColor3 = Color3.fromRGB(255, 255, 255)
 GUI["ChatsText_09"].TextSize = 14
@@ -131,7 +132,7 @@ GUI["ChatsText_09"].Name = "ChatsText"
 GUI["ChatsText_09"].Parent = GUI["TopFrame_06"]
 
 GUI["Border_010"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-GUI["Border_010"].BackgroundTransparency = 0.699999988079071
+GUI["Border_010"].BackgroundTransparency = 0.7
 GUI["Border_010"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 GUI["Border_010"].BorderSizePixel = 0
 GUI["Border_010"].LayoutOrder = 3
@@ -149,6 +150,7 @@ GUI["Chats_011"].BackgroundTransparency = 1
 GUI["Chats_011"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 GUI["Chats_011"].BorderSizePixel = 0
 GUI["Chats_011"].Position = UDim2.new(0.0149999745, 0, 0.182500005, 0)
+GUI["Chats_011"].ScrollingDirection = Enum.ScrollingDirection.Y
 GUI["Chats_011"].Size = UDim2.new(0.970000029, 0, 0, 135)
 GUI["Chats_011"].Name = "Chats"
 GUI["Chats_011"].Parent = GUI["Insides_01"]
@@ -183,6 +185,7 @@ GUI["UICorner_015"].Parent = GUI["ProfilePicture_014"]
 
 GUI["UIStroke_016"].Color = Color3.fromRGB(255, 255, 255)
 GUI["UIStroke_016"].Parent = GUI["ProfilePicture_014"]
+GUI["UIStroke_016"].Transparency = 0.5
 
 GUI["UIListLayout_017"].Padding = UDim.new(0, 5)
 GUI["UIListLayout_017"].FillDirection = Enum.FillDirection.Horizontal
@@ -252,7 +255,7 @@ GUI["UICorner_025"].CornerRadius = UDim.new(1, 0)
 GUI["UICorner_025"].Parent = GUI["TextBoxParent_024"]
 
 GUI["TextBox_026"].ClearTextOnFocus = false
-GUI["TextBox_026"].Font = Enum.Font.Unknown
+GUI["TextBox_026"].Font = Enum.Font.MontserratMedium
 GUI["TextBox_026"].PlaceholderText = "Chat or type slash for commands"
 GUI["TextBox_026"].Text = ""
 GUI["TextBox_026"].TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -384,7 +387,7 @@ GUI["Robot_042"].Size = UDim2.new(0, 50, 0, 50)
 GUI["Robot_042"].Name = "Robot"
 GUI["Robot_042"].Parent = GUI["Insides_040"]
 
-GUI["Message_043"].Font = Enum.Font.Unknown
+GUI["Message_043"].Font = Enum.Font.Montserrat
 GUI["Message_043"].LineHeight = 0.699999988079071
 GUI["Message_043"].RichText = true
 GUI["Message_043"].Text = '<b>You got banned</b>\n\n<font size="10">Appeal in VexHub Discord server</font>'
