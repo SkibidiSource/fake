@@ -105,7 +105,6 @@ GUI["UIListLayout_07"].VerticalAlignment = Enum.VerticalAlignment.Center
 GUI["UIListLayout_07"].Parent = GUI["TopFrame_06"]
 
 GUI["TextBubbles_08"].Image = "http://www.roblox.com/asset/?id=97441735495560"
-GUI["TextBubbles_08"].ImageContent = Content
 GUI["TextBubbles_08"].ScaleType = Enum.ScaleType.Crop
 GUI["TextBubbles_08"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["TextBubbles_08"].BackgroundTransparency = 1
@@ -171,7 +170,6 @@ GUI["MessageTemplate_013"].Name = "MessageTemplate"
 GUI["MessageTemplate_013"].Parent = GUI["Chats_011"]
 
 GUI["ProfilePicture_014"].Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
-GUI["ProfilePicture_014"].ImageContent = Content
 GUI["ProfilePicture_014"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["ProfilePicture_014"].BackgroundTransparency = 1
 GUI["ProfilePicture_014"].BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -229,7 +227,6 @@ GUI["UIListLayout_021"].VerticalAlignment = Enum.VerticalAlignment.Center
 GUI["UIListLayout_021"].Parent = GUI["BottomFrame_020"]
 
 GUI["SendButton_022"].Image = "http://www.roblox.com/asset/?id=72820970898695"
-GUI["SendButton_022"].ImageContent = Content
 GUI["SendButton_022"].BackgroundColor3 = Color3.fromRGB(51.00000075995922, 95.00000193715096, 255)
 GUI["SendButton_022"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 GUI["SendButton_022"].BorderSizePixel = 0
@@ -379,7 +376,6 @@ GUI["UIListLayout_041"].VerticalAlignment = Enum.VerticalAlignment.Center
 GUI["UIListLayout_041"].Parent = GUI["Insides_040"]
 
 GUI["Robot_042"].Image = "http://www.roblox.com/asset/?id=15816373386"
-GUI["Robot_042"].ImageContent = Content
 GUI["Robot_042"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GUI["Robot_042"].BackgroundTransparency = 1
 GUI["Robot_042"].BorderColor3 = Color3.fromRGB(0, 0, 0)
