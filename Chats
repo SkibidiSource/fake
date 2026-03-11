@@ -756,7 +756,7 @@ ChatVersion = tonumber(LiveChatServer.ChatVersion)
 coroutine.wrap(function()
 	while wait(0.1) do
 		if ChatVersion ~= LiveChatServer.ChatVersion and ChatVersion ~= 0 then
-			ChatVersion = LiveChatServer.ChatVersion
+			ChatVersion = tonumber(LiveChatServer.ChatVersion)
 			for i, v in GUI["Chats_011"]:GetChildren() do
 				if string.find(v.Name, "Message") and v.Name ~= "MessageTemplate" then
 					v:Destroy()
@@ -1772,7 +1772,7 @@ local function SendMessage(Username, DisplayName, Message)
 						end,
 						Button2Text = "Yes",
 						Button2Function = function()
-							FirebaseServerWrite("/", "ChatVersion", LiveChatServer.ChatVersion+1)
+							FirebaseServerWrite("/", "ChatVersion", tonumber(LiveChatServer.ChatVersion+1))
 							FirebaseServerUpdate()
 							FirebaseServerWrite("/", "Chats", {
 								Message1 = {
