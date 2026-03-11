@@ -1148,7 +1148,7 @@ local function SendMessage(Username, DisplayName, Message)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
-												MessageId = MessageId,
+												MessageId = MessageId+1,
 												Message = "@"..Username.." please lockdown the Chat first before purging ✋",
 											})
 										end)()
@@ -1158,7 +1158,7 @@ local function SendMessage(Username, DisplayName, Message)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
-												MessageId = MessageId,
+												MessageId = MessageId+1,
 												Message = "@"..Username.." you dont have admin privilages ✋",
 											})
 										end)()
@@ -1173,7 +1173,7 @@ local function SendMessage(Username, DisplayName, Message)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
-												MessageId = MessageId,
+												MessageId = MessageId+1,
 												Message = "@everyone can send links now! 🔗",
 											})
 										end)()
@@ -1183,7 +1183,7 @@ local function SendMessage(Username, DisplayName, Message)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
-												MessageId = MessageId,
+												MessageId = MessageId+1,
 												Message = "@"..DisplayName.." you dont have admin privilages ✋",
 											})
 										end)()
@@ -1199,7 +1199,7 @@ local function SendMessage(Username, DisplayName, Message)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
-												MessageId = MessageId,
+												MessageId = MessageId+1,
 												Message = "Links sending are now prohibited @everyone 🔗🚫",
 											})
 										end)()
@@ -1209,7 +1209,7 @@ local function SendMessage(Username, DisplayName, Message)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
-												MessageId = MessageId,
+												MessageId = MessageId+1,
 												Message = "@"..DisplayName.." you dont have admin privilages ✋",
 											})
 										end)()
