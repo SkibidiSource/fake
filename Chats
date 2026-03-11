@@ -750,22 +750,6 @@ coroutine.wrap(function()
 	end
 end)()
 
---- Listens for chat version ---
-local ChatVersion = 0
-ChatVersion = tonumber(LiveChatServer.ChatVersion)
-coroutine.wrap(function()
-	while wait(0.1) do
-		if ChatVersion ~= LiveChatServer.ChatVersion and ChatVersion ~= 0 then
-			ChatVersion = LiveChatServer.ChatVersion
-			for i, v in GUI["Chats_011"]:GetChildren() do
-				if string.find(v.Name, "Message") and v.Name ~= "MessageTemplate" then
-					v:Destroy()
-				end
-			end
-		end
-	end
-end)()
-
 ---- Listens for new chats ----
 coroutine.wrap(function()
 	while wait(0.1) do
