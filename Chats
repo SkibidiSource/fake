@@ -1143,19 +1143,25 @@ local function SendMessage(Username, DisplayName, Message)
 									
 								elseif MessageTable[1] == "/purge" then
 									if IsAdmin(Username) then
-										PostMessage({
-											Username = "System",
-											DisplayName = "System",
-											MessageId = MessageId,
-											Message = "@"..Username.." please lockdown the Chat first before purging ✋",
-										})
+										coroutine.wrap(function()
+											wait(0.5)
+											PostMessage({
+												Username = "System",
+												DisplayName = "System",
+												MessageId = MessageId,
+												Message = "@"..Username.." please lockdown the Chat first before purging ✋",
+											})
+										end)()
 									else
-										PostMessage({
-											Username = "System",
-											DisplayName = "System",
-											MessageId = MessageId,
-											Message = "@"..Username.." you dont have admin privilages ✋",
-										})
+										coroutine.wrap(function()
+											wait(0.5)
+											PostMessage({
+												Username = "System",
+												DisplayName = "System",
+												MessageId = MessageId,
+												Message = "@"..Username.." you dont have admin privilages ✋",
+											})
+										end)()
 									end
 								
 								elseif MessageTable[1] == "/allowlinks" then
