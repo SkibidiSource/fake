@@ -638,7 +638,7 @@ local function DisplayMessage(Table)
 	local NewMessage = GUI["MessageTemplate_013"]:Clone()
 	local ContentText = TextContentToShow(Table)
 
-	NewMessage.Parent = GUI[Chats]
+	NewMessage.Parent = GUI["Chats_011"]
 
 	for _, Word in MessageTable do
 		Word = string.lower(Word)
