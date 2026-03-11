@@ -564,7 +564,7 @@ local function FirebaseServerUpdate()
 end
 
 FirebaseServerUpdate()
-wait(3)
+wait()
 
 --- Listens for new data ---
 coroutine.wrap(function()
@@ -680,16 +680,21 @@ local function DisplayMessage(Table)
 			NewMessage:Destroy()
 		end)()
 	end
-
+	
+	local IsInBottom = false
 	coroutine.wrap(function()
 		if isAtBottom() then
-			wait(0.1)
-			scrollToBottom()
+			IsInBottom = true
 		end
 	end)()
+	
 	wait()
 	NewMessage.Message.Text = ContentText
 	NewMessage.Visible = true
+	
+	if IsInBottom == true or Username == LocalPlayer.Name then
+		scrollToBottom()
+	end
 
 	return NewMessage.Name
 end
@@ -1005,7 +1010,7 @@ local function SendMessage(Username, DisplayName, Message)
 										if LiveChatServer.Chats["Message"..MessageTable[2]] then
 											if LiveChatServer.Chats["Message"..MessageTable[2]].Username == Username or IsAdmin(Username) then
 												FirebaseServerWrite("Chats/Message"..MessageTable[2], "Message", '<font color="rgb(255,102,102)">[ Content Deleted ]</font>')
-												
+
 												DisplayMessage({
 													DisplayName = "System",
 													Username = "System",
@@ -1370,7 +1375,7 @@ local function SendMessage(Username, DisplayName, Message)
 												if MessageTable[3] and IsStringNumber(MessageTable[3]) then
 													if tonumber(MessageTable[3]) < 259200 then
 														FirebaseServerWrite("Timeout", string.lower(MessageTable[2]), tonumber(os.time())+tonumber(MessageTable[3]))
-														
+
 														coroutine.wrap(function()
 															wait(0.5)
 															PostMessage({
@@ -1441,7 +1446,7 @@ local function SendMessage(Username, DisplayName, Message)
 									if IsAdmin(Username) then
 										if MessageTable[2] and LiveChatServer.Timeout[string.lower(MessageTable[2])] then
 											FirebaseServerDelete("Timeout", string.lower(MessageTable[2]))
-											
+
 											coroutine.wrap(function()
 												wait(0.5)
 												PostMessage({
@@ -1496,7 +1501,7 @@ local function SendMessage(Username, DisplayName, Message)
 										if MessageTable[2] then
 											if not IsAdmin(MessageTable[2]) then
 												FirebaseServerWrite("BannedPeople", string.lower(MessageTable[2]), true)
-												
+
 												coroutine.wrap(function()
 													wait(0.5)
 													PostMessage({
