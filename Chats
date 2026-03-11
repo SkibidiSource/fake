@@ -635,7 +635,7 @@ local function DisplayMessage(Table)
 
 	local MessageTable = string.split(Message, " ")
 
-	local NewMessage = MessageTemplate:Clone()
+	local NewMessage = GUI["MessageTemplate_013"]:Clone()
 	local ContentText = TextContentToShow(Table)
 
 	NewMessage.Parent = GUI[Chats]
