@@ -758,7 +758,7 @@ coroutine.wrap(function()
 			ChatVersion = LiveChatServer.ChatVersion
 		elseif ChatVersion ~= LiveChatServer.ChatVersion and ChatVersion ~= 0 then
 			ChatVersion = LiveChatServer.ChatVersion
-			for i, v in GUI["Chats_011"] do
+			for i, v in GUI["Chats_011"]:GetChildren() do
 				if string.find(v.Name, "Message") and v.Name ~= "MessageTemplate" then
 					v:Destroy()
 				end
@@ -1166,7 +1166,7 @@ local function SendMessage(Username, DisplayName, Message)
 								
 								elseif MessageTable[1] == "/allowlinks" then
 									if IsAdmin(Username) then
-										LiveChatServer.LinksAllowed = true
+										FirebaseServerWrite("/", "LinksAllowed", "true")
 
 										coroutine.wrap(function()
 											wait(0.5)
@@ -1192,7 +1192,7 @@ local function SendMessage(Username, DisplayName, Message)
 
 								elseif MessageTable[1] == "/forbidlinks" then
 									if IsAdmin(Username) then
-										LiveChatServer.LinksAllowed = false
+										FirebaseServerWrite("/", "LinksAllowed", "false")
 
 										coroutine.wrap(function()
 											wait(0.5)
@@ -1717,6 +1717,7 @@ local function SendMessage(Username, DisplayName, Message)
 										MessageId = MessageId,
 										Message = Message,
 									})
+									FirebaseServerUpdate()
 								end
 							end
 						else
