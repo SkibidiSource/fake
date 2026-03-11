@@ -475,7 +475,6 @@ TextBox.TextBox:GetPropertyChangedSignal("Text"):Connect(function()
 	local NoResults = true
 
 	if string.find(TextTable[1], '/') then
-		print("founf")
 		local Position1, Position2 = string.find(TextTable[1], '/')
 
 		if Position1 == 1 and Position2 == 1 then
@@ -760,7 +759,6 @@ coroutine.wrap(function()
 				wait()
 
 				if MessageIsShown == false then
-					print("Message"..tonumber(string.split(Chat, "Message")[2]))
 					DisplayMessage({
 						MessageId = tonumber(string.split(Chat, "Message")[2]),
 						Message = ChatInfo.Message,
@@ -1006,7 +1004,7 @@ local function SendMessage(Username, DisplayName, Message)
 									if IsStringNumber(MessageTable[2]) then
 										if LiveChatServer.Chats["Message"..MessageTable[2]] then
 											if LiveChatServer.Chats["Message"..MessageTable[2]].Username == Username or IsAdmin(Username) then
-												FirebaseServerWrite("Chats/Message"..MessageTable[2].Message, "Message", '<font color="rgb(255,102,102)">[ Content Deleted ]</font>')
+												FirebaseServerWrite("Chats/Message"..MessageTable[2], "Message", '<font color="rgb(255,102,102)">[ Content Deleted ]</font>')
 												
 												DisplayMessage({
 													DisplayName = "System",
@@ -1060,9 +1058,9 @@ local function SendMessage(Username, DisplayName, Message)
 												if MessageInfo.Username == Username then
 													if MessageInfo.Message ~= '<font color="rgb(255,102,102)">[ Content Deleted ]</font>' then
 														if string.find(LiveChatServer.Chats["Message"..MessageTable[2]].Message, '<font size="8"><font color="rgb(150,150,150)">(edited)</font></font>') then
-															FirebaseServerWrite("Chats/Message"..MessageTable[2].."/Message", table.concat(MessageTable, " ", 3))
+															FirebaseServerWrite("Chats/Message"..MessageTable[2], "Message", table.concat(MessageTable, " ", 3))
 														else
-															FirebaseServerWrite("Chats/Message"..MessageTable[2].."/Message", table.concat(MessageTable, " ", 3)..'<font size="8"><font color="rgb(150,150,150)">(edited)</font></font>')
+															FirebaseServerWrite("Chats/Message"..MessageTable[2], "Message", table.concat(MessageTable, " ", 3)..'<font size="8"><font color="rgb(150,150,150)">(edited)</font></font>')
 														end
 
 														DisplayMessage({
