@@ -1716,6 +1716,8 @@ local function SendMessage(Username, DisplayName, Message)
 										MessageId = MessageId,
 										Message = Message,
 									})
+									
+									FirebaseServerUpdate()
 								end
 							end
 						else
