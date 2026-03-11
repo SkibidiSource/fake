@@ -565,6 +565,7 @@ local function FirebaseServerUpdate()
 end
 
 FirebaseServerUpdate()
+wait(3)
 
 --- Listens for new data ---
 coroutine.wrap(function()
