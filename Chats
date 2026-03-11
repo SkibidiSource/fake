@@ -564,6 +564,8 @@ local function FirebaseServerUpdate()
 	LiveChatServer = game.HttpService:JSONDecode(game:HttpGetAsync(database))
 end
 
+FirebaseServerUpdate()
+
 --- Listens for new data ---
 coroutine.wrap(function()
 	while wait(0.1) do
