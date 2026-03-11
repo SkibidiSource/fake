@@ -638,7 +638,7 @@ local function DisplayMessage(Table)
 	local NewMessage = MessageTemplate:Clone()
 	local ContentText = TextContentToShow(Table)
 
-	NewMessage.Parent = script.Parent.Insides.Chats
+	NewMessage.Parent = GUI[Chats]
 
 	for _, Word in MessageTable do
 		Word = string.lower(Word)
@@ -1746,7 +1746,7 @@ local function SendMessage(Username, DisplayName, Message)
 	return
 end
 
-script.Parent.Insides.BottomFrame.SendButton.MouseButton1Down:Connect(function()
+GUI["SendButton_022"].MouseButton1Down:Connect(function()
 	SendMessage(LocalPlayer.Name, LocalPlayer.DisplayName, TextBox.TextBox.ContentText)
 end)
 
