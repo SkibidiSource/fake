@@ -456,6 +456,7 @@ NewSlashCommand("/copymessage [MessageId]", "copy a message")
 NewSlashCommand("/copyusername [MessageId]", "copy a username in a message")
 NewSlashCommand("/delete [MessageId]", "delete a message")
 NewSlashCommand("/edit [MessageId] [Message]", "edit a message")
+NewSlashCommand("/purge", "deletes all messages in the chat")
 NewSlashCommand("/allowlinks", "make members have the ability to send links")
 NewSlashCommand("/forbidlinks", "make members have no ability to send links")
 NewSlashCommand("/listcensoredwords", "returns censored words")
@@ -680,18 +681,18 @@ local function DisplayMessage(Table)
 			NewMessage:Destroy()
 		end)()
 	end
-	
+
 	local IsInBottom = false
 	coroutine.wrap(function()
 		if isAtBottom() then
 			IsInBottom = true
 		end
 	end)()
-	
+
 	wait()
 	NewMessage.Message.Text = ContentText
 	NewMessage.Visible = true
-	
+
 	if IsInBottom == true or Username == LocalPlayer.Name then
 		scrollToBottom()
 	end
@@ -732,7 +733,7 @@ end)()
 
 ---- Listens for chat edits ----
 coroutine.wrap(function()
-	while wait(0.05) do
+	while wait(0.1) do
 		if not LiveChatServer.BannedPeople[string.lower(LocalPlayer.Name)] then
 			for MessageId, MessageContents in LiveChatServer.Chats do
 				local MessageId = string.split(MessageId, "Message")[2]
@@ -743,6 +744,23 @@ coroutine.wrap(function()
 					if Chats:FindFirstChild("Message"..MessageId) and Chats:FindFirstChild("Message"..MessageId).Message.Text ~= TextContent then
 						Chats:FindFirstChild("Message"..MessageId).Message.Text = TextContent
 					end
+				end
+			end
+		end
+	end
+end)()
+
+--- Listens for chat version ---
+local ChatVersion = 0
+coroutine.wrap(function()
+	while wait(0.1) do
+		if ChatVersion == 0 then
+			ChatVersion = LiveChatServer.ChatVersion
+		elseif ChatVersion ~= LiveChatServer.ChatVersion and ChatVersion ~= 0 then
+			ChatVersion = LiveChatServer.ChatVersion
+			for i, v in GUI["Chats_011"] do
+				if string.find(v.Name, "Message") and v.Name ~= "MessageTemplate" then
+					v:Destroy()
 				end
 			end
 		end
@@ -1122,7 +1140,24 @@ local function SendMessage(Username, DisplayName, Message)
 											})
 										end
 									end
-
+									
+								elseif MessageTable[1] == "/purge" then
+									if IsAdmin(Username) then
+										PostMessage({
+											Username = "System",
+											DisplayName = "System",
+											MessageId = MessageId,
+											Message = "@"..Username.." please lockdown the Chat first before purging ✋",
+										})
+									else
+										PostMessage({
+											Username = "System",
+											DisplayName = "System",
+											MessageId = MessageId,
+											Message = "@"..Username.." you dont have admin privilages ✋",
+										})
+									end
+								
 								elseif MessageTable[1] == "/allowlinks" then
 									if IsAdmin(Username) then
 										LiveChatServer.LinksAllowed = true
@@ -1721,12 +1756,25 @@ local function SendMessage(Username, DisplayName, Message)
 							MessageId = 0
 						})
 					end
-				else			
+				elseif string.lower(MessageTable[1]) == "/purge" and IsAdmin(Username) then
 					_G.PopUpNotificationOptions({
-						Title = "Oops!",
-						Message = "Chat is currently in lockdown. Comeback later 😊",
+						Title = "Woah there!",
+						Message = "Are you sure you want to purge the chat? All existing messages will be permanently deleted!",
+						Button1Text = "Nevermind",
+						Button1Function = function()
+						end,
 						Button2Text = "Yes",
 						Button2Function = function()
+							FirebaseServerWrite("/", "ChatVersion", LiveChatServer.ChatVersion+1)
+							FirebaseServerUpdate()
+							FirebaseServerWrite("/", "Chats", {
+								Message1 = {
+									Username = "System",
+									DisplayName = "System",
+									UNIXTimestamp = tonumber(os.time()),
+									Message = "Welcome to VexHub Chat! Have a chance to talk to people who are using VexHub!\n\n(Chat Version "..LiveChatServer.ChatVersion..")"
+								}
+							})
 						end,
 					})
 				end
