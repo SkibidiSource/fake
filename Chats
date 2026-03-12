@@ -1195,7 +1195,7 @@ local function SendMessage(Username, DisplayName, Message)
 									
 								elseif MessageTable[1] == "/allowlinks" then
 									if IsAdmin(Username) then
-										FirebaseServerWrite("/", "LinksAllowed", "true")
+										FirebaseServerWrite("/", "LinksAllowed", true)
 
 										coroutine.wrap(function()
 											wait(0.5)
@@ -1218,10 +1218,9 @@ local function SendMessage(Username, DisplayName, Message)
 										end)()
 									end
 
-
 								elseif MessageTable[1] == "/forbidlinks" then
 									if IsAdmin(Username) then
-										FirebaseServerWrite("/", "LinksAllowed", "false")
+										FirebaseServerWrite("/", "LinksAllowed", false)
 
 										coroutine.wrap(function()
 											wait(0.5)
