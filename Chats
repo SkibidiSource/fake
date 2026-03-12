@@ -695,6 +695,7 @@ local function DisplayMessage(Table)
 	NewMessage.Visible = true
 
 	if IsInBottom == true or Username == LocalPlayer.Name then
+		wait(0.05)
 		scrollToBottom()
 	end
 
