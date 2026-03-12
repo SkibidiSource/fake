@@ -705,7 +705,17 @@ end
 --- Listens if the player is banned --
 coroutine.wrap(function()
 	while wait(1) do
-		if LiveChatServer.BannedPeople[string.lower(LocalPlayer.Name)] then
+		local function IsHWIDBanned()
+			local IsBanned = false
+			for _, BannedHWID in LiveChatServer.BannedPeople do
+				if HWID() == BannedHWID then
+					IsBanned = true
+				end
+			end
+			return IsBanned
+		end
+		
+		if LiveChatServer.BannedPeople[string.lower(LocalPlayer.Name)] or IsHWIDBanned() then
 			coroutine.wrap(function()
 				BannedFrame.Visible = true
 				TweenService:Create(BannedFrame, TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
@@ -720,7 +730,7 @@ coroutine.wrap(function()
 				end
 			end
 
-		elseif not LiveChatServer.BannedPeople[string.lower(LocalPlayer.Name)] then
+		elseif not LiveChatServer.BannedPeople[string.lower(LocalPlayer.Name)] or not IsHWIDBanned() then
 			if BannedFrame.Visible == true then
 				TweenService:Create(BannedFrame.CoverFrame, TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
 				wait(0.4)
@@ -1560,7 +1570,15 @@ local function SendMessage(Username, DisplayName, Message)
 									if IsAdmin(Username) then
 										if MessageTable[2] then
 											if not IsAdmin(MessageTable[2]) then
-												FirebaseServerWrite("BannedPeople", string.lower(MessageTable[2]), true)
+												local UserHWID = "nil"
+												
+												for BannedUsername, HWID in LiveChatServer.VerifiedHWID do
+													if string.lower(BannedUsername) == string.lower(MessageTable[2]) then
+														UserHWID = HWID
+													end
+												end
+												
+												FirebaseServerWrite("BannedPeople", string.lower(MessageTable[2]), UserHWID)
 
 												coroutine.wrap(function()
 													wait(0.5)
