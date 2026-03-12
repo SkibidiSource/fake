@@ -838,7 +838,8 @@ local function PostMessage(Table)
 	local DisplayName = Table.DisplayName
 	local MessageId = Table.MessageId
 	local Message = Table.Message
-
+	
+	FirebaseServerUpdate()
 	if not LiveChatServer.Chats["Message"..MessageId] then
 		FirebaseServerWrite("Chats", "Message"..MessageId, {
 			Username = Username,
