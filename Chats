@@ -703,18 +703,18 @@ local function DisplayMessage(Table)
 end
 
 --- Listens if the player is banned --
+local function IsHWIDBanned()
+	local IsBanned = false
+	for _, BannedHWID in LiveChatServer.BannedPeople do
+		if HWID() == BannedHWID then
+			IsBanned = true
+		end
+	end
+	return IsBanned
+end
+
 coroutine.wrap(function()
 	while wait(1) do
-		local function IsHWIDBanned()
-			local IsBanned = false
-			for _, BannedHWID in LiveChatServer.BannedPeople do
-				if HWID() == BannedHWID then
-					IsBanned = true
-				end
-			end
-			return IsBanned
-		end
-		
 		if LiveChatServer.BannedPeople[string.lower(LocalPlayer.Name)] or IsHWIDBanned() then
 			coroutine.wrap(function()
 				BannedFrame.Visible = true
@@ -870,7 +870,7 @@ end
 
 local function SendMessage(Username, DisplayName, Message)
 	TextBox.TextBox.Text = ""
-	if not LiveChatServer.BannedPeople[Username] then
+	if not LiveChatServer.BannedPeople[Username] or IsHWIDBanned() then
 		if LiveChatServer.VerifiedHWID[Username] == HWID() then
 			local MessageTable = string.split(Message, " ")
 			local MessageId = 1
