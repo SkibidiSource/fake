@@ -427,9 +427,7 @@ local function isAtBottom()
 end
 
 local function scrollToBottom()
-	if not isUserScrolling then
-		Chats.CanvasPosition = Vector2.new(0, Chats.AbsoluteCanvasSize.Y - Chats.AbsoluteWindowSize.Y)
-	end
+	Chats.CanvasPosition = Vector2.new(0, Chats.AbsoluteCanvasSize.Y - Chats.AbsoluteWindowSize.Y)
 end
 
 Chats:GetPropertyChangedSignal("CanvasPosition"):Connect(function()
@@ -684,18 +682,12 @@ local function DisplayMessage(Table)
 		end)()
 	end
 
-	local IsInBottom = false
-	coroutine.wrap(function()
-		if isAtBottom() then
-			IsInBottom = true
-		end
-	end)()
-
 	wait()
 	NewMessage.Message.Text = ContentText
 	NewMessage.Visible = true
+	wait()
 
-	if IsInBottom == true or Username == LocalPlayer.Name or string.find(string.lower(Message), "@everyone") or string.find(string.lower(Message), "@"..string.lower(LocalPlayer.Name)) or string.find(string.lower(Message), "@"..string.lower(LocalPlayer.DisplayName)) then
+	if isAtBottom() or Username == LocalPlayer.Name or string.find(string.lower(Message), "@everyone") or string.find(string.lower(Message), "@"..string.lower(LocalPlayer.Name)) or string.find(string.lower(Message), "@"..string.lower(LocalPlayer.DisplayName)) then
 		wait(0.1)
 		scrollToBottom()
 	end
