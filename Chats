@@ -694,7 +694,7 @@ local function DisplayMessage(Table)
 	NewMessage.Message.Text = ContentText
 	NewMessage.Visible = true
 
-	if IsInBottom == true or Username == LocalPlayer.Name then
+	if IsInBottom == true or Username == LocalPlayer.Name or string.find(string.lower(Message), "@everyone") or string.find(string.lower(Message), "@"..string.lower(LocalPlayer.Name)) or string.find(string.lower(Message), "@"..string.lower(LocalPlayer.DisplayName)) then
 		wait(0.05)
 		scrollToBottom()
 	end
