@@ -454,6 +454,7 @@ end
 
 NewSlashCommand("/copymessage [MessageId]", "copy a message")
 NewSlashCommand("/copyusername [MessageId]", "copy a username in a message")
+NewSlashCommand("/reload", "reloads your chat interface")
 NewSlashCommand("/delete [MessageId]", "delete a message")
 NewSlashCommand("/edit [MessageId] [Message]", "edit a message")
 NewSlashCommand("/purge", "deletes all messages in the chat")
@@ -1176,7 +1177,7 @@ local function SendMessage(Username, DisplayName, Message)
 											})
 										end)()
 									end
-									
+
 								elseif MessageTable[1] == "/updatechatversion" then
 									ToSend = false
 									if IsAdmin(Username) then
@@ -1192,7 +1193,7 @@ local function SendMessage(Username, DisplayName, Message)
 											MessageId = 0
 										})
 									end
-									
+
 								elseif MessageTable[1] == "/allowlinks" then
 									if IsAdmin(Username) then
 										FirebaseServerWrite("/", "LinksAllowed", true)
@@ -1570,13 +1571,13 @@ local function SendMessage(Username, DisplayName, Message)
 										if MessageTable[2] then
 											if not IsAdmin(MessageTable[2]) then
 												local UserHWID = "nil"
-												
+
 												for BannedUsername, HWID in LiveChatServer.VerifiedHWID do
 													if string.lower(BannedUsername) == string.lower(MessageTable[2]) then
 														UserHWID = HWID
 													end
 												end
-												
+
 												FirebaseServerWrite("BannedPeople", string.lower(MessageTable[2]), UserHWID)
 
 												coroutine.wrap(function()
@@ -1670,16 +1671,20 @@ local function SendMessage(Username, DisplayName, Message)
 											})
 										end)()
 									end
-
+									
+								elseif MessageTable[1] == "/reload" then
+									ToSend = false
+									for i, v in GUI["Chats_011"]:GetChildren() do
+										if string.find(v.Name, "Message") and v.Name ~= "MessageTemplate" then
+											v:Destroy()
+										end
+									end
 
 								elseif MessageTable[1] == "/copymessage" then
 									ToSend = false
 									if MessageTable[2] and IsStringNumber(MessageTable[2]) and LiveChatServer.Chats["Message"..tonumber(MessageTable[2])] then
-										coroutine.wrap(function()
-											wait(0.5)
-											toclipboard(LiveChatServer.Chats["Message"..tonumber(MessageTable[2])]["Message"])
-										end)()
-
+										toclipboard(LiveChatServer.Chats["Message"..tonumber(MessageTable[2])]["Message"])
+										
 										DisplayMessage({
 											DisplayName = "System",
 											Username = "System",
@@ -1700,15 +1705,11 @@ local function SendMessage(Username, DisplayName, Message)
 											MessageId = 0
 										})
 									end
-
-
+									
 								elseif MessageTable[1] == "/copyusername" then
 									ToSend = false
 									if MessageTable[2] and IsStringNumber(MessageTable[2]) and LiveChatServer.Chats["Message"..tonumber(MessageTable[2])] then
-										coroutine.wrap(function()
-											wait(0.5)
-											toclipboard(LiveChatServer.Chats["Message"..tonumber(MessageTable[2])]["Username"])
-										end)()
+										toclipboard(LiveChatServer.Chats["Message"..tonumber(MessageTable[2])]["Username"])
 
 										DisplayMessage({
 											DisplayName = "System",
