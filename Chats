@@ -1563,16 +1563,14 @@ local function SendMessage(Username, DisplayName, Message)
 												end
 
 												FirebaseServerWrite("BannedPeople", string.lower(MessageTable[2]), UserHWID)
-
-												coroutine.wrap(function()
-													wait(0.5)
-													PostMessage({
-														Username = "System",
-														DisplayName = "System",
-														MessageId = MessageId,
-														Message = "@"..DisplayName.." successfully banned @"..MessageTable[2].." 👍",
-													})
-												end)()
+												wait()
+												
+												PostMessage({
+													Username = "System",
+													DisplayName = "System",
+													MessageId = MessageId,
+													Message = "@"..DisplayName.." successfully banned @"..MessageTable[2].." 👍",
+												})
 											else
 												coroutine.wrap(function()
 													wait(0.5)
