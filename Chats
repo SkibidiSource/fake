@@ -645,7 +645,6 @@ local function DisplayMessage(Table)
 
 		if string.find(Word, "@"..string.lower(LocalPlayer.Name)) or string.find(Word, "@"..string.lower(LocalPlayer.DisplayName)) or string.find(Word, "@everyone") then
 			NewMessage.BackgroundTransparency = 0.8
-			scrollToBottom()
 		end
 	end
 
@@ -682,13 +681,10 @@ local function DisplayMessage(Table)
 		end)()
 	end
 
-	wait()
 	NewMessage.Message.Text = ContentText
 	NewMessage.Visible = true
-	wait()
 
 	if isAtBottom() or Username == LocalPlayer.Name or string.find(string.lower(Message), "@everyone") or string.find(string.lower(Message), "@"..string.lower(LocalPlayer.Name)) or string.find(string.lower(Message), "@"..string.lower(LocalPlayer.DisplayName)) then
-		wait(0.1)
 		scrollToBottom()
 	end
 
@@ -911,8 +907,6 @@ local function SendMessage(Username, DisplayName, Message)
 									MessageId = MessageId
 								})
 
-								scrollToBottom()
-
 								local Timeout = 5
 
 								coroutine.wrap(function()
@@ -933,8 +927,6 @@ local function SendMessage(Username, DisplayName, Message)
 													if v.Name == "Message"..MessageId then
 														if Chats:FindFirstChild(Temporary) and Chats:FindFirstChild(Temporary).Visible == true then
 															Chats:FindFirstChild(Temporary):Destroy()
-															wait(0.5)
-															scrollToBottom()
 														end
 
 														coroutine.yield()
