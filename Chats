@@ -838,7 +838,7 @@ local function PostMessage(Table)
 	local DisplayName = Table.DisplayName
 	local MessageId = Table.MessageId
 	local Message = Table.Message
-	
+
 	FirebaseServerUpdate()
 	if not LiveChatServer.Chats["Message"..MessageId] then
 		FirebaseServerWrite("Chats", "Message"..MessageId, {
@@ -1142,7 +1142,6 @@ local function SendMessage(Username, DisplayName, Message)
 
 								elseif MessageTable[1] == "/purge" then
 									if IsAdmin(Username) then
-										coroutine.wrap(function()
 											wait(0.5)
 											PostMessage({
 												Username = "System",
@@ -1150,9 +1149,7 @@ local function SendMessage(Username, DisplayName, Message)
 												MessageId = MessageId+1,
 												Message = "@"..Username.." please lockdown the Chat first before purging ✋",
 											})
-										end)()
 									else
-										coroutine.wrap(function()
 											wait(0.5)
 											PostMessage({
 												Username = "System",
@@ -1160,7 +1157,6 @@ local function SendMessage(Username, DisplayName, Message)
 												MessageId = MessageId+1,
 												Message = "@"..Username.." you dont have admin privilages ✋",
 											})
-										end)()
 									end
 
 								elseif MessageTable[1] == "/updatechatversion" then
@@ -1183,7 +1179,6 @@ local function SendMessage(Username, DisplayName, Message)
 									if IsAdmin(Username) then
 										FirebaseServerWrite("/", "LinksAllowed", true)
 
-										coroutine.wrap(function()
 											wait(0.5)
 											PostMessage({
 												Username = "System",
@@ -1191,9 +1186,7 @@ local function SendMessage(Username, DisplayName, Message)
 												MessageId = MessageId+1,
 												Message = "@everyone can send links now! 🔗",
 											})
-										end)()
 									else
-										coroutine.wrap(function()
 											wait(0.5)
 											PostMessage({
 												Username = "System",
@@ -1201,14 +1194,12 @@ local function SendMessage(Username, DisplayName, Message)
 												MessageId = MessageId+1,
 												Message = "@"..DisplayName.." you dont have admin privilages ✋",
 											})
-										end)()
 									end
 
 								elseif MessageTable[1] == "/forbidlinks" then
 									if IsAdmin(Username) then
 										FirebaseServerWrite("/", "LinksAllowed", false)
 
-										coroutine.wrap(function()
 											wait(0.5)
 											PostMessage({
 												Username = "System",
@@ -1216,9 +1207,7 @@ local function SendMessage(Username, DisplayName, Message)
 												MessageId = MessageId+1,
 												Message = "Links sending are now prohibited @everyone 🔗🚫",
 											})
-										end)()
 									else
-										coroutine.wrap(function()
 											wait(0.5)
 											PostMessage({
 												Username = "System",
@@ -1226,7 +1215,6 @@ local function SendMessage(Username, DisplayName, Message)
 												MessageId = MessageId+1,
 												Message = "@"..DisplayName.." you dont have admin privilages ✋",
 											})
-										end)()
 									end
 
 								elseif MessageTable[1] == "/listcensoredwords" then
@@ -1360,7 +1348,6 @@ local function SendMessage(Username, DisplayName, Message)
 											Button2Function = function()
 												FirebaseServerWrite("/", "Lockdown", true)
 
-												coroutine.wrap(function()
 													wait(0.5)
 													PostMessage({
 														Username = "System",
@@ -1368,7 +1355,6 @@ local function SendMessage(Username, DisplayName, Message)
 														MessageId = MessageId,
 														Message = "@everyone the server has been locked down 🔒",
 													})
-												end)()
 											end,
 										})
 									else
@@ -1413,7 +1399,6 @@ local function SendMessage(Username, DisplayName, Message)
 										UsersList = UsersList.."\n"..User.." ("..UNIXTime-tonumber(os.time()).." seconds)"
 									end
 
-									coroutine.wrap(function()
 										wait(0.5)
 										PostMessage({
 											Username = "System",
@@ -1421,7 +1406,6 @@ local function SendMessage(Username, DisplayName, Message)
 											MessageId = MessageId,
 											Message = '@'..DisplayName..' timedout users:\n'..UsersList,
 										})
-									end)()
 
 								elseif MessageTable[1] == "/timeout" then
 									if IsAdmin(Username) then
@@ -1431,7 +1415,6 @@ local function SendMessage(Username, DisplayName, Message)
 													if tonumber(MessageTable[3]) < 259200 then
 														FirebaseServerWrite("Timeout", string.lower(MessageTable[2]), tonumber(os.time())+tonumber(MessageTable[3]))
 
-														coroutine.wrap(function()
 															wait(0.5)
 															PostMessage({
 																Username = "System",
@@ -1439,9 +1422,7 @@ local function SendMessage(Username, DisplayName, Message)
 																MessageId = MessageId,
 																Message = "@"..DisplayName.." successfully timeout @"..MessageTable[2].." for "..MessageTable[3].." seconds 👍",
 															})
-														end)()
 													else
-														coroutine.wrap(function()
 															wait(0.5)
 															PostMessage({
 																Username = "System",
@@ -1449,10 +1430,8 @@ local function SendMessage(Username, DisplayName, Message)
 																MessageId = MessageId,
 																Message = "@"..DisplayName.." timeout cannot be longer than 3 days ✋",
 															})
-														end)()
 													end
 												else
-													coroutine.wrap(function()
 														wait(0.5)
 														PostMessage({
 															Username = "System",
@@ -1460,10 +1439,8 @@ local function SendMessage(Username, DisplayName, Message)
 															MessageId = MessageId,
 															Message = "@"..DisplayName.." please provide a number of seconds ✋",
 														})
-													end)()
 												end
 											else
-												coroutine.wrap(function()
 													wait(0.5)
 													PostMessage({
 														Username = "System",
@@ -1471,10 +1448,8 @@ local function SendMessage(Username, DisplayName, Message)
 														MessageId = MessageId,
 														Message = "@"..DisplayName.." you cannot timeout a admin 👎",
 													})
-												end)()
 											end
 										else
-											coroutine.wrap(function()
 												wait(0.5)
 												PostMessage({
 													Username = "System",
@@ -1482,10 +1457,8 @@ local function SendMessage(Username, DisplayName, Message)
 													MessageId = MessageId,
 													Message = "@"..DisplayName.." please provide the username of the player ✋",
 												})
-											end)()
 										end
 									else
-										coroutine.wrap(function()
 											wait(0.5)
 											PostMessage({
 												Username = "System",
@@ -1493,7 +1466,6 @@ local function SendMessage(Username, DisplayName, Message)
 												MessageId = MessageId,
 												Message = "@"..DisplayName.." you dont have admin privilages ✋",
 											})
-										end)()
 									end
 
 
@@ -1502,7 +1474,6 @@ local function SendMessage(Username, DisplayName, Message)
 										if MessageTable[2] and LiveChatServer.Timeout[string.lower(MessageTable[2])] then
 											FirebaseServerDelete("Timeout", string.lower(MessageTable[2]))
 
-											coroutine.wrap(function()
 												wait(0.5)
 												PostMessage({
 													Username = "System",
@@ -1510,9 +1481,7 @@ local function SendMessage(Username, DisplayName, Message)
 													MessageId = MessageId,
 													Message = "@"..DisplayName.." successfully removed timeout on @"..MessageTable[2].." 👍" ,
 												})
-											end)()
 										else
-											coroutine.wrap(function()
 												wait(0.5)
 												PostMessage({
 													Username = "System",
@@ -1520,10 +1489,8 @@ local function SendMessage(Username, DisplayName, Message)
 													MessageId = MessageId,
 													Message = "@"..DisplayName.." please provide the username of the player who is really timedout✋",
 												})
-											end)()
 										end
 									else
-										coroutine.wrap(function()
 											wait(0.5)
 											PostMessage({
 												Username = "System",
@@ -1531,7 +1498,6 @@ local function SendMessage(Username, DisplayName, Message)
 												MessageId = MessageId,
 												Message = "@"..DisplayName.." you dont have admin privilages ✋",
 											})
-										end)()
 									end
 
 
@@ -1540,8 +1506,6 @@ local function SendMessage(Username, DisplayName, Message)
 									for User, _ in LiveChatServer.BannedPeople do
 										UsersList = UsersList.."\n"..User
 									end
-
-									coroutine.wrap(function()
 										wait(0.5)
 										PostMessage({
 											Username = "System",
@@ -1549,7 +1513,6 @@ local function SendMessage(Username, DisplayName, Message)
 											MessageId = MessageId,
 											Message = '@'..DisplayName..' banned users:\n'..UsersList,
 										})
-									end)()
 
 								elseif MessageTable[1] == "/ban" then
 									if IsAdmin(Username) then
@@ -1564,8 +1527,8 @@ local function SendMessage(Username, DisplayName, Message)
 												end
 
 												FirebaseServerWrite("BannedPeople", string.lower(MessageTable[2]), UserHWID)
-												wait()
-												
+
+												wait(0.5)
 												PostMessage({
 													Username = "System",
 													DisplayName = "System",
@@ -1573,37 +1536,31 @@ local function SendMessage(Username, DisplayName, Message)
 													Message = "@"..DisplayName.." successfully banned @"..MessageTable[2].." 👍",
 												})
 											else
-												coroutine.wrap(function()
-													wait(0.5)
-													PostMessage({
-														Username = "System",
-														DisplayName = "System",
-														MessageId = MessageId,
-														Message = "@"..DisplayName.." you cannot ban a admin 👎",
-													})
-												end)()
-											end
-										else
-											coroutine.wrap(function()
 												wait(0.5)
 												PostMessage({
 													Username = "System",
 													DisplayName = "System",
 													MessageId = MessageId,
-													Message = "@"..DisplayName.." please provide the username of the player ✋",
+													Message = "@"..DisplayName.." you cannot ban a admin 👎",
 												})
-											end)()
-										end
-									else
-										coroutine.wrap(function()
+											end
+										else
 											wait(0.5)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
 												MessageId = MessageId,
-												Message = "@"..DisplayName.." you dont have admin privilages ✋",
+												Message = "@"..DisplayName.." please provide the username of the player ✋",
 											})
-										end)()
+										end
+									else
+										wait(0.5)
+										PostMessage({
+											Username = "System",
+											DisplayName = "System",
+											MessageId = MessageId,
+											Message = "@"..DisplayName.." you dont have admin privilages ✋",
+										})
 									end
 
 								elseif MessageTable[1] == "/unban" then
@@ -1612,49 +1569,41 @@ local function SendMessage(Username, DisplayName, Message)
 											if not IsAdmin(MessageTable[2]) then
 												FirebaseServerDelete("BannedPeople", MessageTable[2])
 
-												coroutine.wrap(function()
-													wait(0.5)
-													PostMessage({
-														Username = "System",
-														DisplayName = "System",
-														MessageId = MessageId,
-														Message = "@"..DisplayName.." successfully unbanned @"..MessageTable[2].." 👍",
-													})
-												end)()
-											else
-												coroutine.wrap(function()
-													wait(0.5)
-													PostMessage({
-														Username = "System",
-														DisplayName = "System",
-														MessageId = MessageId,
-														Message = "@"..DisplayName.." you cannot ban a admin 👎",
-													})
-												end)()
-											end
-										else
-											coroutine.wrap(function()
 												wait(0.5)
 												PostMessage({
 													Username = "System",
 													DisplayName = "System",
 													MessageId = MessageId,
-													Message = "@"..DisplayName.." please provide the username of the player ✋",
+													Message = "@"..DisplayName.." successfully unbanned @"..MessageTable[2].." 👍",
 												})
-											end)()
-										end
-									else
-										coroutine.wrap(function()
+											else
+												wait(0.5)
+												PostMessage({
+													Username = "System",
+													DisplayName = "System",
+													MessageId = MessageId,
+													Message = "@"..DisplayName.." you cannot ban a admin 👎",
+												})
+											end
+										else
 											wait(0.5)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
 												MessageId = MessageId,
-												Message = "@"..DisplayName.." you dont have admin privilages ✋",
+												Message = "@"..DisplayName.." please provide the username of the player ✋",
 											})
-										end)()
+										end
+									else
+										wait(0.5)
+										PostMessage({
+											Username = "System",
+											DisplayName = "System",
+											MessageId = MessageId,
+											Message = "@"..DisplayName.." you dont have admin privilages ✋",
+										})
 									end
-									
+
 								elseif MessageTable[1] == "/reload" then
 									ToSend = false
 									for i, v in GUI["Chats_011"]:GetChildren() do
@@ -1667,7 +1616,7 @@ local function SendMessage(Username, DisplayName, Message)
 									ToSend = false
 									if MessageTable[2] and IsStringNumber(MessageTable[2]) and LiveChatServer.Chats["Message"..tonumber(MessageTable[2])] then
 										toclipboard(LiveChatServer.Chats["Message"..tonumber(MessageTable[2])]["Message"])
-										
+
 										DisplayMessage({
 											DisplayName = "System",
 											Username = "System",
@@ -1688,7 +1637,7 @@ local function SendMessage(Username, DisplayName, Message)
 											MessageId = 0
 										})
 									end
-									
+
 								elseif MessageTable[1] == "/copyusername" then
 									ToSend = false
 									if MessageTable[2] and IsStringNumber(MessageTable[2]) and LiveChatServer.Chats["Message"..tonumber(MessageTable[2])] then
@@ -1763,7 +1712,6 @@ local function SendMessage(Username, DisplayName, Message)
 					if LiveChatServer.Lockdown == true then
 						FirebaseServerWrite("/", "Lockdown", false)
 
-						coroutine.wrap(function()
 							wait(0.5)
 							PostMessage({
 								Username = "System",
@@ -1771,7 +1719,6 @@ local function SendMessage(Username, DisplayName, Message)
 								MessageId = MessageId,
 								Message = "@everyone chat has been unlocked! 🔓",
 							})
-						end)()
 					else
 						DisplayMessage({
 							DisplayName = "System",
