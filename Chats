@@ -1142,7 +1142,7 @@ local function SendMessage(Username, DisplayName, Message)
 
 								elseif MessageTable[1] == "/purge" then
 									if IsAdmin(Username) then
-											wait(0.5)
+											wait(1)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
@@ -1150,7 +1150,7 @@ local function SendMessage(Username, DisplayName, Message)
 												Message = "@"..Username.." please lockdown the Chat first before purging ✋",
 											})
 									else
-											wait(0.5)
+											wait(1)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
@@ -1179,7 +1179,7 @@ local function SendMessage(Username, DisplayName, Message)
 									if IsAdmin(Username) then
 										FirebaseServerWrite("/", "LinksAllowed", true)
 
-											wait(0.5)
+											wait(1)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
@@ -1187,7 +1187,7 @@ local function SendMessage(Username, DisplayName, Message)
 												Message = "@everyone can send links now! 🔗",
 											})
 									else
-											wait(0.5)
+											wait(1)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
@@ -1200,7 +1200,7 @@ local function SendMessage(Username, DisplayName, Message)
 									if IsAdmin(Username) then
 										FirebaseServerWrite("/", "LinksAllowed", false)
 
-											wait(0.5)
+											wait(1)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
@@ -1208,7 +1208,7 @@ local function SendMessage(Username, DisplayName, Message)
 												Message = "Links sending are now prohibited @everyone 🔗🚫",
 											})
 									else
-											wait(0.5)
+											wait(1)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
@@ -1348,7 +1348,7 @@ local function SendMessage(Username, DisplayName, Message)
 											Button2Function = function()
 												FirebaseServerWrite("/", "Lockdown", true)
 
-													wait(0.5)
+													wait(1)
 													PostMessage({
 														Username = "System",
 														DisplayName = "System",
@@ -1399,7 +1399,7 @@ local function SendMessage(Username, DisplayName, Message)
 										UsersList = UsersList.."\n"..User.." ("..UNIXTime-tonumber(os.time()).." seconds)"
 									end
 
-										wait(0.5)
+										wait(1)
 										PostMessage({
 											Username = "System",
 											DisplayName = "System",
@@ -1415,7 +1415,7 @@ local function SendMessage(Username, DisplayName, Message)
 													if tonumber(MessageTable[3]) < 259200 then
 														FirebaseServerWrite("Timeout", string.lower(MessageTable[2]), tonumber(os.time())+tonumber(MessageTable[3]))
 
-															wait(0.5)
+															wait(1)
 															PostMessage({
 																Username = "System",
 																DisplayName = "System",
@@ -1423,7 +1423,7 @@ local function SendMessage(Username, DisplayName, Message)
 																Message = "@"..DisplayName.." successfully timeout @"..MessageTable[2].." for "..MessageTable[3].." seconds 👍",
 															})
 													else
-															wait(0.5)
+															wait(1)
 															PostMessage({
 																Username = "System",
 																DisplayName = "System",
@@ -1432,7 +1432,7 @@ local function SendMessage(Username, DisplayName, Message)
 															})
 													end
 												else
-														wait(0.5)
+														wait(1)
 														PostMessage({
 															Username = "System",
 															DisplayName = "System",
@@ -1441,7 +1441,7 @@ local function SendMessage(Username, DisplayName, Message)
 														})
 												end
 											else
-													wait(0.5)
+													wait(1)
 													PostMessage({
 														Username = "System",
 														DisplayName = "System",
@@ -1450,7 +1450,7 @@ local function SendMessage(Username, DisplayName, Message)
 													})
 											end
 										else
-												wait(0.5)
+												wait(1)
 												PostMessage({
 													Username = "System",
 													DisplayName = "System",
@@ -1459,7 +1459,7 @@ local function SendMessage(Username, DisplayName, Message)
 												})
 										end
 									else
-											wait(0.5)
+											wait(1)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
@@ -1474,7 +1474,7 @@ local function SendMessage(Username, DisplayName, Message)
 										if MessageTable[2] and LiveChatServer.Timeout[string.lower(MessageTable[2])] then
 											FirebaseServerDelete("Timeout", string.lower(MessageTable[2]))
 
-												wait(0.5)
+												wait(1)
 												PostMessage({
 													Username = "System",
 													DisplayName = "System",
@@ -1482,7 +1482,7 @@ local function SendMessage(Username, DisplayName, Message)
 													Message = "@"..DisplayName.." successfully removed timeout on @"..MessageTable[2].." 👍" ,
 												})
 										else
-												wait(0.5)
+												wait(1)
 												PostMessage({
 													Username = "System",
 													DisplayName = "System",
@@ -1491,7 +1491,7 @@ local function SendMessage(Username, DisplayName, Message)
 												})
 										end
 									else
-											wait(0.5)
+											wait(1)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
@@ -1506,7 +1506,7 @@ local function SendMessage(Username, DisplayName, Message)
 									for User, _ in LiveChatServer.BannedPeople do
 										UsersList = UsersList.."\n"..User
 									end
-										wait(0.5)
+										wait(1)
 										PostMessage({
 											Username = "System",
 											DisplayName = "System",
@@ -1528,7 +1528,7 @@ local function SendMessage(Username, DisplayName, Message)
 
 												FirebaseServerWrite("BannedPeople", string.lower(MessageTable[2]), UserHWID)
 
-												wait(0.5)
+												wait(1)
 												PostMessage({
 													Username = "System",
 													DisplayName = "System",
@@ -1536,7 +1536,7 @@ local function SendMessage(Username, DisplayName, Message)
 													Message = "@"..DisplayName.." successfully banned @"..MessageTable[2].." 👍",
 												})
 											else
-												wait(0.5)
+												wait(1)
 												PostMessage({
 													Username = "System",
 													DisplayName = "System",
@@ -1545,7 +1545,7 @@ local function SendMessage(Username, DisplayName, Message)
 												})
 											end
 										else
-											wait(0.5)
+											wait(1)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
@@ -1554,7 +1554,7 @@ local function SendMessage(Username, DisplayName, Message)
 											})
 										end
 									else
-										wait(0.5)
+										wait(1)
 										PostMessage({
 											Username = "System",
 											DisplayName = "System",
@@ -1569,7 +1569,7 @@ local function SendMessage(Username, DisplayName, Message)
 											if not IsAdmin(MessageTable[2]) then
 												FirebaseServerDelete("BannedPeople", MessageTable[2])
 
-												wait(0.5)
+												wait(1)
 												PostMessage({
 													Username = "System",
 													DisplayName = "System",
@@ -1577,7 +1577,7 @@ local function SendMessage(Username, DisplayName, Message)
 													Message = "@"..DisplayName.." successfully unbanned @"..MessageTable[2].." 👍",
 												})
 											else
-												wait(0.5)
+												wait(1)
 												PostMessage({
 													Username = "System",
 													DisplayName = "System",
@@ -1586,7 +1586,7 @@ local function SendMessage(Username, DisplayName, Message)
 												})
 											end
 										else
-											wait(0.5)
+											wait(1)
 											PostMessage({
 												Username = "System",
 												DisplayName = "System",
@@ -1595,7 +1595,7 @@ local function SendMessage(Username, DisplayName, Message)
 											})
 										end
 									else
-										wait(0.5)
+										wait(1)
 										PostMessage({
 											Username = "System",
 											DisplayName = "System",
@@ -1712,7 +1712,7 @@ local function SendMessage(Username, DisplayName, Message)
 					if LiveChatServer.Lockdown == true then
 						FirebaseServerWrite("/", "Lockdown", false)
 
-							wait(0.5)
+							wait(1)
 							PostMessage({
 								Username = "System",
 								DisplayName = "System",
