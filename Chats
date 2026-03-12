@@ -457,6 +457,7 @@ NewSlashCommand("/copyusername [MessageId]", "copy a username in a message")
 NewSlashCommand("/delete [MessageId]", "delete a message")
 NewSlashCommand("/edit [MessageId] [Message]", "edit a message")
 NewSlashCommand("/purge", "deletes all messages in the chat")
+NewSlashCommand("/updatechatversion", "refreshes everyones chat interface by updating the chat version")
 NewSlashCommand("/allowlinks", "make members have the ability to send links")
 NewSlashCommand("/forbidlinks", "make members have no ability to send links")
 NewSlashCommand("/listcensoredwords", "returns censored words")
@@ -769,7 +770,7 @@ end)()
 
 ---- Listens for new chats ----
 coroutine.wrap(function()
-	while wait(0.1) do
+	while wait(0.05) do
 		if not LiveChatServer.BannedPeople[string.lower(LocalPlayer.Name)] then
 			for Chat, ChatInfo in LiveChatServer.Chats do
 				local MessageIsShown = false
@@ -857,6 +858,7 @@ local function PostMessage(Table)
 end
 
 local function SendMessage(Username, DisplayName, Message)
+	TextBox.TextBox.Text = ""
 	if not LiveChatServer.BannedPeople[Username] then
 		if LiveChatServer.VerifiedHWID[Username] == HWID() then
 			local MessageTable = string.split(Message, " ")
@@ -1163,7 +1165,23 @@ local function SendMessage(Username, DisplayName, Message)
 											})
 										end)()
 									end
-
+									
+								elseif MessageTable[1] == "/updatechatversion" then
+									ToSend = false
+									if IsAdmin(Username) then
+										FirebaseServerWrite("/", "ChatVersion", LiveChatServer.ChatVersion+1)
+									else
+										DisplayMessage({
+											DisplayName = "System",
+											Username = "System",
+											Message = "@"..Username.." you dont have admin privilages ✋",
+											IsClient = true,
+											IsTemporary = false,
+											UNIXTimestamp = tonumber(os.time()),
+											MessageId = 0
+										})
+									end
+									
 								elseif MessageTable[1] == "/allowlinks" then
 									if IsAdmin(Username) then
 										FirebaseServerWrite("/", "LinksAllowed", "true")
@@ -1641,7 +1659,6 @@ local function SendMessage(Username, DisplayName, Message)
 									if MessageTable[2] and IsStringNumber(MessageTable[2]) and LiveChatServer.Chats["Message"..tonumber(MessageTable[2])] then
 										coroutine.wrap(function()
 											wait(0.5)
-											TextBox.TextBox.Text = LiveChatServer.Chats["Message"..tonumber(MessageTable[2])]["Message"]
 											toclipboard(LiveChatServer.Chats["Message"..tonumber(MessageTable[2])]["Message"])
 										end)()
 
@@ -1785,6 +1802,16 @@ local function SendMessage(Username, DisplayName, Message)
 							})
 						end,
 					})
+				elseif string.find(MessageTable[1], "/") then
+					DisplayMessage({
+						DisplayName = "System",
+						Username = "System",
+						Message = "@"..DisplayName.." you cant run this specific command during lockdown 👎",
+						IsClient = true,
+						IsTemporary = false,
+						UNIXTimestamp = tonumber(os.time()),
+						MessageId = 0
+					})
 				else
 					_G.PopUpNotificationOptions({
 						Title = "Oops!",
@@ -1809,7 +1836,6 @@ local function SendMessage(Username, DisplayName, Message)
 			})
 		end
 	end
-	TextBox.TextBox.Text = ""
 	return
 end
 
