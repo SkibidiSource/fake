@@ -828,9 +828,8 @@ coroutine.wrap(function()
 	end)()
 
 	coroutine.wrap(function()
+		local IgnoreIds = {}
 		while wait(0.1) do
-			local IgnoreIds = {}
-			
 			for RemoteId, Data in LiveChatServer.Remotes do
 				if RemoteId ~= "ignore" then
 					if Data.Date < os.time() - 10 then
