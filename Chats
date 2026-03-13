@@ -830,7 +830,7 @@ coroutine.wrap(function()
 	coroutine.wrap(function()
 		wait(0.1)
 		for RemoteId, Data in LiveChatServer.Remotes do
-			if Data.Date < os.time() - 10 then
+			if tonumber(Data.Date) < os.time() - 10 then
 				FirebaseServerDelete("Remotes", RemoteId)
 			end
 			
