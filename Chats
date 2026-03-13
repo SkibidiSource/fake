@@ -839,7 +839,7 @@ coroutine.wrap(function()
 				
 				if Data.Type == "JoinUserRequest" then
 					if LiveChatServer.UserData[LocalPlayer.Name].AllowJoins == "Always" then
-						FirebaseServerWrite("Remotes", game:GetService("HttpService"):GenerateGUID(), {
+						FirebaseServerWrite("Remotes", game:GetService("HttpService"):GenerateGUID(false), {
 							Type = "JoinUserAgreed",
 							Sender = LocalPlayer.Name,
 							Receiver = Data.Sender,
@@ -862,7 +862,7 @@ coroutine.wrap(function()
 							end,
 							Button2Text = "Ok",
 							Button2Function = function()
-								FirebaseServerWrite("Remotes", game:GetService("HttpService"):GenerateGUID(), {
+								FirebaseServerWrite("Remotes", game:GetService("HttpService"):GenerateGUID(false), {
 									Type = "JoinUserAgreed",
 									Sender = LocalPlayer.Name,
 									Receiver = Data.Sender,
@@ -1390,7 +1390,7 @@ local function SendMessage(Username, DisplayName, Message)
 
 									if FixedUsername ~= nil then
 										local function SendRequest()
-											FirebaseServerWrite("Remotes", game:GetService("HttpService"):GenerateGUID(), {
+											FirebaseServerWrite("Remotes", game:GetService("HttpService"):GenerateGUID(false), {
 												Sender = LocalPlayer.Name,
 												Receiver = FixedUsername,
 												Type = "JoinUserRequest",
