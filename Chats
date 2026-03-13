@@ -815,8 +815,8 @@ coroutine.wrap(function()
 	if not (LiveChatServer.UserData[LocalPlayer.Name]) then
 		FirebaseServerWrite("UserData", LocalPlayer.Name, {
 			AllowJoins = "AlwaysAsk",
-			GameId = game.GameId,
-			GameJobId = game.JobId,
+			PlaceId = game.PlaceId,
+			JobId = game.JobId,
 			LastOnline = os.time(),
 		})
 	end
@@ -883,7 +883,7 @@ coroutine.wrap(function()
 								end,
 							})
 
-							game:GetService("TeleportService"):TeleportToPlaceInstance(tonumber(ToJoin.GameId), ToJoin.GameJobId, LocalPlayer)
+							game:GetService("TeleportService"):TeleportToPlaceInstance(tonumber(ToJoin.PlaceId), ToJoin.JobId, LocalPlayer)
 
 						elseif Data.Type == "JoinUserDeclined" then
 							_G.PopUpNotificationOptions({
@@ -900,8 +900,8 @@ coroutine.wrap(function()
 		end
 	end)()
 
-	FirebaseServerWrite("UserData/"..LocalPlayer.Name, "GameId", game.GameId)
-	FirebaseServerWrite("UserData/"..LocalPlayer.Name, "GameJobId", game.JobId)
+	FirebaseServerWrite("UserData/"..LocalPlayer.Name, "PlaceId", game.PlaceId)
+	FirebaseServerWrite("UserData/"..LocalPlayer.Name, "JobId", game.JobId)
 end)()
 
 local Cooldown = 2
