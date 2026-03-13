@@ -898,7 +898,7 @@ coroutine.wrap(function()
 	end)()
 	
 	FirebaseServerWrite("UserData/"..LocalPlayer.Name, "GameId", game.GameId)
-	FirebaseServerWrite("UserData/"..LocalPlayer.Name, "GameId", game.JobId)
+	FirebaseServerWrite("UserData/"..LocalPlayer.Name, "GameJobId", game.JobId)
 end)()
 
 local Cooldown = 2
