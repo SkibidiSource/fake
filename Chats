@@ -829,13 +829,16 @@ coroutine.wrap(function()
 
 	coroutine.wrap(function()
 		while wait(0.1) do
+			local IgnoreIds = {}
+			
 			for RemoteId, Data in LiveChatServer.Remotes do
 				if RemoteId ~= "ignore" then
 					if Data.Date < os.time() - 10 then
 						FirebaseServerDelete("Remotes", RemoteId)
 					end
 
-					if Data.Receiver == LocalPlayer.Name then
+					if Data.Receiver == LocalPlayer.Name and not (IgnoreIds[RemoteId]) then
+						IgnoreIds[RemoteId] = true
 						FirebaseServerDelete("Remotes", RemoteId)
 
 						if Data.Type == "JoinUserRequest" then
