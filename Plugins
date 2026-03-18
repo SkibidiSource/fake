@@ -548,7 +548,7 @@ local function InstallOperation()
 	end
 	
 	print("Allspace "..tostring(AllSpaces))
-	print("IsTable "..CheckIfTable(TextBox.ContentText))
+	print("IsTable "..tostring(CheckIfTable(TextBox.ContentText)))
 
 	if AllSpaces == false and CheckIfTable(TextBox.ContentText) == true then
 		local TableContents = loadstring(TextBox.ContentText)()
