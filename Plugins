@@ -602,7 +602,7 @@ local function InstallOperation()
 							end,
 						})
 					else
-						writefile("VexHub7/Plugins/"..TableContents.PluginName..".vexp", JSon:Encode(TableContents))
+						writefile("VexHub7/Plugins/"..TableContents.PluginName..".vexp", GUI["TextBox_033"].ContentText)
 						DisplayPlugin(TableContents)
 
 						_G.PopUpNotificationOptions({
