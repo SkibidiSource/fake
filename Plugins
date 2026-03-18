@@ -1,0 +1,429 @@
+-- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+
+-- Instances:
+
+local GUI = {
+	["Plugins_00"] = Instance.new("Frame");
+	["UIListLayout_01"] = Instance.new("UIListLayout");
+	["Insides_02"] = Instance.new("Frame");
+	["UIListLayout_03"] = Instance.new("UIListLayout");
+	["UIStroke_04"] = Instance.new("UIStroke");
+	["UICorner_05"] = Instance.new("UICorner");
+	["UIGradient_06"] = Instance.new("UIGradient");
+	["RightFrame_07"] = Instance.new("Frame");
+	["UIListLayout_08"] = Instance.new("UIListLayout");
+	["UIStroke_09"] = Instance.new("UIStroke");
+	["UICorner_010"] = Instance.new("UICorner");
+	["UIGradient_011"] = Instance.new("UIGradient");
+	["TopFrame_012"] = Instance.new("Frame");
+	["PluginsInstalledText_013"] = Instance.new("TextLabel");
+	["UIListLayout_014"] = Instance.new("UIListLayout");
+	["PlugImage_015"] = Instance.new("ImageLabel");
+	["ScrollingFrame_016"] = Instance.new("ScrollingFrame");
+	["Template_017"] = Instance.new("Frame");
+	["PluginName_018"] = Instance.new("TextLabel");
+	["UIListLayout_019"] = Instance.new("UIListLayout");
+	["DeleteButton_020"] = Instance.new("ImageButton");
+	["UIListLayout_021"] = Instance.new("UIListLayout");
+	["Border_022"] = Instance.new("Frame");
+	["NoPlugins_023"] = Instance.new("TextLabel");
+	["LeftFrame_024"] = Instance.new("Frame");
+	["UIListLayout_025"] = Instance.new("UIListLayout");
+	["TopFrame_026"] = Instance.new("Frame");
+	["PluginsText_027"] = Instance.new("TextLabel");
+	["UIListLayout_028"] = Instance.new("UIListLayout");
+	["PlugImage_029"] = Instance.new("ImageLabel");
+	["TextBoxParent_030"] = Instance.new("Frame");
+	["UICorner_031"] = Instance.new("UICorner");
+	["UIListLayout_032"] = Instance.new("UIListLayout");
+	["TextBox_033"] = Instance.new("TextBox");
+	["Tip_034"] = Instance.new("TextLabel");
+	["InstallButton_035"] = Instance.new("TextButton");
+	["Insides_036"] = Instance.new("Frame");
+	["InstallText_037"] = Instance.new("TextLabel");
+	["InstallImage_038"] = Instance.new("ImageLabel");
+	["UIListLayout_039"] = Instance.new("UIListLayout");
+	["UIListLayout_040"] = Instance.new("UIListLayout");
+	["UICorner_041"] = Instance.new("UICorner");
+	["UIGradient_042"] = Instance.new("UIGradient");
+	["UIScale_043"] = Instance.new("UIScale");
+	["UIStroke_044"] = Instance.new("UIStroke");
+}
+
+-- Properties:
+
+GUI["Plugins_00"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Plugins_00"].BackgroundTransparency = 1
+GUI["Plugins_00"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Plugins_00"].BorderSizePixel = 0
+GUI["Plugins_00"].Size = UDim2.new(1, 0, 1, 0)
+GUI["Plugins_00"].Name = "Plugins"
+GUI["Plugins_00"].Parent = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages
+
+GUI["UIListLayout_01"].Padding = UDim.new(0, 5)
+GUI["UIListLayout_01"].FillDirection = Enum.FillDirection.Horizontal
+GUI["UIListLayout_01"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_01"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_01"].Parent = GUI["Plugins_00"]
+
+GUI["Insides_02"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Insides_02"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Insides_02"].BorderSizePixel = 0
+GUI["Insides_02"].Position = UDim2.new(0.0035562308, 0, 0, 0)
+GUI["Insides_02"].Size = UDim2.new(1, 0, 1, 0)
+GUI["Insides_02"].Name = "Insides"
+GUI["Insides_02"].Parent = GUI["Plugins_00"]
+
+GUI["UIListLayout_03"].Padding = UDim.new(0, 10)
+GUI["UIListLayout_03"].FillDirection = Enum.FillDirection.Horizontal
+GUI["UIListLayout_03"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_03"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_03"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_03"].Parent = GUI["Insides_02"]
+
+GUI["UIStroke_04"].Color = Color3.fromRGB(255, 255, 255)
+GUI["UIStroke_04"].Parent = GUI["Insides_02"]
+
+GUI["UICorner_05"].CornerRadius = UDim.new(0, 5)
+GUI["UICorner_05"].Parent = GUI["Insides_02"]
+
+GUI["UIGradient_06"].Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(25.000000409781933, 26.000000350177288, 31.000000052154064)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(18.000000827014446, 18.000000827014446, 21.000000648200512))
+}
+GUI["UIGradient_06"].Rotation = 90
+GUI["UIGradient_06"].Parent = GUI["Insides_02"]
+
+GUI["RightFrame_07"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["RightFrame_07"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["RightFrame_07"].BorderSizePixel = 0
+GUI["RightFrame_07"].LayoutOrder = 2
+GUI["RightFrame_07"].Position = UDim2.new(0.33641538, 0, 0.0599999987, 0)
+GUI["RightFrame_07"].Size = UDim2.new(0, 115, 0.899999976, 0)
+GUI["RightFrame_07"].Name = "RightFrame"
+GUI["RightFrame_07"].Parent = GUI["Insides_02"]
+
+GUI["UIListLayout_08"].Padding = UDim.new(0, 5)
+GUI["UIListLayout_08"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_08"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_08"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_08"].Parent = GUI["RightFrame_07"]
+
+GUI["UIStroke_09"].Color = Color3.fromRGB(255, 255, 255)
+GUI["UIStroke_09"].Parent = GUI["RightFrame_07"]
+
+GUI["UICorner_010"].CornerRadius = UDim.new(0, 5)
+GUI["UICorner_010"].Parent = GUI["RightFrame_07"]
+
+GUI["UIGradient_011"].Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(25.000000409781933, 26.000000350177288, 31.000000052154064)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(18.000000827014446, 18.000000827014446, 21.000000648200512))
+}
+GUI["UIGradient_011"].Rotation = 90
+GUI["UIGradient_011"].Parent = GUI["RightFrame_07"]
+
+GUI["TopFrame_012"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["TopFrame_012"].BackgroundTransparency = 1
+GUI["TopFrame_012"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["TopFrame_012"].BorderSizePixel = 0
+GUI["TopFrame_012"].LayoutOrder = 1
+GUI["TopFrame_012"].Size = UDim2.new(1, 0, 0, 18)
+GUI["TopFrame_012"].Name = "TopFrame"
+GUI["TopFrame_012"].Parent = GUI["RightFrame_07"]
+
+GUI["PluginsInstalledText_013"].Font = Enum.Font.GothamBold
+GUI["PluginsInstalledText_013"].Text = "Plugins\nInstalled"
+GUI["PluginsInstalledText_013"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["PluginsInstalledText_013"].TextSize = 9
+GUI["PluginsInstalledText_013"].TextTransparency = 0.20000000298023224
+GUI["PluginsInstalledText_013"].AutomaticSize = Enum.AutomaticSize.XY
+GUI["PluginsInstalledText_013"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["PluginsInstalledText_013"].BackgroundTransparency = 1
+GUI["PluginsInstalledText_013"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["PluginsInstalledText_013"].BorderSizePixel = 0
+GUI["PluginsInstalledText_013"].LayoutOrder = 2
+GUI["PluginsInstalledText_013"].Name = "PluginsInstalledText"
+GUI["PluginsInstalledText_013"].Parent = GUI["TopFrame_012"]
+
+GUI["UIListLayout_014"].FillDirection = Enum.FillDirection.Horizontal
+GUI["UIListLayout_014"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_014"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_014"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_014"].Parent = GUI["TopFrame_012"]
+
+GUI["PlugImage_015"].Image = "rbxassetid://17666729279"
+GUI["PlugImage_015"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["PlugImage_015"].BackgroundTransparency = 1
+GUI["PlugImage_015"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["PlugImage_015"].BorderSizePixel = 0
+GUI["PlugImage_015"].LayoutOrder = 1
+GUI["PlugImage_015"].Size = UDim2.new(0, 25, 0, 25)
+GUI["PlugImage_015"].Name = "PlugImage"
+GUI["PlugImage_015"].Parent = GUI["TopFrame_012"]
+
+GUI["ScrollingFrame_016"].AutomaticCanvasSize = Enum.AutomaticSize.Y
+GUI["ScrollingFrame_016"].CanvasSize = UDim2.new(0, 0, 0, 0)
+GUI["ScrollingFrame_016"].ScrollBarThickness = 2
+GUI["ScrollingFrame_016"].Active = true
+GUI["ScrollingFrame_016"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["ScrollingFrame_016"].BackgroundTransparency = 1
+GUI["ScrollingFrame_016"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["ScrollingFrame_016"].BorderSizePixel = 0
+GUI["ScrollingFrame_016"].LayoutOrder = 3
+GUI["ScrollingFrame_016"].Position = UDim2.new(0, 0, 0.138888896, 0)
+GUI["ScrollingFrame_016"].Size = UDim2.new(1, 0, 0, 147)
+GUI["ScrollingFrame_016"].Parent = GUI["RightFrame_07"]
+
+GUI["Template_017"].AutomaticSize = Enum.AutomaticSize.Y
+GUI["Template_017"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Template_017"].BackgroundTransparency = 1
+GUI["Template_017"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Template_017"].BorderSizePixel = 0
+GUI["Template_017"].LayoutOrder = 1
+GUI["Template_017"].Size = UDim2.new(0.899999976, 0, 0, 18)
+GUI["Template_017"].Visible = false
+GUI["Template_017"].Name = "Template"
+GUI["Template_017"].Parent = GUI["ScrollingFrame_016"]
+
+GUI["PluginName_018"].Font = Enum.Font.GothamBold
+GUI["PluginName_018"].Text = "Plugin"
+GUI["PluginName_018"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["PluginName_018"].TextSize = 12
+GUI["PluginName_018"].TextTransparency = 0.20000000298023224
+GUI["PluginName_018"].TextWrapped = true
+GUI["PluginName_018"].TextXAlignment = Enum.TextXAlignment.Left
+GUI["PluginName_018"].AutomaticSize = Enum.AutomaticSize.Y
+GUI["PluginName_018"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["PluginName_018"].BackgroundTransparency = 1
+GUI["PluginName_018"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["PluginName_018"].BorderSizePixel = 0
+GUI["PluginName_018"].Position = UDim2.new(-0.00483091781, 0, 0, 0)
+GUI["PluginName_018"].Size = UDim2.new(0, 85, 0, 18)
+GUI["PluginName_018"].Name = "PluginName"
+GUI["PluginName_018"].Parent = GUI["Template_017"]
+
+GUI["UIListLayout_019"].Padding = UDim.new(0, 5)
+GUI["UIListLayout_019"].FillDirection = Enum.FillDirection.Horizontal
+GUI["UIListLayout_019"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_019"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_019"].Parent = GUI["Template_017"]
+
+GUI["DeleteButton_020"].Image = "rbxassetid://17669297536"
+GUI["DeleteButton_020"].ImageColor3 = Color3.fromRGB(255, 102.00000151991844, 102.00000151991844)
+GUI["DeleteButton_020"].ScaleType = Enum.ScaleType.Crop
+GUI["DeleteButton_020"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["DeleteButton_020"].BackgroundTransparency = 1
+GUI["DeleteButton_020"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["DeleteButton_020"].BorderSizePixel = 0
+GUI["DeleteButton_020"].Size = UDim2.new(0, 10, 0, 18)
+GUI["DeleteButton_020"].Name = "DeleteButton"
+GUI["DeleteButton_020"].Parent = GUI["Template_017"]
+
+GUI["UIListLayout_021"].Padding = UDim.new(0, 3)
+GUI["UIListLayout_021"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_021"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_021"].Parent = GUI["ScrollingFrame_016"]
+
+GUI["Border_022"].BackgroundColor3 = Color3.fromRGB(47.0000009983778, 49.00000087916851, 58.00000034272671)
+GUI["Border_022"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Border_022"].BorderSizePixel = 0
+GUI["Border_022"].Size = UDim2.new(0.899999976, 0, 0, 1)
+GUI["Border_022"].Name = "Border"
+GUI["Border_022"].Parent = GUI["ScrollingFrame_016"]
+
+GUI["NoPlugins_023"].Font = Enum.Font.Unknown
+GUI["NoPlugins_023"].Text = "No plugins installed"
+GUI["NoPlugins_023"].TextColor3 = Color3.fromRGB(155.00000596046448, 155.00000596046448, 155.00000596046448)
+GUI["NoPlugins_023"].TextSize = 12
+GUI["NoPlugins_023"].TextWrapped = true
+GUI["NoPlugins_023"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["NoPlugins_023"].BackgroundTransparency = 1
+GUI["NoPlugins_023"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["NoPlugins_023"].BorderSizePixel = 0
+GUI["NoPlugins_023"].Position = UDim2.new(0.0500000007, 0, 0.0272108838, 0)
+GUI["NoPlugins_023"].Size = UDim2.new(0.899999976, 0, 0.972789109, 0)
+GUI["NoPlugins_023"].Name = "NoPlugins"
+GUI["NoPlugins_023"].Parent = GUI["ScrollingFrame_016"]
+
+GUI["LeftFrame_024"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["LeftFrame_024"].BackgroundTransparency = 1
+GUI["LeftFrame_024"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["LeftFrame_024"].BorderSizePixel = 0
+GUI["LeftFrame_024"].LayoutOrder = 1
+GUI["LeftFrame_024"].Position = UDim2.new(-0.134423837, 0, 0.0500000007, 0)
+GUI["LeftFrame_024"].Size = UDim2.new(0, 207, 0.899999976, 0)
+GUI["LeftFrame_024"].Name = "LeftFrame"
+GUI["LeftFrame_024"].Parent = GUI["Insides_02"]
+
+GUI["UIListLayout_025"].Padding = UDim.new(0, 5)
+GUI["UIListLayout_025"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_025"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_025"].Parent = GUI["LeftFrame_024"]
+
+GUI["TopFrame_026"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["TopFrame_026"].BackgroundTransparency = 1
+GUI["TopFrame_026"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["TopFrame_026"].BorderSizePixel = 0
+GUI["TopFrame_026"].LayoutOrder = 1
+GUI["TopFrame_026"].Size = UDim2.new(1, 0, 0, 18)
+GUI["TopFrame_026"].Name = "TopFrame"
+GUI["TopFrame_026"].Parent = GUI["LeftFrame_024"]
+
+GUI["PluginsText_027"].Font = Enum.Font.GothamBold
+GUI["PluginsText_027"].Text = "Plugins"
+GUI["PluginsText_027"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["PluginsText_027"].TextSize = 18
+GUI["PluginsText_027"].AutomaticSize = Enum.AutomaticSize.XY
+GUI["PluginsText_027"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["PluginsText_027"].BackgroundTransparency = 1
+GUI["PluginsText_027"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["PluginsText_027"].BorderSizePixel = 0
+GUI["PluginsText_027"].LayoutOrder = 2
+GUI["PluginsText_027"].Name = "PluginsText"
+GUI["PluginsText_027"].Parent = GUI["TopFrame_026"]
+
+GUI["UIListLayout_028"].FillDirection = Enum.FillDirection.Horizontal
+GUI["UIListLayout_028"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_028"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_028"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_028"].Parent = GUI["TopFrame_026"]
+
+GUI["PlugImage_029"].Image = "rbxassetid://17645365934"
+GUI["PlugImage_029"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["PlugImage_029"].BackgroundTransparency = 1
+GUI["PlugImage_029"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["PlugImage_029"].BorderSizePixel = 0
+GUI["PlugImage_029"].LayoutOrder = 1
+GUI["PlugImage_029"].Size = UDim2.new(0, 25, 0, 25)
+GUI["PlugImage_029"].Name = "PlugImage"
+GUI["PlugImage_029"].Parent = GUI["TopFrame_026"]
+
+GUI["TextBoxParent_030"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["TextBoxParent_030"].BackgroundTransparency = 0.8999999761581421
+GUI["TextBoxParent_030"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["TextBoxParent_030"].BorderSizePixel = 0
+GUI["TextBoxParent_030"].LayoutOrder = 2
+GUI["TextBoxParent_030"].Position = UDim2.new(0, 0, 0.127777785, 0)
+GUI["TextBoxParent_030"].Size = UDim2.new(1, 0, 0.0277777351, 100)
+GUI["TextBoxParent_030"].Name = "TextBoxParent"
+GUI["TextBoxParent_030"].Parent = GUI["LeftFrame_024"]
+
+GUI["UICorner_031"].CornerRadius = UDim.new(0, 5)
+GUI["UICorner_031"].Parent = GUI["TextBoxParent_030"]
+
+GUI["UIListLayout_032"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_032"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_032"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_032"].Parent = GUI["TextBoxParent_030"]
+
+GUI["TextBox_033"].ClearTextOnFocus = false
+GUI["TextBox_033"].Font = Enum.Font.Unknown
+GUI["TextBox_033"].MultiLine = true
+GUI["TextBox_033"].PlaceholderText = "local Table = {}"
+GUI["TextBox_033"].Text = ""
+GUI["TextBox_033"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["TextBox_033"].TextSize = 12
+GUI["TextBox_033"].TextWrapped = true
+GUI["TextBox_033"].TextXAlignment = Enum.TextXAlignment.Left
+GUI["TextBox_033"].TextYAlignment = Enum.TextYAlignment.Top
+GUI["TextBox_033"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["TextBox_033"].BackgroundTransparency = 1
+GUI["TextBox_033"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["TextBox_033"].BorderSizePixel = 0
+GUI["TextBox_033"].Size = UDim2.new(0.930000007, 0, 0.949999988, 0)
+GUI["TextBox_033"].Parent = GUI["TextBoxParent_030"]
+
+GUI["Tip_034"].Font = Enum.Font.GothamMedium
+GUI["Tip_034"].LineHeight = 0.8999999761581421
+GUI["Tip_034"].RichText = true
+GUI["Tip_034"].Text = "visit <font color="rgb(76, 188, 255)">bit.ly/VexHubPlugins</font> if you want to create your own plugins"
+GUI["Tip_034"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Tip_034"].TextSize = 9
+GUI["Tip_034"].TextTransparency = 0.5
+GUI["Tip_034"].TextWrapped = true
+GUI["Tip_034"].TextXAlignment = Enum.TextXAlignment.Left
+GUI["Tip_034"].TextYAlignment = Enum.TextYAlignment.Bottom
+GUI["Tip_034"].AutomaticSize = Enum.AutomaticSize.Y
+GUI["Tip_034"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Tip_034"].BackgroundTransparency = 1
+GUI["Tip_034"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Tip_034"].BorderSizePixel = 0
+GUI["Tip_034"].LayoutOrder = 4
+GUI["Tip_034"].Position = UDim2.new(0.0169082116, 0, 0.850000024, 0)
+GUI["Tip_034"].Size = UDim2.new(1, 0, 0, 0)
+GUI["Tip_034"].Name = "Tip"
+GUI["Tip_034"].Parent = GUI["LeftFrame_024"]
+
+GUI["InstallButton_035"].Font = Enum.Font.SourceSans
+GUI["InstallButton_035"].Text = ""
+GUI["InstallButton_035"].TextColor3 = Color3.fromRGB(0, 0, 0)
+GUI["InstallButton_035"].TextSize = 14
+GUI["InstallButton_035"].AutoButtonColor = false
+GUI["InstallButton_035"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["InstallButton_035"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["InstallButton_035"].BorderSizePixel = 0
+GUI["InstallButton_035"].LayoutOrder = 3
+GUI["InstallButton_035"].Size = UDim2.new(0.899999976, 0, 0, 20)
+GUI["InstallButton_035"].Name = "InstallButton"
+GUI["InstallButton_035"].Parent = GUI["LeftFrame_024"]
+
+GUI["Insides_036"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Insides_036"].BackgroundTransparency = 1
+GUI["Insides_036"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Insides_036"].BorderSizePixel = 0
+GUI["Insides_036"].Size = UDim2.new(1, 0, 1, 0)
+GUI["Insides_036"].Name = "Insides"
+GUI["Insides_036"].Parent = GUI["InstallButton_035"]
+
+GUI["InstallText_037"].Font = Enum.Font.GothamBold
+GUI["InstallText_037"].Text = "Install"
+GUI["InstallText_037"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["InstallText_037"].TextSize = 13
+GUI["InstallText_037"].AutomaticSize = Enum.AutomaticSize.X
+GUI["InstallText_037"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["InstallText_037"].BackgroundTransparency = 1
+GUI["InstallText_037"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["InstallText_037"].BorderSizePixel = 0
+GUI["InstallText_037"].LayoutOrder = 2
+GUI["InstallText_037"].Size = UDim2.new(0, 0, 0, 25)
+GUI["InstallText_037"].Name = "InstallText"
+GUI["InstallText_037"].Parent = GUI["Insides_036"]
+
+GUI["InstallImage_038"].Image = "rbxassetid://17669692529"
+GUI["InstallImage_038"].ScaleType = Enum.ScaleType.Crop
+GUI["InstallImage_038"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["InstallImage_038"].BackgroundTransparency = 1
+GUI["InstallImage_038"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["InstallImage_038"].BorderSizePixel = 0
+GUI["InstallImage_038"].LayoutOrder = 1
+GUI["InstallImage_038"].Size = UDim2.new(0, 15, 0, 20)
+GUI["InstallImage_038"].Name = "InstallImage"
+GUI["InstallImage_038"].Parent = GUI["Insides_036"]
+
+GUI["UIListLayout_039"].Padding = UDim.new(0, 3)
+GUI["UIListLayout_039"].FillDirection = Enum.FillDirection.Horizontal
+GUI["UIListLayout_039"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_039"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_039"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_039"].Parent = GUI["Insides_036"]
+
+GUI["UIListLayout_040"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_040"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_040"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_040"].Parent = GUI["InstallButton_035"]
+
+GUI["UICorner_041"].CornerRadius = UDim.new(0, 5)
+GUI["UICorner_041"].Parent = GUI["InstallButton_035"]
+
+GUI["UIGradient_042"].Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(51.00000075995922, 95.00000193715096, 255)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(40.00000141561031, 76.0000030696392, 204.00000303983688))
+}
+GUI["UIGradient_042"].Offset = Vector2.new(0, 1)
+GUI["UIGradient_042"].Rotation = 90
+GUI["UIGradient_042"].Parent = GUI["InstallButton_035"]
+
+GUI["UIScale_043"].Parent = GUI["InstallButton_035"]
+
+GUI["UIStroke_044"].Color = Color3.fromRGB(35.00000171363354, 66.00000366568565, 178.00000458955765)
+GUI["UIStroke_044"].Parent = GUI["InstallButton_035"]
