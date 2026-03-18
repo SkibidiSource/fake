@@ -422,10 +422,6 @@ function JSon:Decode(Table)
 	return game:GetService("HttpService"):JSONDecode(Table)
 end
 
-local function isAtBottom()
-	return Chats.CanvasPosition.Y >= Chats.AbsoluteCanvasSize.Y - Chats.AbsoluteWindowSize.Y - 10
-end
-
 local function scrollToBottom()
 	Chats.CanvasPosition = Vector2.new(0, Chats.AbsoluteCanvasSize.Y - Chats.AbsoluteWindowSize.Y)
 end
@@ -686,11 +682,17 @@ local function DisplayMessage(Table)
 			NewMessage:Destroy()
 		end)()
 	end
-
+	
+	local isAtBottom = false
+	local function isAtBottom()
+		return Chats.CanvasPosition.Y >= Chats.AbsoluteCanvasSize.Y - Chats.AbsoluteWindowSize.Y - 10
+	end
+	if isAtBottom() then isAtBottom = true end
+	
 	NewMessage.Message.Text = ContentText
 	NewMessage.Visible = true
 
-	if isAtBottom() or Username == LocalPlayer.Name or string.find(string.lower(Message), "@everyone") or string.find(string.lower(Message), "@"..string.lower(LocalPlayer.Name)) or string.find(string.lower(Message), "@"..string.lower(LocalPlayer.DisplayName)) then
+	if isAtBottom == true or Username == LocalPlayer.Name or string.find(string.lower(Message), "@everyone") or string.find(string.lower(Message), "@"..string.lower(LocalPlayer.Name)) or string.find(string.lower(Message), "@"..string.lower(LocalPlayer.DisplayName)) then
 		scrollToBottom()
 	end
 
