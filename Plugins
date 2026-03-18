@@ -339,7 +339,7 @@ GUI["TextBox_033"].Parent = GUI["TextBoxParent_030"]
 GUI["Tip_034"].Font = Enum.Font.GothamMedium
 GUI["Tip_034"].LineHeight = 0.8999999761581421
 GUI["Tip_034"].RichText = true
-GUI["Tip_034"].Text = 'visit <font color="rgb(76, 188, 255)">bit.ly/VexHubPlugins</font> if you want to create your own plugins'
+GUI["Tip_034"].Text = 'Visit <font color="rgb(76, 188, 255)">bit.ly/VexHubPlugins</font> if you want to create your own plugins'
 GUI["Tip_034"].TextColor3 = Color3.fromRGB(255, 255, 255)
 GUI["Tip_034"].TextSize = 9
 GUI["Tip_034"].TextTransparency = 0.5
@@ -449,13 +449,13 @@ local ScrollingFrame = GUI["ScrollingFrame_016"]
 local Template = GUI["Template_017"]
 
 GUI["InstallButton_035"].MouseEnter:Connect(function()
-	TweenService:Create(script.Parent.UIScale, TweenInfo.new(0.2, Enum.EasingStyle.Circular, Enum.EasingDirection.Out), {Scale = 1.03}):Play()
-	TweenService:Create(script.Parent.UIGradient, TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Offset = Vector2.new(0, 1)}):Play()
+	TweenService:Create(GUI["UIScale_043"], TweenInfo.new(0.2, Enum.EasingStyle.Circular, Enum.EasingDirection.Out), {Scale = 1.03}):Play()
+	TweenService:Create(GUI["UIGradient_042"], TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Offset = Vector2.new(0, 1)}):Play()
 end)
 
 GUI["InstallButton_035"].MouseLeave:Connect(function()
-	TweenService:Create(script.Parent.UIScale, TweenInfo.new(0.3, Enum.EasingStyle.Circular, Enum.EasingDirection.Out), {Scale = 1}):Play()
-	TweenService:Create(script.Parent.UIGradient, TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Offset = Vector2.new(0, 0)}):Play()
+	TweenService:Create(GUI["UIScale_043"], TweenInfo.new(0.3, Enum.EasingStyle.Circular, Enum.EasingDirection.Out), {Scale = 1}):Play()
+	TweenService:Create(GUI["UIGradient_042"], TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Offset = Vector2.new(0, 0)}):Play()
 end)
 
 local function IdToLink(Id)
@@ -600,6 +600,8 @@ local function InstallOperation()
 
 						game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages["PLUGIN_"..TableContents.PluginName]:Destroy()
 						game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.SideFrame.TabChoices["PLUGIN_"..TableContents.PluginName]:Destroy()
+						GUI["ScrollingFrame_016"][TableContents.PluginName]:Destroy()
+						
 						_G.Table.Plugins[TableContents.PluginName] = TableContents
 						
 						DisplayPlugin(TableContents)
