@@ -542,7 +542,7 @@ local function InstallOperation()
 			if success and type(result) == "table" then
 				return true
 			else
-				return result
+				return false
 			end
 		end
 	end
