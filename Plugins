@@ -547,7 +547,7 @@ local function InstallOperation()
 		end
 	end
 	
-	print("Allspace "..AllSpaces)
+	print("Allspace "..tostring(AllSpaces))
 	print("IsTable "..CheckIfTable(TextBox.ContentText))
 
 	if AllSpaces == false and CheckIfTable(TextBox.ContentText) == true then
