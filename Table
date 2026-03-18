@@ -90,9 +90,8 @@ if (writefile) then
 			for _, PluginPath in listfiles("VexHub/Plugins") do
 				if string.find(string.lower(tostring(PluginPath)), ".vexp") then
 					local PluginName = string.split(string.split(PluginPath, ".")[1], "/")[3]
-					local PluginContents = JSon:Decode(readfile(PluginName))
 					
-					_G.Table.Plugins[string.split(PluginName, ".")] = PluginContents
+					_G.Table.Plugins[PluginName] = loadstring(readfile(PluginPath))
 				end
 			end
 		end)
