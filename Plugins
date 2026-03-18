@@ -433,6 +433,15 @@ GUI["UIStroke_044"].Parent = GUI["InstallButton_035"]
 GUI["UIStroke_044"].Transparency = 0.9
 
 
+local JSon = {}
+function JSon:Encode(Table)
+	return game:GetService("HttpService"):JSONEncode(Table)
+end
+
+function JSon:Decode(Table)
+	return game:GetService("HttpService"):JSONDecode(Table)
+end
+
 local TweenService = game:GetService("TweenService")
 local TextBox = GUI["TextBox_033"]
 local InstallButton = GUI["InstallButton_035"]
@@ -465,25 +474,44 @@ local function DisplayPlugin(Table)
 
 	_G.CreateTabButton("PLUGIN_"..PluginName, IdToLink(PluginLogo), 102)
 	_G.CreatePluginTab(PluginName, IdToLink(PluginLogo), PluginCreator, Scripts)
-end
 
-wait(1)
-DisplayPlugin({
-	PluginName = "OP PLUGIN",
-	PluginLogo = "11592851654",
-	PluginCreator = "hhhhhh",
-	Scripts = {
-		["Hello"] = {
-			Creator = "hello",
-			Description = "Hello World", -- Description
-			GameId = 0, -- The game Id that the script is for (Leave 0 if the script is for every game)
-			RigType = "Any", -- The RigType that the script is for (Choices: R6, R15, Any)
-			Script = function()
-				print("hello") -- This is where you put the script
+	local Template = GUI["Template_017"]
+	
+	Template.Name = PluginName
+	Template.Parent = GUI["ScrollingFrame_016"]
+	Template.Visible = true
+	Template.PluginName.Text = PluginName
+	Template.DeleteButton.MouseButton1Click:Connect(function()
+		_G.PopUpNotificationOptions({
+			Title = "Hey!",
+			Message = "Are you sure you want to delete this plugin?",
+			Button1Text = "Nevermind",
+			Button1Function = function()
 			end,
-		}
-	}
-})
+			Button2Text = "Yes",
+			Button2Function = function()
+				delfile("VexHub7/Plugins/"..PluginName..".vexp")
+				Template:Destroy()
+				
+				local NewTable = {}
+				for i, v in _G.Table.Plugins do
+					if i ~= PluginName then
+						NewTable[i] = v
+					end
+				end
+				_G.Table.Plugins = NewTable
+				
+				_G.PopUpNotificationOptions({
+					Title = "Deleted!",
+					Message = "Plugin has been deleted successfully.",
+					Button2Text = "Ok",
+					Button2Function = function()
+					end,
+				})
+			end,
+		})
+	end)
+end
 
 local function InstallOperation()
 	_G.PopUpNotificationOptions({
@@ -557,7 +585,34 @@ local function InstallOperation()
 				end
 
 				if #missing == 0 then
+					if isfile("VexHub7/Plugins/"..TableContents.PluginName..".vexp") then
+						writefile("VexHub7/Plugins/"..TableContents.PluginName..".vexp", JSon:Encode(TableContents))
+						
+						game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages["PLUGIN"..TableContents.PluginName]:Destroy()
+						game:GetService("CoreGui").VexHubFolder.VexHubUI.DragFrame.MainFrame.MainContents.SideFrame.TabChoices["PLUGIN"..TableContents.PluginName]:Destroy()
+						_G.Table.Plugins[TableContents.PluginName] = TableContents
+						
+						DisplayPlugin(TableContents)
+						
+						_G.PopUpNotificationOptions({
+							Title = "Updated!",
+							Message = "Plugin has been updated.",
+							Button2Text = "Ok",
+							Button2Function = function()
+							end,
+						})
+					else
+						writefile("VexHub7/Plugins/"..TableContents.PluginName..".vexp", JSon:Encode(TableContents))
+						DisplayPlugin(TableContents)
 
+						_G.PopUpNotificationOptions({
+							Title = "Installed!",
+							Message = "Plugin has been installed.",
+							Button2Text = "Ok",
+							Button2Function = function()
+							end,
+						})
+					end
 				else
 					_G.PopUpNotificationOptions({
 						Title = "Failed!",
