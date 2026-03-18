@@ -531,10 +531,10 @@ local function InstallOperation()
 	end
 
 	local function CheckIfTable(str)
-		local func, loadError = loadstring(tostring(str))()
+		local func, loadError = loadstring(str)
 		
-		print(tostring(loadError))
 		if not func then
+			print("not a function")
 			return false
 		else
 			local success, result = pcall(func)
@@ -542,6 +542,7 @@ local function InstallOperation()
 			if success and type(result) == "table" then
 				return true
 			else
+				print("not success or not a table")
 				return false
 			end
 		end
