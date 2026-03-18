@@ -59,6 +59,7 @@ GUI["Plugins_00"].BorderSizePixel = 0
 GUI["Plugins_00"].Size = UDim2.new(1, 0, 1, 0)
 GUI["Plugins_00"].Name = "Plugins"
 GUI["Plugins_00"].Parent = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages
+GUI["Plugins_00"].Visible = false
 
 GUI["UIListLayout_01"].Padding = UDim.new(0, 5)
 GUI["UIListLayout_01"].FillDirection = Enum.FillDirection.Horizontal
