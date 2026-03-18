@@ -506,7 +506,7 @@ local function DisplayPlugin(Table)
 				_G.Table.Plugins = NewTable
 				
 				game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages["PLUGIN_"..PluginName]:Destroy()
-				game:GetService("CoreGui").VexHubFolder.VexHubUI.DragFrame.MainFrame.MainContents.SideFrame.TabChoices["PLUGIN_"..PluginName]:Destroy()
+				game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.SideFrame.TabChoices["PLUGIN_"..PluginName]:Destroy()
 				
 				if next(_G.Table.Plugins) == nil then
 					GUI["NoPlugins_023"].Visible = true
@@ -600,7 +600,7 @@ local function InstallOperation()
 						writefile("VexHub7/Plugins/"..TableContents.PluginName..".vexp", GUI["TextBox_033"].ContentText)
 
 						game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages["PLUGIN_"..TableContents.PluginName]:Destroy()
-						game:GetService("CoreGui").VexHubFolder.VexHubUI.DragFrame.MainFrame.MainContents.SideFrame.TabChoices["PLUGIN_"..TableContents.PluginName]:Destroy()
+						game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.SideFrame.TabChoices["PLUGIN_"..TableContents.PluginName]:Destroy()
 						_G.Table.Plugins[TableContents.PluginName] = TableContents
 						
 						DisplayPlugin(TableContents)
