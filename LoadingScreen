@@ -136,15 +136,16 @@ local function Load(Name, Link)
 end
 
 NewMessage("Having troubles using VexHub? Join our Discord server! dsc.gg/vhub")
-NewMessage("GitHub Version 17")
+NewMessage("GitHub Version 18")
 
 Load("Table", "https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/Table")
 Load("CoreFrame", "https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/CoreFrame")
 Load("HomePage", "https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/Home")
+Load("Chats", "https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/Chats")
 Load("TabsTemplate", "https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/TabsTemplate")
 Load("TabsPluginTemplate", "https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/TabsPluginTemplate")
 Load("Tabs", "https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/TabsLoader")
-Load("Chats", "https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/Chats")
+Load("Plugins", "https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/Plugins")
 
 if Errors == 0 then
 	CloseScreen()
