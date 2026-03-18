@@ -476,7 +476,7 @@ local function DisplayPlugin(Table)
 	_G.CreatePluginTab(PluginName, IdToLink(PluginLogo), PluginCreator, Scripts)
 
 	local Template = GUI["Template_017"]
-	
+
 	Template.Name = PluginName
 	Template.Parent = GUI["ScrollingFrame_016"]
 	Template.Visible = true
@@ -492,7 +492,7 @@ local function DisplayPlugin(Table)
 			Button2Function = function()
 				delfile("VexHub7/Plugins/"..PluginName..".vexp")
 				Template:Destroy()
-				
+
 				local NewTable = {}
 				for i, v in _G.Table.Plugins do
 					if i ~= PluginName then
@@ -500,7 +500,7 @@ local function DisplayPlugin(Table)
 					end
 				end
 				_G.Table.Plugins = NewTable
-				
+
 				_G.PopUpNotificationOptions({
 					Title = "Deleted!",
 					Message = "Plugin has been deleted successfully.",
@@ -530,8 +530,25 @@ local function InstallOperation()
 		end
 	end
 
-	if AllSpaces == false then
-		local TableContents = loadstring(TextBox.ContentText)
+	function CheckIfTable(str)
+		local func, loadError = loadstring(str)
+
+		if not func then
+			return false
+		else
+
+			local success, result = pcall(func)
+
+			if success and type(result) == "table" then
+				return true
+			else
+				return false
+			end
+		end
+	end
+
+	if AllSpaces == false and CheckIfTable(TextBox.ContentText) == true then
+		local TableContents = loadstring(TextBox.ContentText)()
 
 		local required = {"PluginName", "PluginLogo", "PluginCreator", "Scripts" }
 		local missing = {}
@@ -569,14 +586,14 @@ local function InstallOperation()
 
 				if #missing == 0 then
 					if isfile("VexHub7/Plugins/"..TableContents.PluginName..".vexp") then
-						writefile("VexHub7/Plugins/"..TableContents.PluginName..".vexp", JSon:Encode(TableContents))
-						
+						writefile("VexHub7/Plugins/"..TableContents.PluginName..".vexp", GUI["TextBox_033"].ContentText)
+
 						game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages["PLUGIN"..TableContents.PluginName]:Destroy()
 						game:GetService("CoreGui").VexHubFolder.VexHubUI.DragFrame.MainFrame.MainContents.SideFrame.TabChoices["PLUGIN"..TableContents.PluginName]:Destroy()
 						_G.Table.Plugins[TableContents.PluginName] = TableContents
-						
+
 						DisplayPlugin(TableContents)
-						
+
 						_G.PopUpNotificationOptions({
 							Title = "Updated!",
 							Message = "Plugin has been updated.",
