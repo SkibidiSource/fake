@@ -59,7 +59,7 @@ _G.Table = {
 				Icon = "rbxassetid://11592837927",
 				Order = 5,
 			},
-			
+
 			["Infinite Yeild"] = {
 				Creator = "edge_egg (Edge), strong.zinnia (Moon), toonarch (Toon)",
 				Description = "Commands for universal exploiting.",
@@ -90,7 +90,8 @@ if (writefile) then
 			for _, PluginName in listfiles("VexHub/Plugins") do
 				if string.find(string.lower(tostring(PluginName)), ".vexp") then
 					local PluginContents = loadstring(readfile(PluginName))()
-					table.insert(_G.Table.Plugins, PluginContents)
+					
+					_G.Table.Plugins[string.split(PluginName, ".")[2]] = PluginContents
 				end
 			end
 		end)
