@@ -531,7 +531,7 @@ local function InstallOperation()
 	end
 
 	if AllSpaces == false then
-		local TableContents = loadstring(TextBox.ContentText)()
+		local TableContents = loadstring(TextBox.ContentText)
 
 		local required = {"PluginName", "PluginLogo", "PluginCreator", "Scripts" }
 		local missing = {}
