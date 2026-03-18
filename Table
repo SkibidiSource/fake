@@ -91,7 +91,7 @@ if (writefile) then
 				if string.find(string.lower(tostring(PluginPath)), ".vexp") then
 					local PluginName = string.split(string.split(PluginPath, ".")[1], "/")[3]
 
-					_G.Table.Plugins[PluginName] = loadstring(readfile(PluginPath))
+					_G.Table.Plugins[PluginName] = loadstring(readfile(PluginPath))()
 				end
 			end
 		end)
