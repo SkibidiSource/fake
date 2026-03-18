@@ -431,3 +431,181 @@ GUI["UIScale_043"].Parent = GUI["InstallButton_035"]
 GUI["UIStroke_044"].Color = Color3.fromRGB(35.00000171363354, 66.00000366568565, 178.00000458955765)
 GUI["UIStroke_044"].Parent = GUI["InstallButton_035"]
 GUI["UIStroke_044"].Transparency = 0.9
+
+
+local TweenService = game:GetService("TweenService")
+local TextBox = GUI["TextBox_033"]
+local InstallButton = GUI["InstallButton_035"]
+local ScrollingFrame = GUI["ScrollingFrame_016"]
+local Template = GUI["Template_017"]
+
+GUI["InstallButton_035"].MouseEnter:Connect(function()
+	TweenService:Create(script.Parent.UIScale, TweenInfo.new(0.2, Enum.EasingStyle.Circular, Enum.EasingDirection.Out), {Scale = 1.03}):Play()
+	TweenService:Create(script.Parent.UIGradient, TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Offset = Vector2.new(0, 1)}):Play()
+end)
+
+GUI["InstallButton_035"].MouseLeave:Connect(function()
+	TweenService:Create(script.Parent.UIScale, TweenInfo.new(0.3, Enum.EasingStyle.Circular, Enum.EasingDirection.Out), {Scale = 1}):Play()
+	TweenService:Create(script.Parent.UIGradient, TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Offset = Vector2.new(0, 0)}):Play()
+end)
+
+local function IdToLink(Id)
+	if game:GetService("MarketplaceService"):GetProductInfo(tonumber(Id)).AssetTypeId == 1 then
+		return "rbxassetid://"..Id
+	elseif game:GetService("MarketplaceService"):GetProductInfo(tonumber(Id)).AssetTypeId == 13 then
+		return "https://www.roblox.com/asset-thumbnail/image?assetId="..Id.."&width=420&height=420&format=png"
+	end
+end
+
+local function DisplayPlugin(Table)
+	local PluginName = Table.PluginName
+	local PluginLogo = Table.PluginLogo
+	local PluginCreator = Table.PluginCreator
+	local Scripts = Table.Scripts
+
+	_G.CreateTabButton("PLUGIN_"..PluginName, IdToLink(PluginLogo), 102)
+	_G.CreatePluginTab(PluginName, IdToLink(PluginLogo), PluginCreator, Scripts)
+end
+
+wait(1)
+DisplayPlugin({
+	PluginName = "OP PLUGIN",
+	PluginLogo = "11592851654",
+	PluginCreator = "hhhhhh",
+	Scripts = {
+		["Hello"] = {
+			Creator = "hello",
+			Description = "Hello World", -- Description
+			GameId = 0, -- The game Id that the script is for (Leave 0 if the script is for every game)
+			RigType = "Any", -- The RigType that the script is for (Choices: R6, R15, Any)
+			Script = function()
+				print("hello") -- This is where you put the script
+			end,
+		}
+	}
+})
+
+local function InstallOperation()
+	_G.PopUpNotificationOptions({
+		Title = "Installing...",
+		Message = "",
+		Button2Text = "Ok",
+		Button2Function = function()
+		end,
+	})
+
+	local AllSpaces = true
+
+	for i, v in string.split(TextBox.ContentText, " ") do
+		if v ~= " " then
+			AllSpaces = false
+		end
+	end
+
+	local function CheckIfTable(str)
+		local func, loadError = loadstring(str)
+
+		if not func then
+			return loadError
+		else
+
+			local success, result = pcall(func)
+
+			if success and type(result) == "table" then
+				return true
+			else
+				return result
+			end
+		end
+	end
+
+	if AllSpaces == false and CheckIfTable(TextBox.ContentText) == true then
+		local TableContents = loadstring(TextBox.ContentText)()
+
+		local required = {"PluginName", "PluginLogo", "PluginCreator", "Scripts" }
+		local missing = {}
+
+		for _, key in ipairs(required) do
+			if not TableContents[key] then
+				table.insert(missing, key)
+			end
+		end
+
+		if #missing == 0 then
+			local function CheckIfDecalOrImage(Id)
+				local Success, Error = pcall(function() 
+					if game:GetService("MarketplaceService"):GetProductInfo(tonumber(Id)).AssetTypeId == 0 then end
+				end)
+
+				if Success then
+					if game:GetService("MarketplaceService"):GetProductInfo(tonumber(Id)).AssetTypeId == 1 or game:GetService("MarketplaceService"):GetProductInfo(tonumber(Id)).AssetTypeId == 13 then
+						return true
+					end
+				end
+			end
+
+			if CheckIfDecalOrImage(tonumber(TableContents.PluginLogo)) == true then
+				local required = {"Owner", "GameId", "RigType", "Script" }
+				local missing = {}
+
+				for PluginScriptName, PluginScriptTable in TableContents.Scripts do
+					for _, key in ipairs(required) do
+						if not PluginScriptTable[key] then
+							table.insert(missing, PluginScriptName.."."..key)
+						end
+					end
+				end
+
+				if #missing == 0 then
+
+				else
+					_G.PopUpNotificationOptions({
+						Title = "Failed!",
+						Message = "Missing data:"..table.concat(missing, " "),
+						Button2Text = "Ok",
+						Button2Function = function()
+						end,
+					})
+				end
+			else
+				_G.PopUpNotificationOptions({
+					Title = "Failed!",
+					Message = "Please use a valid Decal or Image ID.",
+					Button2Text = "Ok",
+					Button2Function = function()
+					end,
+				})
+			end
+		else
+			_G.PopUpNotificationOptions({
+				Title = "Failed!",
+				Message = "Missing data:"..table.concat(missing, " "),
+				Button2Text = "Ok",
+				Button2Function = function()
+				end,
+			})
+		end
+	else
+		_G.PopUpNotificationOptions({
+			Title = "Failed!",
+			Message = "Please install a valid Table.",
+			Button2Text = "Ok",
+			Button2Function = function()
+			end,
+		})
+	end
+end
+
+InstallButton.MouseButton1Down:Connect(function()
+	_G.PopUpNotificationOptions({
+		Title = "Hey!",
+		Message = "Installing random plugins is not safe as it can have malicious scripts!\n\nDo you want to continue and install?",
+		Button1Text = "Nevermind",
+		Button1Function = function()
+		end,
+		Button2Text = "Yes",
+		Button2Function = function()
+			InstallOperation()
+		end,
+	})
+end)
