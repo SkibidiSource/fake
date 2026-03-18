@@ -90,7 +90,7 @@ if (writefile) then
 			for _, PluginPath in listfiles("VexHub/Plugins") do
 				if string.find(string.lower(tostring(PluginPath)), ".vexp") then
 					local PluginName = string.split(string.split(PluginPath, ".")[1], "/")[3]
-					
+
 					_G.Table.Plugins[PluginName] = loadstring(readfile(PluginPath))
 				end
 			end
@@ -99,6 +99,7 @@ if (writefile) then
 		if success then
 			print("Read files successfully")
 		else
+			warn(tostring(result))
 			delfolder("VexHub7")
 			wait()
 			makefolder("VexHub7")
