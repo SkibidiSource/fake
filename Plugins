@@ -527,7 +527,6 @@ end
 local function InstallOperation()
 	_G.PopUpNotificationOptions({
 		Title = "Installing...",
-		Message = "",
 		Button2Text = "Ok",
 		Button2Function = function()
 		end,
@@ -660,6 +659,8 @@ local function InstallOperation()
 			end,
 		})
 	end
+	
+	GUI["TextBox_033"].Text = ""
 end
 
 InstallButton.MouseButton1Down:Connect(function()
