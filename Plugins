@@ -530,28 +530,7 @@ local function InstallOperation()
 		end
 	end
 
-	local function CheckIfTable(str)
-		local func, loadError = loadstring(str)
-		
-		if not func then
-			print("not a function")
-			return false
-		else
-			local success, result = pcall(func)
-
-			if success and type(result) == "table" then
-				return true
-			else
-				print("not success or not a table")
-				return false
-			end
-		end
-	end
-	
-	print("Allspace "..tostring(AllSpaces))
-	print("IsTable "..tostring(CheckIfTable(TextBox.ContentText)))
-
-	if AllSpaces == false and CheckIfTable(TextBox.ContentText) == true then
+	if AllSpaces == false then
 		local TableContents = loadstring(TextBox.ContentText)()
 
 		local required = {"PluginName", "PluginLogo", "PluginCreator", "Scripts" }
