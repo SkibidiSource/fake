@@ -664,3 +664,7 @@ InstallButton.MouseButton1Down:Connect(function()
 		end,
 	})
 end)
+
+for PluginName, PluginContents in _G.Table.Plugins do
+	DisplayPlugin(PluginContents)
+end
