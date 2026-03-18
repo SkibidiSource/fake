@@ -87,7 +87,7 @@ if (writefile) then
 			_G.Table.GUISettings = JSon:Decode(readfile("VexHub7/Settings.vex"))
 			_G.Table.Favorites = JSon:Decode(readfile("VexHub7/Favorites.vex"))
 
-			for _, PluginPath in listfiles("VexHub/Plugins") do
+			for _, PluginPath in listfiles("VexHub7/Plugins") do
 				if string.find(string.lower(tostring(PluginPath)), ".vexp") then
 					local PluginName = string.split(string.split(PluginPath, ".")[1], "/")[3]
 
