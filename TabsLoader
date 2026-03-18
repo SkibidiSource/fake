@@ -600,24 +600,37 @@ _G.CreatePluginTab = function(PluginName, PluginImage, PluginCreator, Scripts)
 			end
 
 			ExecuteButtonFunction = ExecuteButton.MouseButton1Down:Connect(function()
-				_G.PopUpNotificationOptions({
-					Title = "Script says:",
-					Message = ScriptInfo.Script,
-					Button2Text = "Ok",
-				})
+				local success, result = pcall(function()
+					loadstring(game:HttpGet((ScriptInfo.Script),true))()
+				end)
+				
+				if success then
+					_G.PopUpNotificationOptions({
+						Title = "Executed Successfully!",
+						Message = ScriptName.." has been executed with no errors",
+						Button2Text = "Close",
+					})
+				else
+					_G.PopUpNotificationOptions({
+						Title = "Script Failed to Execute!",
+						Message = result,
+						Button2Text = "Close",
+					})
+				end
 			end)
 
 			JoinButtonFunction = JoinButton.MouseButton1Down:Connect(function()
 				if ScriptInfo.GameId == 0 then
 					_G.PopUpNotificationOptions({
-						Title = "Script says:",
-						Message = "Universal",
+						Title = "Script is for any games!",
+						Message = "No need to join a specific game to execute this script.",
 						Button2Text = "Ok",
 					})
 				else
+					game:GetService("TeleportService"):Teleport(ScriptInfo.GameId)
 					_G.PopUpNotificationOptions({
-						Title = "Script says:",
-						Message = "Game: "..ScriptInfo.GameId,
+						Title = "Teleporting...",
+						Message = "Please wait...",
 						Button2Text = "Ok",
 					})
 				end
