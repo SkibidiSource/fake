@@ -322,7 +322,7 @@ GUI["UIListLayout_032"].Parent = GUI["TextBoxParent_030"]
 GUI["TextBox_033"].ClearTextOnFocus = false
 GUI["TextBox_033"].Font = Enum.Font.MontserratMedium
 GUI["TextBox_033"].MultiLine = true
-GUI["TextBox_033"].PlaceholderText = "local Table = {}"
+GUI["TextBox_033"].PlaceholderText = "local Table = {}\n\nreturn Table"
 GUI["TextBox_033"].Text = ""
 GUI["TextBox_033"].TextColor3 = Color3.fromRGB(255, 255, 255)
 GUI["TextBox_033"].TextSize = 12
@@ -505,8 +505,8 @@ local function DisplayPlugin(Table)
 				end
 				_G.Table.Plugins = NewTable
 				
-				game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages["PLUGIN_"..TableContents.PluginName]:Destroy()
-				game:GetService("CoreGui").VexHubFolder.VexHubUI.DragFrame.MainFrame.MainContents.SideFrame.TabChoices["PLUGIN_"..TableContents.PluginName]:Destroy()
+				game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages["PLUGIN_"..PluginName]:Destroy()
+				game:GetService("CoreGui").VexHubFolder.VexHubUI.DragFrame.MainFrame.MainContents.SideFrame.TabChoices["PLUGIN_"..PluginName]:Destroy()
 				
 				if next(_G.Table.Plugins) == nil then
 					GUI["NoPlugins_023"].Visible = true
