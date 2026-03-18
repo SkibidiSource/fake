@@ -531,7 +531,7 @@ local function InstallOperation()
 	end
 
 	local function CheckIfTable(str)
-		local func, loadError = loadstring(str)
+		local func, loadError = loadstring(str)()
 
 		if not func then
 			return loadError
