@@ -83,6 +83,7 @@ GUI["UIListLayout_03"].Parent = GUI["Insides_02"]
 
 GUI["UIStroke_04"].Color = Color3.fromRGB(255, 255, 255)
 GUI["UIStroke_04"].Parent = GUI["Insides_02"]
+GUI["UIStroke_04"].Transparency = 0.9
 
 GUI["UICorner_05"].CornerRadius = UDim.new(0, 5)
 GUI["UICorner_05"].Parent = GUI["Insides_02"]
@@ -111,6 +112,7 @@ GUI["UIListLayout_08"].Parent = GUI["RightFrame_07"]
 
 GUI["UIStroke_09"].Color = Color3.fromRGB(255, 255, 255)
 GUI["UIStroke_09"].Parent = GUI["RightFrame_07"]
+GUI["UIStroke_09"].Transparency = 0.9
 
 GUI["UICorner_010"].CornerRadius = UDim.new(0, 5)
 GUI["UICorner_010"].Parent = GUI["RightFrame_07"]
@@ -231,7 +233,7 @@ GUI["Border_022"].Size = UDim2.new(0.899999976, 0, 0, 1)
 GUI["Border_022"].Name = "Border"
 GUI["Border_022"].Parent = GUI["ScrollingFrame_016"]
 
-GUI["NoPlugins_023"].Font = Enum.Font.Unknown
+GUI["NoPlugins_023"].Font = Enum.Font.MontserratMedium
 GUI["NoPlugins_023"].Text = "No plugins installed"
 GUI["NoPlugins_023"].TextColor3 = Color3.fromRGB(155.00000596046448, 155.00000596046448, 155.00000596046448)
 GUI["NoPlugins_023"].TextSize = 12
@@ -317,7 +319,7 @@ GUI["UIListLayout_032"].VerticalAlignment = Enum.VerticalAlignment.Center
 GUI["UIListLayout_032"].Parent = GUI["TextBoxParent_030"]
 
 GUI["TextBox_033"].ClearTextOnFocus = false
-GUI["TextBox_033"].Font = Enum.Font.Unknown
+GUI["TextBox_033"].Font = Enum.Font.MontserratMedium
 GUI["TextBox_033"].MultiLine = true
 GUI["TextBox_033"].PlaceholderText = "local Table = {}"
 GUI["TextBox_033"].Text = ""
@@ -336,7 +338,7 @@ GUI["TextBox_033"].Parent = GUI["TextBoxParent_030"]
 GUI["Tip_034"].Font = Enum.Font.GothamMedium
 GUI["Tip_034"].LineHeight = 0.8999999761581421
 GUI["Tip_034"].RichText = true
-GUI["Tip_034"].Text = "visit <font color="rgb(76, 188, 255)">bit.ly/VexHubPlugins</font> if you want to create your own plugins"
+GUI["Tip_034"].Text = 'visit <font color="rgb(76, 188, 255)">bit.ly/VexHubPlugins</font> if you want to create your own plugins'
 GUI["Tip_034"].TextColor3 = Color3.fromRGB(255, 255, 255)
 GUI["Tip_034"].TextSize = 9
 GUI["Tip_034"].TextTransparency = 0.5
@@ -427,3 +429,4 @@ GUI["UIScale_043"].Parent = GUI["InstallButton_035"]
 
 GUI["UIStroke_044"].Color = Color3.fromRGB(35.00000171363354, 66.00000366568565, 178.00000458955765)
 GUI["UIStroke_044"].Parent = GUI["InstallButton_035"]
+GUI["UIStroke_044"].Transparency = 0.9
