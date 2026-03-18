@@ -467,6 +467,7 @@ local function IdToLink(Id)
 end
 
 local function DisplayPlugin(Table)
+	GUI["NoPlugins_023"].Visible = false
 	local PluginName = Table.PluginName
 	local PluginLogo = Table.PluginLogo
 	local PluginCreator = Table.PluginCreator
@@ -503,6 +504,13 @@ local function DisplayPlugin(Table)
 					end
 				end
 				_G.Table.Plugins = NewTable
+				
+				game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages["PLUGIN_"..TableContents.PluginName]:Destroy()
+				game:GetService("CoreGui").VexHubFolder.VexHubUI.DragFrame.MainFrame.MainContents.SideFrame.TabChoices["PLUGIN_"..TableContents.PluginName]:Destroy()
+				
+				if next(_G.Table.Plugins) == nil then
+					GUI["NoPlugins_023"].Visible = true
+				end
 
 				_G.PopUpNotificationOptions({
 					Title = "Deleted!",
@@ -591,10 +599,10 @@ local function InstallOperation()
 					if isfile("VexHub7/Plugins/"..TableContents.PluginName..".vexp") then
 						writefile("VexHub7/Plugins/"..TableContents.PluginName..".vexp", GUI["TextBox_033"].ContentText)
 
-						game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages["PLUGIN"..TableContents.PluginName]:Destroy()
-						game:GetService("CoreGui").VexHubFolder.VexHubUI.DragFrame.MainFrame.MainContents.SideFrame.TabChoices["PLUGIN"..TableContents.PluginName]:Destroy()
+						game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages["PLUGIN_"..TableContents.PluginName]:Destroy()
+						game:GetService("CoreGui").VexHubFolder.VexHubUI.DragFrame.MainFrame.MainContents.SideFrame.TabChoices["PLUGIN_"..TableContents.PluginName]:Destroy()
 						_G.Table.Plugins[TableContents.PluginName] = TableContents
-
+						
 						DisplayPlugin(TableContents)
 
 						_G.PopUpNotificationOptions({
