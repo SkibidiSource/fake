@@ -471,6 +471,9 @@ local function DisplayPlugin(Table)
 	local PluginLogo = Table.PluginLogo
 	local PluginCreator = Table.PluginCreator
 	local Scripts = Table.Scripts
+	
+	print(PluginName)
+	print(PluginLogo)
 
 	_G.CreateTabButton("PLUGIN_"..PluginName, IdToLink(PluginLogo), 102)
 	_G.CreatePluginTab(PluginName, IdToLink(PluginLogo), PluginCreator, Scripts)
