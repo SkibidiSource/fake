@@ -600,9 +600,7 @@ _G.CreatePluginTab = function(PluginName, PluginImage, PluginCreator, Scripts)
 			end
 
 			ExecuteButtonFunction = ExecuteButton.MouseButton1Down:Connect(function()
-				local success, result = pcall(function()
-					loadstring(game:HttpGet((ScriptInfo.Script),true))()
-				end)
+				local success, result = pcall(ScriptInfo.Script)
 				
 				if success then
 					_G.PopUpNotificationOptions({
