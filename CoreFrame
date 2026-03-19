@@ -642,17 +642,17 @@ _G.CreateSectionName("Others", 200)
 _G.CreateTabButton("Dashboard", "rbxassetid://70530947132481", 201)
 _G.CreateTabButton("Settings", "rbxassetid://11592827868", 202)
 
-for i, v in GUI.TabChoices_0:GetChildren() do
-	if v:IsA("TextButton") then
-		v.MouseEnter:Connect(function()
-			TweenService:Create(v.TabImage, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {ImageTransparency = 0}):Play()
+GUI.TabChoices_0.ChildAdded:Connect(function(Child)
+	if Child:IsA("TextButton") then
+		Child.MouseEnter:Connect(function()
+			TweenService:Create(Child.TabImage, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {ImageTransparency = 0}):Play()
 		end)
 
-		v.MouseLeave:Connect(function()
-			TweenService:Create(v.TabImage, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 0.2}):Play()
+		Child.MouseLeave:Connect(function()
+			TweenService:Create(Child.TabImage, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 0.2}):Play()
 		end)
 	end
-end
+end)
 
 local TweenService = game:GetService("TweenService")
 
