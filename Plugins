@@ -1,5 +1,3 @@
--- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
-
 -- Instances:
 
 local GUI = {
@@ -174,6 +172,7 @@ GUI["ScrollingFrame_016"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 GUI["ScrollingFrame_016"].BorderSizePixel = 0
 GUI["ScrollingFrame_016"].LayoutOrder = 3
 GUI["ScrollingFrame_016"].Position = UDim2.new(0, 0, 0.138888896, 0)
+GUI["ScrollingFrame_016"].ScrollingDirection = Enum.ScrollingDirection.Y
 GUI["ScrollingFrame_016"].Size = UDim2.new(1, 0, 0, 147)
 GUI["ScrollingFrame_016"].Parent = GUI["RightFrame_07"]
 
@@ -472,7 +471,7 @@ local function DisplayPlugin(Table)
 	local PluginLogo = Table.PluginLogo
 	local PluginCreator = Table.PluginCreator
 	local Scripts = Table.Scripts
-	
+
 	print(PluginName)
 	print(PluginLogo)
 
@@ -504,10 +503,10 @@ local function DisplayPlugin(Table)
 					end
 				end
 				_G.Table.Plugins = NewTable
-				
+
 				game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages["PLUGIN_"..PluginName]:Destroy()
 				game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.SideFrame.TabChoices["PLUGIN_"..PluginName]:Destroy()
-				
+
 				if next(_G.Table.Plugins) == nil then
 					GUI["NoPlugins_023"].Visible = true
 				end
@@ -601,9 +600,9 @@ local function InstallOperation()
 						game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages["PLUGIN_"..TableContents.PluginName]:Destroy()
 						game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.SideFrame.TabChoices["PLUGIN_"..TableContents.PluginName]:Destroy()
 						GUI["ScrollingFrame_016"][TableContents.PluginName]:Destroy()
-						
+
 						_G.Table.Plugins[TableContents.PluginName] = TableContents
-						
+
 						DisplayPlugin(TableContents)
 
 						_G.PopUpNotificationOptions({
@@ -661,7 +660,7 @@ local function InstallOperation()
 			end,
 		})
 	end
-	
+
 	GUI["TextBox_033"].Text = ""
 end
 
