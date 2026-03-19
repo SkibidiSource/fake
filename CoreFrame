@@ -1,6 +1,7 @@
 -- Instances:
 
 local LocalPlayer = game:GetService("Players").LocalPlayer
+local TweenService = game:GetService("TweenService")
 
 local GUI = {
 	["VexHubUI_0"] = Instance.new("ScreenGui");
@@ -519,6 +520,18 @@ GUI["UIListLayout_012"].SortOrder = Enum.SortOrder.LayoutOrder
 GUI["UIListLayout_012"].VerticalAlignment = Enum.VerticalAlignment.Center
 GUI["UIListLayout_012"].Parent = GUI["DragFrame_0"]
 
+GUI.TabChoices_0.ChildAdded:Connect(function(Child)
+	if Child:IsA("TextButton") then
+		Child.MouseEnter:Connect(function()
+			TweenService:Create(Child.TabImage, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {ImageTransparency = 0}):Play()
+		end)
+
+		Child.MouseLeave:Connect(function()
+			TweenService:Create(Child.TabImage, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 0.2}):Play()
+		end)
+	end
+end)
+
 local function centerFrame(frame, xSize, ySize)
 	-- Center the frame on the screen
 	frame.Position = UDim2.new(0.5, -xSize / 2, 0.5, -ySize / 2)
@@ -531,8 +544,6 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/r
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/BannerAds'),true))()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkibidiSource/fake/refs/heads/main/PopUpAds'),true))()
 wait()
-
-local TweenService = game:GetService("TweenService")
 
 _G.CreateTabButton = function(TabName, TabImage, LayoutOrder)
 	local NameHidePlugin = string.split(TabName, "PLUGIN_")[2]
@@ -641,18 +652,6 @@ _G.CreateTabButton("Plugins", "rbxassetid://17645365934", 101)
 _G.CreateSectionName("Others", 200)
 _G.CreateTabButton("Dashboard", "rbxassetid://70530947132481", 201)
 _G.CreateTabButton("Settings", "rbxassetid://11592827868", 202)
-
-GUI.TabChoices_0.ChildAdded:Connect(function(Child)
-	if Child:IsA("TextButton") then
-		Child.MouseEnter:Connect(function()
-			TweenService:Create(Child.TabImage, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {ImageTransparency = 0}):Play()
-		end)
-
-		Child.MouseLeave:Connect(function()
-			TweenService:Create(Child.TabImage, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 0.2}):Play()
-		end)
-	end
-end)
 
 local TweenService = game:GetService("TweenService")
 
