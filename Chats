@@ -452,7 +452,11 @@ NewSlashCommand("/reload", "reloads your chat interface")
 NewSlashCommand("/delete [MessageId]", "delete a message")
 NewSlashCommand("/edit [MessageId] [Message]", "edit a message")
 NewSlashCommand("/purge", "deletes all messages in the chat")
+NewSlashCommand("/join [Username]", "join a player who is online")
+NewSlashCommand("/allowjoins [Always/AskAlways/Never]", "make players join you in game (default: AskAlways)")
 NewSlashCommand("/updatechatversion", "refreshes everyones chat interface by updating the chat version")
+NewSlashCommand("/allowrichtext", "make members have the ability to send rich texts")
+NewSlashCommand("/forbidrichtext", "make members have no ability to send rich texts")
 NewSlashCommand("/allowlinks", "make members have the ability to send links")
 NewSlashCommand("/forbidlinks", "make members have no ability to send links")
 NewSlashCommand("/listcensoredwords", "returns censored words")
@@ -682,13 +686,13 @@ local function DisplayMessage(Table)
 			NewMessage:Destroy()
 		end)()
 	end
-	
+
 	local isAtBottom = false
 	local function isAtBottom()
 		return Chats.CanvasPosition.Y >= Chats.AbsoluteCanvasSize.Y - Chats.AbsoluteWindowSize.Y - 10
 	end
 	if isAtBottom() then isAtBottom = true end
-	
+
 	NewMessage.Message.Text = ContentText
 	NewMessage.Visible = true
 
@@ -1002,6 +1006,7 @@ local function SendMessage(Username, DisplayName, Message)
 								})
 							else
 								local ToSend = true
+								local ReasonOfError = "No reason provided"
 								wait()
 
 								local Temporary = DisplayMessage({
@@ -1083,24 +1088,23 @@ local function SendMessage(Username, DisplayName, Message)
 
 									return result
 								end
-
-								for _, Word in MessageTable do
-									local Word = string.lower(Word)
-
-									if not LiveChatServer.VerifiedPeople[Username] then
-										for BannedWord, Exeptionals in LiveChatServer.BannedWords do
+								
+								if not LiveChatServer.VerifiedPeople[Username] then
+									for _, Word in MessageTable do
+										local Word = string.lower(Word)
+										for BannedWord, _ in LiveChatServer.BannedWords do
 											if string.find(Word, BannedWord) or string.find(RemoveRepeatingChars(Word), "niga") or string.find(RemoveRepeatingChars(Word), "niger") then
 												ToSend = false
 												IsAppropriate = false
+												ReasonOfError = "Your message contains a banned word ("..Word..")"
 											end
 										end
-									end
 
-									if LiveChatServer.LinksAllowed == false then
-										if not LiveChatServer.VerifiedPeople[Username] then
+										if LiveChatServer.LinksAllowed == false then
 											if string.find(Word, "https://") or string.find(Word, "http://") then
 												ToSend = false
 												IsAppropriate = false
+												ReasonOfError = "Your message contains a link"
 											end
 
 											if string.find(Word, ".") then
@@ -1110,13 +1114,23 @@ local function SendMessage(Username, DisplayName, Message)
 													if string.len(WordTable[2]) == 2 or string.len(WordTable[2]) == 3 then
 														ToSend = false
 														IsAppropriate = false
+														ReasonOfError = "Your message contains a link"
 													end
 
 													if string.find(WordTable[2], "/") then
 														ToSend = false
 														IsAppropriate = false
+														ReasonOfError = "Your message contains a link"
 													end
 												end
+											end
+										end
+
+										if LiveChatServer.RichTextAllowed == false then
+											if Word == "</font>" then
+												ToSend = false
+												IsAppropriate = false
+												ReasonOfError = "Your message contains a rich text"
 											end
 										end
 									end
@@ -1254,7 +1268,7 @@ local function SendMessage(Username, DisplayName, Message)
 												Username = "System",
 												DisplayName = "System",
 												MessageId = MessageId+1,
-												Message = "@"..Username.." please lockdown the Chat first before purging ✋",
+												Message = "@"..DisplayName.." please lockdown the Chat first before purging ✋",
 											})
 										end)()
 									else
@@ -1264,7 +1278,7 @@ local function SendMessage(Username, DisplayName, Message)
 												Username = "System",
 												DisplayName = "System",
 												MessageId = MessageId+1,
-												Message = "@"..Username.." you dont have admin privilages ✋",
+												Message = "@"..DisplayName.." you dont have admin privilages ✋",
 											})
 										end)()
 									end
@@ -1277,7 +1291,7 @@ local function SendMessage(Username, DisplayName, Message)
 										DisplayMessage({
 											DisplayName = "System",
 											Username = "System",
-											Message = "@"..Username.." you dont have admin privilages ✋",
+											Message = "@"..DisplayName.." you dont have admin privilages ✋",
 											IsClient = true,
 											IsTemporary = false,
 											UNIXTimestamp = tonumber(os.time()),
@@ -1333,6 +1347,58 @@ local function SendMessage(Username, DisplayName, Message)
 												Message = "@"..DisplayName.." you dont have admin privilages ✋",
 											})
 										end)()
+									end
+									
+								elseif MessageTable[1] == "/allowrichtext" then
+									ToSend = false
+									if IsAdmin(Username) then
+										FirebaseServerWrite("/", "AllowRichText", true)
+										
+										DisplayMessage({
+											DisplayName = "System",
+											Username = "System",
+											Message = "@"..DisplayName.." allowed rich text sending to everyone 👍",
+											IsClient = true,
+											IsTemporary = false,
+											UNIXTimestamp = tonumber(os.time()),
+											MessageId = MessageId
+										})
+									else
+										DisplayMessage({
+											DisplayName = "System",
+											Username = "System",
+											Message = "@"..DisplayName.." you dont have admin privilages ✋",
+											IsClient = true,
+											IsTemporary = false,
+											UNIXTimestamp = tonumber(os.time()),
+											MessageId = MessageId
+										})
+									end
+									
+								elseif MessageTable[1] == "/forbidrichtext" then
+									ToSend = false
+									if IsAdmin(Username) then
+										FirebaseServerWrite("/", "AllowRichText", false)
+
+										DisplayMessage({
+											DisplayName = "System",
+											Username = "System",
+											Message = "@"..DisplayName.." forbided rich text sending to everyone 👍",
+											IsClient = true,
+											IsTemporary = false,
+											UNIXTimestamp = tonumber(os.time()),
+											MessageId = MessageId
+										})
+									else
+										DisplayMessage({
+											DisplayName = "System",
+											Username = "System",
+											Message = "@"..DisplayName.." you dont have admin privilages ✋",
+											IsClient = true,
+											IsTemporary = false,
+											UNIXTimestamp = tonumber(os.time()),
+											MessageId = MessageId
+										})
 									end
 
 								elseif MessageTable[1] == "/allowjoins" then
@@ -1935,7 +2001,7 @@ local function SendMessage(Username, DisplayName, Message)
 									DisplayMessage({
 										DisplayName = "System",
 										Username = "System",
-										Message = "@"..DisplayName.." your message is blocked by the system because it contains a banned word 👎",
+										Message = '@'..DisplayName..' your message is blocked by the system 👎\n\nReason: "'..ReasonOfError..'"',
 										IsClient = true,
 										IsTemporary = false,
 										UNIXTimestamp = tonumber(os.time()),
