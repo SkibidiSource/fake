@@ -1352,7 +1352,7 @@ local function SendMessage(Username, DisplayName, Message)
 								elseif MessageTable[1] == "/allowrichtext" then
 									ToSend = false
 									if IsAdmin(Username) then
-										FirebaseServerWrite("/", "AllowRichText", true)
+										FirebaseServerWrite("/", "RichTextAllowed", true)
 										
 										DisplayMessage({
 											DisplayName = "System",
@@ -1378,7 +1378,7 @@ local function SendMessage(Username, DisplayName, Message)
 								elseif MessageTable[1] == "/forbidrichtext" then
 									ToSend = false
 									if IsAdmin(Username) then
-										FirebaseServerWrite("/", "AllowRichText", false)
+										FirebaseServerWrite("/", "RichTextAllowed", false)
 
 										DisplayMessage({
 											DisplayName = "System",
