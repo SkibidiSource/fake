@@ -1,0 +1,488 @@
+-- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+
+-- Instances:
+
+local GUI = {
+	["Settings_00"] = Instance.new("Frame");
+	["UIListLayout_01"] = Instance.new("UIListLayout");
+	["Insides_02"] = Instance.new("Frame");
+	["UIListLayout_03"] = Instance.new("UIListLayout");
+	["UIStroke_04"] = Instance.new("UIStroke");
+	["UICorner_05"] = Instance.new("UICorner");
+	["UIGradient_06"] = Instance.new("UIGradient");
+	["TopFrame_07"] = Instance.new("Frame");
+	["UIListLayout_08"] = Instance.new("UIListLayout");
+	["SettingsText_09"] = Instance.new("TextLabel");
+	["CogImage_010"] = Instance.new("ImageLabel");
+	["ScrollingFrame_011"] = Instance.new("ScrollingFrame");
+	["UIListLayout_012"] = Instance.new("UIListLayout");
+	["BooleanTemplate_013"] = Instance.new("Frame");
+	["UIListLayout_014"] = Instance.new("UIListLayout");
+	["SettingNameAndDescription_015"] = Instance.new("TextLabel");
+	["BooleanMargin_016"] = Instance.new("Frame");
+	["Boolean_017"] = Instance.new("TextButton");
+	["UICorner_018"] = Instance.new("UICorner");
+	["Margin_019"] = Instance.new("Frame");
+	["Circle_020"] = Instance.new("Frame");
+	["UICorner_021"] = Instance.new("UICorner");
+	["UIListLayout_022"] = Instance.new("UIListLayout");
+	["UIStroke_023"] = Instance.new("UIStroke");
+	["UIListLayout_024"] = Instance.new("UIListLayout");
+	["TextBoxTemplate_025"] = Instance.new("Frame");
+	["UIListLayout_026"] = Instance.new("UIListLayout");
+	["SettingNameAndDescription_027"] = Instance.new("TextLabel");
+	["TextBoxMargin_028"] = Instance.new("Frame");
+	["UIListLayout_029"] = Instance.new("UIListLayout");
+	["TextBoxParent_030"] = Instance.new("Frame");
+	["UICorner_031"] = Instance.new("UICorner");
+	["UIStroke_032"] = Instance.new("UIStroke");
+	["TextBox_033"] = Instance.new("TextBox");
+	["UIListLayout_034"] = Instance.new("UIListLayout");
+	["ButtonTemplate_035"] = Instance.new("Frame");
+	["UIListLayout_036"] = Instance.new("UIListLayout");
+	["SettingNameAndDescription_037"] = Instance.new("TextLabel");
+	["ButtonMargin_038"] = Instance.new("Frame");
+	["UIListLayout_039"] = Instance.new("UIListLayout");
+	["Button_040"] = Instance.new("ImageButton");
+	["UICorner_041"] = Instance.new("UICorner");
+	["UIStroke_042"] = Instance.new("UIStroke");
+}
+
+-- Properties:
+
+GUI["Settings_00"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Settings_00"].BackgroundTransparency = 1
+GUI["Settings_00"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Settings_00"].BorderSizePixel = 0
+GUI["Settings_00"].Size = UDim2.new(1, 0, 1, 0)
+GUI["Settings_00"].Name = "Settings"
+GUI["Settings_00"].Parent = game:GetService("CoreGui").VexHubUI.DragFrame.MainFrame.MainContents.RightFrame.Wallpaper.Insides.Margin.Pages
+
+GUI["UIListLayout_01"].Padding = UDim.new(0, 5)
+GUI["UIListLayout_01"].FillDirection = Enum.FillDirection.Horizontal
+GUI["UIListLayout_01"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_01"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_01"].Parent = GUI["Settings_00"]
+
+GUI["Insides_02"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Insides_02"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Insides_02"].BorderSizePixel = 0
+GUI["Insides_02"].Position = UDim2.new(0.343527764, 0, 0, 0)
+GUI["Insides_02"].Size = UDim2.new(0.600000024, 0, 1, 0)
+GUI["Insides_02"].Name = "Insides"
+GUI["Insides_02"].Parent = GUI["Settings_00"]
+
+GUI["UIListLayout_03"].Padding = UDim.new(0, 5)
+GUI["UIListLayout_03"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_03"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_03"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_03"].Parent = GUI["Insides_02"]
+
+GUI["UIStroke_04"].Color = Color3.fromRGB(255, 255, 255)
+GUI["UIStroke_04"].Parent = GUI["Insides_02"]
+GUI["UIStroke_04"].Transparency = 0.9
+
+GUI["UICorner_05"].CornerRadius = UDim.new(0, 5)
+GUI["UICorner_05"].Parent = GUI["Insides_02"]
+
+GUI["UIGradient_06"].Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(25.000000409781933, 26.000000350177288, 31.000000052154064)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(18.000000827014446, 18.000000827014446, 21.000000648200512))
+}
+GUI["UIGradient_06"].Rotation = 90
+GUI["UIGradient_06"].Parent = GUI["Insides_02"]
+
+GUI["TopFrame_07"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["TopFrame_07"].BackgroundTransparency = 1
+GUI["TopFrame_07"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["TopFrame_07"].BorderSizePixel = 0
+GUI["TopFrame_07"].LayoutOrder = 1
+GUI["TopFrame_07"].Size = UDim2.new(0.949999988, 0, 0, 18)
+GUI["TopFrame_07"].Name = "TopFrame"
+GUI["TopFrame_07"].Parent = GUI["Insides_02"]
+
+GUI["UIListLayout_08"].Padding = UDim.new(0, 3)
+GUI["UIListLayout_08"].FillDirection = Enum.FillDirection.Horizontal
+GUI["UIListLayout_08"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_08"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_08"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_08"].Parent = GUI["TopFrame_07"]
+
+GUI["SettingsText_09"].Font = Enum.Font.GothamBold
+GUI["SettingsText_09"].Text = "Settings"
+GUI["SettingsText_09"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["SettingsText_09"].TextSize = 18
+GUI["SettingsText_09"].AutomaticSize = Enum.AutomaticSize.XY
+GUI["SettingsText_09"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["SettingsText_09"].BackgroundTransparency = 1
+GUI["SettingsText_09"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["SettingsText_09"].BorderSizePixel = 0
+GUI["SettingsText_09"].LayoutOrder = 2
+GUI["SettingsText_09"].Name = "SettingsText"
+GUI["SettingsText_09"].Parent = GUI["TopFrame_07"]
+
+GUI["CogImage_010"].Image = "rbxassetid://11592827868"
+GUI["CogImage_010"].ScaleType = Enum.ScaleType.Crop
+GUI["CogImage_010"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["CogImage_010"].BackgroundTransparency = 1
+GUI["CogImage_010"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["CogImage_010"].BorderSizePixel = 0
+GUI["CogImage_010"].LayoutOrder = 1
+GUI["CogImage_010"].Size = UDim2.new(0, 20, 0, 25)
+GUI["CogImage_010"].Name = "CogImage"
+GUI["CogImage_010"].Parent = GUI["TopFrame_07"]
+
+GUI["ScrollingFrame_011"].AutomaticCanvasSize = Enum.AutomaticSize.Y
+GUI["ScrollingFrame_011"].CanvasSize = UDim2.new(0, 0, 0, 0)
+GUI["ScrollingFrame_011"].ScrollBarThickness = 2
+GUI["ScrollingFrame_011"].Active = true
+GUI["ScrollingFrame_011"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["ScrollingFrame_011"].BackgroundTransparency = 1
+GUI["ScrollingFrame_011"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["ScrollingFrame_011"].BorderSizePixel = 0
+GUI["ScrollingFrame_011"].LayoutOrder = 2
+GUI["ScrollingFrame_011"].Position = UDim2.new(0, 0, 0.127777785, 0)
+GUI["ScrollingFrame_011"].Size = UDim2.new(1, 0, 0.316666663, 100)
+GUI["ScrollingFrame_011"].Parent = GUI["Insides_02"]
+
+GUI["UIListLayout_012"].Padding = UDim.new(0, 1)
+GUI["UIListLayout_012"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_012"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_012"].Parent = GUI["ScrollingFrame_011"]
+
+GUI["BooleanTemplate_013"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["BooleanTemplate_013"].BackgroundTransparency = 1
+GUI["BooleanTemplate_013"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["BooleanTemplate_013"].BorderSizePixel = 0
+GUI["BooleanTemplate_013"].Size = UDim2.new(0.899999976, 0, 0, 25)
+GUI["BooleanTemplate_013"].Visible = false
+GUI["BooleanTemplate_013"].Name = "BooleanTemplate"
+GUI["BooleanTemplate_013"].Parent = GUI["ScrollingFrame_011"]
+
+GUI["UIListLayout_014"].FillDirection = Enum.FillDirection.Horizontal
+GUI["UIListLayout_014"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_014"].Parent = GUI["BooleanTemplate_013"]
+
+GUI["SettingNameAndDescription_015"].Font = Enum.Font.Gotham
+GUI["SettingNameAndDescription_015"].RichText = true
+GUI["SettingNameAndDescription_015"].Text = '<b><font size="16">Setting</font></b>\n<font transparency="0.3">how</font>'
+GUI["SettingNameAndDescription_015"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["SettingNameAndDescription_015"].TextSize = 9
+GUI["SettingNameAndDescription_015"].TextWrapped = true
+GUI["SettingNameAndDescription_015"].TextXAlignment = Enum.TextXAlignment.Left
+GUI["SettingNameAndDescription_015"].TextYAlignment = Enum.TextYAlignment.Top
+GUI["SettingNameAndDescription_015"].AutomaticSize = Enum.AutomaticSize.Y
+GUI["SettingNameAndDescription_015"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["SettingNameAndDescription_015"].BackgroundTransparency = 1
+GUI["SettingNameAndDescription_015"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["SettingNameAndDescription_015"].BorderSizePixel = 0
+GUI["SettingNameAndDescription_015"].Size = UDim2.new(0.600000024, 0, 0, 25)
+GUI["SettingNameAndDescription_015"].Name = "SettingNameAndDescription"
+GUI["SettingNameAndDescription_015"].Parent = GUI["BooleanTemplate_013"]
+
+GUI["BooleanMargin_016"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["BooleanMargin_016"].BackgroundTransparency = 1
+GUI["BooleanMargin_016"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["BooleanMargin_016"].BorderSizePixel = 0
+GUI["BooleanMargin_016"].Position = UDim2.new(0.600000024, 0, 0, 0)
+GUI["BooleanMargin_016"].Size = UDim2.new(0, 75, 0, 25)
+GUI["BooleanMargin_016"].Name = "BooleanMargin"
+GUI["BooleanMargin_016"].Parent = GUI["BooleanTemplate_013"]
+
+GUI["Boolean_017"].Font = Enum.Font.SourceSans
+GUI["Boolean_017"].Text = ""
+GUI["Boolean_017"].TextColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Boolean_017"].TextSize = 14
+GUI["Boolean_017"].AutoButtonColor = false
+GUI["Boolean_017"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Boolean_017"].BackgroundTransparency = 0.800000011920929
+GUI["Boolean_017"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Boolean_017"].BorderSizePixel = 0
+GUI["Boolean_017"].Size = UDim2.new(0.600000024, 0, 0.699999988, 0)
+GUI["Boolean_017"].Name = "Boolean"
+GUI["Boolean_017"].Parent = GUI["BooleanMargin_016"]
+
+GUI["UICorner_018"].CornerRadius = UDim.new(1, 0)
+GUI["UICorner_018"].Parent = GUI["Boolean_017"]
+
+GUI["Margin_019"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Margin_019"].BackgroundTransparency = 1
+GUI["Margin_019"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Margin_019"].BorderSizePixel = 0
+GUI["Margin_019"].Size = UDim2.new(0.899999976, 0, 0.899999976, 0)
+GUI["Margin_019"].Name = "Margin"
+GUI["Margin_019"].Parent = GUI["Boolean_017"]
+
+GUI["Circle_020"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Circle_020"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Circle_020"].BorderSizePixel = 0
+GUI["Circle_020"].Size = UDim2.new(0, 15, 0, 15)
+GUI["Circle_020"].Name = "Circle"
+GUI["Circle_020"].Parent = GUI["Margin_019"]
+
+GUI["UICorner_021"].CornerRadius = UDim.new(1, 0)
+GUI["UICorner_021"].Parent = GUI["Circle_020"]
+
+GUI["UIListLayout_022"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_022"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_022"].VerticalAlignment = Enum.VerticalAlignment.Bottom
+GUI["UIListLayout_022"].Parent = GUI["Boolean_017"]
+
+GUI["UIStroke_023"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+GUI["UIStroke_023"].Color = Color3.fromRGB(255, 255, 255)
+GUI["UIStroke_023"].Parent = GUI["Boolean_017"]
+GUI["UIStroke_023"].Transparency = 0.7
+
+GUI["UIListLayout_024"].HorizontalAlignment = Enum.HorizontalAlignment.Right
+GUI["UIListLayout_024"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_024"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_024"].Parent = GUI["BooleanMargin_016"]
+
+GUI["TextBoxTemplate_025"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["TextBoxTemplate_025"].BackgroundTransparency = 1
+GUI["TextBoxTemplate_025"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["TextBoxTemplate_025"].BorderSizePixel = 0
+GUI["TextBoxTemplate_025"].Size = UDim2.new(0.899999976, 0, 0, 25)
+GUI["TextBoxTemplate_025"].Visible = false
+GUI["TextBoxTemplate_025"].Name = "TextBoxTemplate"
+GUI["TextBoxTemplate_025"].Parent = GUI["ScrollingFrame_011"]
+
+GUI["UIListLayout_026"].FillDirection = Enum.FillDirection.Horizontal
+GUI["UIListLayout_026"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_026"].Parent = GUI["TextBoxTemplate_025"]
+
+GUI["SettingNameAndDescription_027"].Font = Enum.Font.Gotham
+GUI["SettingNameAndDescription_027"].RichText = true
+GUI["SettingNameAndDescription_027"].Text = '<b><font size="16">Setting</font></b>\n<font transparency="0.3">how</font>'
+GUI["SettingNameAndDescription_027"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["SettingNameAndDescription_027"].TextSize = 9
+GUI["SettingNameAndDescription_027"].TextWrapped = true
+GUI["SettingNameAndDescription_027"].TextXAlignment = Enum.TextXAlignment.Left
+GUI["SettingNameAndDescription_027"].TextYAlignment = Enum.TextYAlignment.Top
+GUI["SettingNameAndDescription_027"].AutomaticSize = Enum.AutomaticSize.Y
+GUI["SettingNameAndDescription_027"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["SettingNameAndDescription_027"].BackgroundTransparency = 1
+GUI["SettingNameAndDescription_027"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["SettingNameAndDescription_027"].BorderSizePixel = 0
+GUI["SettingNameAndDescription_027"].Size = UDim2.new(0.600000024, 0, 0, 25)
+GUI["SettingNameAndDescription_027"].Name = "SettingNameAndDescription"
+GUI["SettingNameAndDescription_027"].Parent = GUI["TextBoxTemplate_025"]
+
+GUI["TextBoxMargin_028"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["TextBoxMargin_028"].BackgroundTransparency = 1
+GUI["TextBoxMargin_028"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["TextBoxMargin_028"].BorderSizePixel = 0
+GUI["TextBoxMargin_028"].Position = UDim2.new(0.600000024, 0, 0, 0)
+GUI["TextBoxMargin_028"].Size = UDim2.new(0, 75, 0, 25)
+GUI["TextBoxMargin_028"].Name = "TextBoxMargin"
+GUI["TextBoxMargin_028"].Parent = GUI["TextBoxTemplate_025"]
+
+GUI["UIListLayout_029"].HorizontalAlignment = Enum.HorizontalAlignment.Right
+GUI["UIListLayout_029"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_029"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_029"].Parent = GUI["TextBoxMargin_028"]
+
+GUI["TextBoxParent_030"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["TextBoxParent_030"].BackgroundTransparency = 1
+GUI["TextBoxParent_030"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["TextBoxParent_030"].BorderSizePixel = 0
+GUI["TextBoxParent_030"].Size = UDim2.new(0.800000012, 0, 0.699999988, 0)
+GUI["TextBoxParent_030"].Name = "TextBoxParent"
+GUI["TextBoxParent_030"].Parent = GUI["TextBoxMargin_028"]
+
+GUI["UICorner_031"].CornerRadius = UDim.new(1, 0)
+GUI["UICorner_031"].Parent = GUI["TextBoxParent_030"]
+
+GUI["UIStroke_032"].Color = Color3.fromRGB(255, 255, 255)
+GUI["UIStroke_032"].Parent = GUI["TextBoxParent_030"]
+GUI["UIStroke_032"].Transparency = 0.7
+
+GUI["TextBox_033"].ClearTextOnFocus = false
+GUI["TextBox_033"].Font = Enum.Font.MontserratMedium
+GUI["TextBox_033"].PlaceholderText = "Hello"
+GUI["TextBox_033"].Text = ""
+GUI["TextBox_033"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["TextBox_033"].TextSize = 10
+GUI["TextBox_033"].TextWrapped = true
+GUI["TextBox_033"].TextXAlignment = Enum.TextXAlignment.Left
+GUI["TextBox_033"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["TextBox_033"].BackgroundTransparency = 1
+GUI["TextBox_033"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["TextBox_033"].BorderSizePixel = 0
+GUI["TextBox_033"].Size = UDim2.new(0.800000012, 0, 0.899999976, 0)
+GUI["TextBox_033"].Parent = GUI["TextBoxParent_030"]
+
+GUI["UIListLayout_034"].HorizontalAlignment = Enum.HorizontalAlignment.Center
+GUI["UIListLayout_034"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_034"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_034"].Parent = GUI["TextBoxParent_030"]
+
+GUI["ButtonTemplate_035"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["ButtonTemplate_035"].BackgroundTransparency = 1
+GUI["ButtonTemplate_035"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["ButtonTemplate_035"].BorderSizePixel = 0
+GUI["ButtonTemplate_035"].Size = UDim2.new(0.899999976, 0, 0, 25)
+GUI["ButtonTemplate_035"].Visible = false
+GUI["ButtonTemplate_035"].Name = "ButtonTemplate"
+GUI["ButtonTemplate_035"].Parent = GUI["ScrollingFrame_011"]
+
+GUI["UIListLayout_036"].FillDirection = Enum.FillDirection.Horizontal
+GUI["UIListLayout_036"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_036"].Parent = GUI["ButtonTemplate_035"]
+
+GUI["SettingNameAndDescription_037"].Font = Enum.Font.Gotham
+GUI["SettingNameAndDescription_037"].RichText = true
+GUI["SettingNameAndDescription_037"].Text = '<b><font size="16">Setting</font></b>\n<font transparency="0.3">how</font>'
+GUI["SettingNameAndDescription_037"].TextColor3 = Color3.fromRGB(255, 255, 255)
+GUI["SettingNameAndDescription_037"].TextSize = 9
+GUI["SettingNameAndDescription_037"].TextWrapped = true
+GUI["SettingNameAndDescription_037"].TextXAlignment = Enum.TextXAlignment.Left
+GUI["SettingNameAndDescription_037"].TextYAlignment = Enum.TextYAlignment.Top
+GUI["SettingNameAndDescription_037"].AutomaticSize = Enum.AutomaticSize.Y
+GUI["SettingNameAndDescription_037"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["SettingNameAndDescription_037"].BackgroundTransparency = 1
+GUI["SettingNameAndDescription_037"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["SettingNameAndDescription_037"].BorderSizePixel = 0
+GUI["SettingNameAndDescription_037"].Size = UDim2.new(0.600000024, 0, 0, 25)
+GUI["SettingNameAndDescription_037"].Name = "SettingNameAndDescription"
+GUI["SettingNameAndDescription_037"].Parent = GUI["ButtonTemplate_035"]
+
+GUI["ButtonMargin_038"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["ButtonMargin_038"].BackgroundTransparency = 1
+GUI["ButtonMargin_038"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["ButtonMargin_038"].BorderSizePixel = 0
+GUI["ButtonMargin_038"].Position = UDim2.new(0.600000024, 0, 0, 0)
+GUI["ButtonMargin_038"].Size = UDim2.new(0, 75, 0, 25)
+GUI["ButtonMargin_038"].Name = "ButtonMargin"
+GUI["ButtonMargin_038"].Parent = GUI["ButtonTemplate_035"]
+
+GUI["UIListLayout_039"].HorizontalAlignment = Enum.HorizontalAlignment.Right
+GUI["UIListLayout_039"].SortOrder = Enum.SortOrder.LayoutOrder
+GUI["UIListLayout_039"].VerticalAlignment = Enum.VerticalAlignment.Center
+GUI["UIListLayout_039"].Parent = GUI["ButtonMargin_038"]
+
+GUI["Button_040"].Image = "http://www.roblox.com/asset/?id=17727326510"
+GUI["Button_040"].ScaleType = Enum.ScaleType.Fit
+GUI["Button_040"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GUI["Button_040"].BackgroundTransparency = 1
+GUI["Button_040"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+GUI["Button_040"].BorderSizePixel = 0
+GUI["Button_040"].Size = UDim2.new(0.600000024, 0, 0.699999988, 0)
+GUI["Button_040"].Name = "Button"
+GUI["Button_040"].Parent = GUI["ButtonMargin_038"]
+
+GUI["UICorner_041"].CornerRadius = UDim.new(1, 0)
+GUI["UICorner_041"].Parent = GUI["Button_040"]
+
+GUI["UIStroke_042"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+GUI["UIStroke_042"].Color = Color3.fromRGB(255, 255, 255)
+GUI["UIStroke_042"].Parent = GUI["Button_040"]
+GUI["UIStroke_042"].Transparency = 0.7
+
+
+local TweenService = game:GetService("TweenService")
+
+_G.CreateSettingBoolean = function(Table)
+	local SettingName = Table.SettingName
+	local SettingDescription = Table.SettingDescription
+	local IsEnabled = Table.IsEnabled
+	local EnableFunction = Table.EnableFunction
+	local DisableFunction = Table.DisableFunction
+
+	local Template = GUI["BooleanTemplate_013"]:Clone()
+
+	local function UpdateColor()
+		if IsEnabled == false then
+			TweenService:Create(Template.BooleanMargin.Boolean, TweenInfo.new(0.4, Enum.EasingStyle.Circular, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(51, 95, 255)}):Play()
+			TweenService:Create(Template.BooleanMargin.Boolean.Margin.Circle, TweenInfo.new(0.6, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Position = UDim2.new(0.617617011, 0, 0, 0)}):Play()
+		else
+			TweenService:Create(Template.BooleanMargin.Boolean, TweenInfo.new(0.4, Enum.EasingStyle.Circular, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(255, 255, 255)}):Play()
+			TweenService:Create(Template.BooleanMargin.Boolean.Margin.Circle, TweenInfo.new(0.6, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Position = UDim2.new(0, 0, 0, 0)}):Play()
+		end
+	end
+
+	Template.Name = SettingName
+	Template.Parent = script.Parent
+	Template.Visible = true
+	Template.SettingNameAndDescription.Text = '<b><font size="14">'..SettingName..'</font></b>\n<font transparency="0.3">'..SettingDescription..'</font>'
+	Template.BooleanMargin.Boolean.MouseButton1Down:Connect(function()
+		if IsEnabled == false then
+			IsEnabled = true
+			UpdateColor()
+			EnableFunction()
+		else
+			IsEnabled = false
+			UpdateColor()
+			DisableFunction()
+		end
+	end)
+
+	UpdateColor()
+end
+
+_G.CreateSettingTextBox = function(Table)
+	local SettingName = Table.SettingName
+	local SettingDescription = Table.SettingDescription
+	local TextBoxText = Table.TextBoxText
+	local TextBoxPlaceholderText = Table.TextBoxPlaceholderText
+	local Function = Table.Function
+
+	local Template = GUI["TextBoxParent_030"]:Clone()
+
+	Template.Name = SettingName
+	Template.Parent = script.Parent
+	Template.Visible = true
+	Template.SettingNameAndDescription.Text = '<b><font size="14">'..SettingName..'</font></b>\n<font transparency="0.3">'..SettingDescription..'</font>'
+	Template.TextBoxMargin.TextBoxParent.TextBox.Text = TextBoxText
+	Template.TextBoxMargin.TextBoxParent.TextBox.PlaceholderText = TextBoxPlaceholderText
+	Template.TextBoxMargin.TextBoxParent.TextBox.FocusLost:Connect(function(enterPressed)
+		local TextEntered = Template.TextBoxMargin.TextBoxParent.TextBox.ContentText
+		Function(TextEntered)
+	end)
+end
+
+_G.CreateSettingButton = function(Table)
+	local SettingName = Table.SettingName
+	local SettingDescription = Table.SettingDescription
+	local Function = Table.Function
+
+	local Template = GUI["ButtonTemplate_035"]:Clone()
+
+	Template.Name = SettingName
+	Template.Parent = script.Parent
+	Template.Visible = true
+	Template.SettingNameAndDescription.Text = '<b><font size="14">'..SettingName..'</font></b>\n<font transparency="0.3">'..SettingDescription..'</font>'
+	Template.ButtonMargin.Button.MouseButton1Down:Connect(function()
+		Function()
+	end)
+end
+
+_G.CreateSettingBoolean({
+	SettingName = "Boolean",
+	SettingDescription = "This is a description",
+	IsEnabled = true,
+	EnableFunction = function()
+
+	end,
+	DisableFunction = function()
+
+	end,
+})
+
+_G.CreateSettingTextBox({
+	SettingName = "TextBox",
+	SettingDescription = "This is a description",
+	TextBoxText = "",
+	TextBoxPlaceholderText = "Text",
+	Function = function(TextEntered)
+		print(TextEntered)
+	end,
+})
+
+_G.CreateSettingButton({
+	SettingName = "Button",
+	SettingDescription = "This is a description",
+	Function = function()
+		print("hi")
+	end,
+})
